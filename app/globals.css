@@ -1,26 +1,185 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* Container utility classes */
+html {
+  scroll-behavior: smooth;
+}
+.animated-border {
+  position: relative;
+  display: inline-block;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+.animated-border::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  width: 100%;
+  border-radius: 1px;
+  background-color: currentColor;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.3s ease-out;
 }
 
-@media (prefers-color-scheme: dark) {
+.animated-border:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* Link styling with hover effects */
+.link-center::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: -2px;
+  transform: translateX(-50%) scaleX(0.4);
+  transform-origin: center;
+  width: 100%;
+  height: 1.5px;
+  background-color: #3139fb;
+  border-radius: 2px;
+  transition: transform 0.3s ease-in-out;
+  display: block;
+}
+
+.link-center:hover::before {
+  transform: translateX(-50%) scaleX(1);
+}
+.link,
+.link-primary,
+.link-center {
+  position: relative;
+  text-decoration: none;
+}
+
+.link::before,
+.link-primary::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  display: block;
+  height: 1.5px;
+  border-radius: 2px;
+  bottom: -2px;
+  left: 0;
+  transform-origin: left;
+  transform: scaleX(0.4);
+  transition: transform 0.3s ease-in-out;
+}
+
+.link::before {
+  background-color: #ccf380;
+}
+
+.link:hover::before {
+  transform: scaleX(1);
+  background: linear-gradient(to right, #ccf380, #ccf380);
+}
+
+.link-primary::before {
+  background-color: #3139fb;
+}
+
+.link-primary:hover::before {
+  transform: scaleX(1);
+  background: linear-gradient(to right, #3139fb, #3139fb);
+}
+
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    /* Light Mode */
+    --white: #ffffff;
+    --black: #000000;
+    --background: 0 0% 100%; /* White */
+    --foreground: 239 84% 10%; /* User Black #04052E */
+    
+    --card: 0 0% 100%;
+    --card-foreground: 239 84% 10%;
+    
+    --popover: 0 0% 100%;
+    --popover-foreground: 239 84% 10%;
+    
+    --primary: 245 100% 32%; /* #0D00A4 */
+    --primary-foreground: 0 0% 98%;
+    
+    --secondary: 274 66% 13%; /* #240B36 */
+    --secondary-foreground: 0 0% 98%;
+    
+    --muted: 274 66% 96%; /* Lighter version of secondary */
+    --muted-foreground: 274 20% 40%;
+    
+    --accent: 50 100% 71%; /* #FFE66D */
+    --accent-foreground: 239 84% 10%;
+    
+    --destructive: 10 97% 59%; /* #FC5130 */
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 239 20% 90%;
+    --input: 239 20% 90%;
+    --ring: 245 100% 32%;
+    
+    --radius: 0.75rem;
+  }
+
+  .dark {
+    /* Dark Mode */
+    --background: 239 84% 10%; /* User Black #04052E */
+    --foreground: 0 0% 98%;
+    
+    --card: 239 84% 12%; /* Slightly lighter than bg */
+    --card-foreground: 0 0% 98%;
+    
+    --popover: 239 84% 10%;
+    --popover-foreground: 0 0% 98%;
+    
+    --primary: 245 100% 32%; /* #0D00A4 */
+    --primary-foreground: 0 0% 98%;
+    
+    --secondary: 274 66% 13%; /* #240B36 */
+    --secondary-foreground: 0 0% 98%;
+    
+    --muted: 239 50% 15%;
+    --muted-foreground: 240 5% 64.9%;
+    
+    --accent: 50 100% 71%; /* #FFE66D */
+    --accent-foreground: 239 84% 10%;
+    
+    --destructive: 10 97% 59%; /* #FC5130 */
+    --destructive-foreground: 0 0% 98%;
+    
+    --border: 239 50% 20%;
+    --input: 239 50% 20%;
+    --ring: 50 100% 71%;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer utilities {
+  .glass {
+    background-color: hsl(var(--background) / 0.6);
+    backdrop-filter: blur(12px);
+    border: 1px solid hsl(var(--border) / 0.5);
+  }
+  
+  .text-gradient {
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    background-image: linear-gradient(to right, hsl(var(--primary)), hsl(var(--primary) / 0.6));
+  }
+
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+  
+  .preserve-3d {
+    transform-style: preserve-3d;
+  }
+  
+  .backface-hidden {
+    backface-visibility: hidden;
+  }
 }

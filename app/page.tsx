@@ -1,65 +1,144 @@
-import Image from "next/image";
+"use client";
+
+import { motion } from "framer-motion";
+import Link from "next/link";
+import { ArrowRight, Code, Layers, Zap, Globe } from "lucide-react";
+import { AuroraBackground } from "@/components/ui-library/aurora-background";
+import { Section } from "@/components/ui/section";
+import { Button } from "@nextui-org/react";
+import { FadeIn } from "@/components/ui/fade-in";
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <div className="flex flex-col w-full">
+      {/* Hero Section */}
+      <AuroraBackground className="h-[90vh]">
+        <motion.div
+          initial={{ opacity: 0.0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{
+            delay: 0.3,
+            duration: 0.8,
+            ease: "easeInOut",
+          }}
+          className="relative flex flex-col gap-4 items-center justify-center px-4"
+        >
+          <div className="text-3xl md:text-7xl font-bold dark:text-white text-center">
+            Turning Ideas into Reality.
+          </div>
+          <div className="font-light text-base md:text-4xl dark:text-neutral-200 py-4 text-center max-w-2xl">
+            Nothing is off-limits. We build the future.
+          </div>
+          <div className="flex gap-4">
+             <Link href="/contact">
+              <button className="bg-black dark:bg-white rounded-full w-fit text-white dark:text-black px-8 py-3 font-semibold transition-transform hover:scale-105 active:scale-95">
+                Let's Collaborate
+              </button>
+            </Link>
+             <Link href="/services">
+              <button className="bg-transparent border border-black dark:border-white rounded-full w-fit text-black dark:text-white px-8 py-3 font-semibold transition-transform hover:scale-105 active:scale-95 flex items-center gap-2">
+                Our Services <ArrowRight size={18} />
+              </button>
+            </Link>
+          </div>
+        </motion.div>
+      </AuroraBackground>
+
+      {/* About Brief */}
+      <Section className="bg-background">
+        <div className="container mx-auto px-4 md:px-6">
+          <FadeIn>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+              <div className="space-y-6">
+                <h2 className="text-3xl md:text-5xl font-bold tracking-tighter">
+                  Versatile. Minimalist. Flexible.
+                </h2>
+                <p className="text-muted-foreground text-lg leading-relaxed">
+                  At StackNothing, we believe in limitless possibilities. We are a versatile web development agency crafting custom digital solutions—whether it’s React, Next.js, Drupal, or beyond.
+                </p>
+                <p className="text-muted-foreground text-lg leading-relaxed">
+                  Our name reflects our philosophy: starting from "nothing" and building something significant. We aren't tied to a single stack, giving us the freedom to choose the best tool for your unique needs.
+                </p>
+                <Link href="/about" className="inline-flex items-center text-primary font-medium hover:underline underline-offset-4">
+                  Read Our Story <ArrowRight className="ml-2 w-4 h-4" />
+                </Link>
+              </div>
+              <div className="relative aspect-square md:aspect-video rounded-2xl overflow-hidden glass flex items-center justify-center bg-gradient-to-br from-secondary to-background border border-border">
+                <span className="text-9xl font-bold opacity-5 select-none text-primary">SN</span>
+              </div>
+            </div>
+          </FadeIn>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+      </Section>
+
+      {/* Services Preview */}
+      <Section className="bg-muted/30">
+        <div className="container mx-auto px-4 md:px-6 text-center">
+          <FadeIn>
+            <h2 className="text-3xl md:text-5xl font-bold mb-12">What We Do</h2>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+               {/* Service 1 */}
+               <div className="p-8 rounded-2xl bg-background border border-border/50 hover:shadow-lg transition-all hover:-translate-y-1 group text-left">
+                  <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors">
+                    <Globe className="w-6 h-6 text-primary" />
+                  </div>
+                  <h3 className="text-xl font-bold mb-3">Web Development</h3>
+                  <p className="text-muted-foreground">Dynamic websites and complex web apps using React, Next.js, and modern frameworks.</p>
+               </div>
+               {/* Service 2 */}
+               <div className="p-8 rounded-2xl bg-background border border-border/50 hover:shadow-lg transition-all hover:-translate-y-1 group text-left">
+                  <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors">
+                    <Zap className="w-6 h-6 text-primary" />
+                  </div>
+                  <h3 className="text-xl font-bold mb-3">Custom Software</h3>
+                  <p className="text-muted-foreground">Tailored software solutions designed to transform your business operations.</p>
+               </div>
+               {/* Service 3 */}
+               <div className="p-8 rounded-2xl bg-background border border-border/50 hover:shadow-lg transition-all hover:-translate-y-1 group text-left">
+                  <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors">
+                    <Layers className="w-6 h-6 text-primary" />
+                  </div>
+                  <h3 className="text-xl font-bold mb-3">CMS Development</h3>
+                  <p className="text-muted-foreground">Scalable content management systems with Drupal and WordPress expertise.</p>
+               </div>
+            </div>
+            <div className="mt-12">
+              <Link href="/services">
+                <Button size="lg" variant="ghost" className="font-semibold">
+                  View All Services
+                </Button>
+              </Link>
+            </div>
+          </FadeIn>
         </div>
-      </main>
+      </Section>
+
+      {/* CTA */}
+      <Section className="relative overflow-hidden">
+        <div className="absolute inset-0 bg-primary/5 -z-10" />
+        <div className="container mx-auto px-4 md:px-6 text-center space-y-8">
+          <FadeIn direction="up">
+            <h2 className="text-4xl md:text-6xl font-bold tracking-tight">
+              Ready to build something <span className="text-primary/60">extraordinary?</span>
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto mt-4">
+              From idea to reality, we are here to help you every step of the way. Let's start the conversation.
+            </p>
+            <div className="flex flex-col md:flex-row gap-4 justify-center mt-8">
+              <Link href="/contact">
+                <Button size="lg" className="rounded-full px-8 text-lg h-12">
+                  Get a Quote
+                </Button>
+              </Link>
+              <Link href="/contact">
+                 <Button size="lg" variant="bordered" className="rounded-full px-8 text-lg h-12">
+                  Contact Us
+                </Button>
+              </Link>
+            </div>
+          </FadeIn>
+        </div>
+      </Section>
     </div>
   );
 }
