@@ -6,6 +6,23 @@ import { motion } from 'motion/react';
 export default function Home() {
   return (
     <div className="space-y-16">
+      <motion.div
+        initial={{ opacity: 0, y: -10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.3 }}
+        className="border-2 border-[#00FF66] bg-[#00FF66]/10 px-4 py-3 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs font-mono"
+      >
+        <div className="flex items-center gap-2">
+          <span className="w-2.5 h-2.5 rounded-full bg-[#00FF66] animate-ping"></span>
+          <span className="font-black uppercase text-[var(--text-primary)]">
+            SYSTEM STATUS: PUBLIC BETA
+          </span>
+        </div>
+        <div className="text-zinc-600 dark:text-zinc-300 font-bold uppercase">
+          [ESTIMATED STABLE LAUNCH:{' '}
+          <span className="text-[#00FF66]">NOV 4, 2026</span>]
+        </div>
+      </motion.div>
       {/* Hero Box with Micro-Animation Entry */}
       <motion.section
         initial={{ opacity: 0, y: 20 }}
