@@ -1,10 +1,11 @@
 'use client';
 
+import { Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import { motion } from 'motion/react';
 
-export default function ApplyPage() {
+function ApplyForm() {
   const searchParams = useSearchParams();
   const roleParam = searchParams.get('role') || 'General Studio Application';
 
@@ -116,5 +117,13 @@ export default function ApplyPage() {
         </motion.button>
       </form>
     </motion.div>
+  );
+}
+
+export default function ApplyPage() {
+  return (
+    <Suspense fallback={null}>
+      <ApplyForm />
+    </Suspense>
   );
 }
