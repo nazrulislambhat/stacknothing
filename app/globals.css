@@ -1,45 +1,80 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
-@layer base {
-  body {
-    background-color: #000000;
-    color: #FFFFFF;
-    font-family: var(--font-mono), monospace;
-  }
+:root {
+  --bg-primary: #ffffff;
+  --text-primary: #000000;
+  --box-bg: #fafafa;
 }
 
-/* Brutalist Custom Grid Layout Utilities */
+.dark {
+  --bg-primary: #000000;
+  --text-primary: #ffffff;
+  --box-bg: #050505;
+}
+
+@theme inline {
+  --color-studio-bg: var(--bg-primary);
+  --color-studio-text: var(--text-primary);
+  --color-studio-box: var(--box-bg);
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: var(--font-mono), monospace;
+}
+
 .brutal-grid {
-  background-image: 
-    linear-gradient(to right, rgba(255, 255, 255, 0.1) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+  background-image:
+    linear-gradient(to right, rgba(128, 128, 128, 0.15) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(128, 128, 128, 0.15) 1px, transparent 1px);
   background-size: 40px 40px;
 }
 
 .brutal-box {
-  border: 2px solid #FFFFFF;
-  background-color: #050505;
-  box-shadow: 4px 4px 0px #FFFFFF;
-  transition: transform 0.1s ease, box-shadow 0.1s ease;
+  border: 2px solid var(--text-primary);
+  background-color: var(--box-bg);
+  box-shadow: 4px 4px 0px var(--text-primary);
+  transition:
+    transform 0.15s cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 0.15s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .brutal-box:hover {
-  transform: translate(-2px, -2px);
-  box-shadow: 6px 6px 0px #FFFFFF;
+  transform: translate(-3px, -3px);
+  box-shadow: 7px 7px 0px var(--text-primary);
 }
 
 .brutal-button {
-  border: 2px solid #FFFFFF;
-  background-color: #FFFFFF;
-  color: #000000;
+  border: 2px solid var(--text-primary);
+  background-color: var(--text-primary);
+  color: var(--bg-primary);
   font-weight: bold;
-  box-shadow: 4px 4px 0px rgba(255, 255, 255, 0.4);
-  transition: all 0.1s ease;
+  box-shadow: 4px 4px 0px var(--text-primary);
+  transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .brutal-button:hover {
-  background-color: #000000;
-  color: #FFFFFF;
-  box-shadow: 4px 4px 0px #FFFFFF;
   transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0px var(--text-primary);
+}
+
+/* Micro-animation ticker */
+@keyframes ticker {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-ticker {
+  display: flex;
+  width: max-content;
+  animation: ticker 25s linear infinite;
+}
+
+.animate-ticker:hover {
+  animation-play-state: paused;
 }

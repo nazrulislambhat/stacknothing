@@ -1,8 +1,16 @@
+'use client';
+
 import Link from 'next/link';
+import { motion } from 'motion/react';
 
 export default function CareersPage() {
   return (
-    <div className="max-w-4xl mx-auto space-y-12">
+    <motion.div
+      initial={{ opacity: 0, y: 10 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.4 }}
+      className="max-w-4xl mx-auto space-y-12"
+    >
       <div>
         <div className="border-l-4 border-yellow-400 pl-4 text-sm font-bold uppercase tracking-wider mb-2">
           STUDIO COLLECTIVE
@@ -24,7 +32,10 @@ export default function CareersPage() {
         </div>
 
         {/* Role 1 */}
-        <div className="brutal-box p-8 space-y-4 border-2 border-[#00FF66]">
+        <motion.div
+          whileHover={{ scale: 1.01 }}
+          className="brutal-box p-8 space-y-4 border-2 border-[#00FF66]"
+        >
           <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-2">
             <h3 className="text-2xl font-black uppercase">
               Senior Frontend Architect
@@ -46,10 +57,13 @@ export default function CareersPage() {
               Apply for Role ➔
             </Link>
           </div>
-        </div>
+        </motion.div>
 
         {/* Role 2 */}
-        <div className="brutal-box p-8 space-y-4 border-2 border-[#00E5FF]">
+        <motion.div
+          whileHover={{ scale: 1.01 }}
+          className="brutal-box p-8 space-y-4 border-2 border-[#00E5FF]"
+        >
           <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-2">
             <h3 className="text-2xl font-black uppercase">
               Full Stack / Next.js Engineer
@@ -66,12 +80,12 @@ export default function CareersPage() {
           <div className="flex flex-wrap gap-4 pt-2">
             <Link
               href="/careers/apply?role=fullstack-engineer"
-              className="brutal-button px-5 py-2 text-xs uppercase bg-[#00FF66] text-black font-bold"
+              className="brutal-button px-5 py-2 text-xs uppercase bg-[#00E5FF] text-black font-bold"
             >
               Apply for Role ➔
             </Link>
           </div>
-        </div>
+        </motion.div>
       </div>
 
       {/* Culture Values */}
@@ -80,7 +94,10 @@ export default function CareersPage() {
           HOW WE BUILD
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div className="brutal-box p-6 space-y-2">
+          <motion.div
+            whileHover={{ scale: 1.02 }}
+            className="brutal-box p-6 space-y-2"
+          >
             <h4 className="font-black uppercase text-sm">
               01 / Autonomy First
             </h4>
@@ -88,15 +105,21 @@ export default function CareersPage() {
               Complete control over your working hours, provided milestones are
               met and documentation is clean.
             </p>
-          </div>
-          <div className="brutal-box p-6 space-y-2">
+          </motion.div>
+          <motion.div
+            whileHover={{ scale: 1.02 }}
+            className="brutal-box p-6 space-y-2"
+          >
             <h4 className="font-black uppercase text-sm">02 / Modern Stack</h4>
             <p className="text-zinc-600 dark:text-zinc-400 text-xs leading-relaxed">
               No legacy enterprise bloat. We push bleeding-edge Next.js,
               TypeScript, and high-performance primitives.
             </p>
-          </div>
-          <div className="brutal-box p-6 space-y-2">
+          </motion.div>
+          <motion.div
+            whileHover={{ scale: 1.02 }}
+            className="brutal-box p-6 space-y-2"
+          >
             <h4 className="font-black uppercase text-sm">
               03 / Product Ownership
             </h4>
@@ -104,9 +127,9 @@ export default function CareersPage() {
               Engineers here architect software utilities and share directly in
               product scaling outcomes.
             </p>
-          </div>
+          </motion.div>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }
