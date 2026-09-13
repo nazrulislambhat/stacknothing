@@ -174,28 +174,28 @@ export default function RootLayout({
                   <Link
                     onClick={() => setMobileMenuOpen(false)}
                     href="/services/web-dev"
-                    className="block pl-4 py-1"
+                    className="block  py-1"
                   >
                     🔧 Custom Web & App Dev
                   </Link>
                   <Link
                     onClick={() => setMobileMenuOpen(false)}
                     href="/services/ecommerce"
-                    className="block pl-4 py-1"
+                    className="block  py-1"
                   >
                     🛒 E-commerce Platforms
                   </Link>
                   <Link
                     onClick={() => setMobileMenuOpen(false)}
                     href="/services/mobile"
-                    className="block pl-4 py-1"
+                    className="block  py-1"
                   >
                     📱 Cross-Platform Apps
                   </Link>
                   <Link
                     onClick={() => setMobileMenuOpen(false)}
                     href="/services/ui-ux"
-                    className="block pl-4 py-1"
+                    className="block  py-1"
                   >
                     🎨 UI/UX & Figma-to-Code
                   </Link>
