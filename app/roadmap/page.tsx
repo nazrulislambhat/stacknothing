@@ -1,8 +1,16 @@
+'use client';
+
 import Link from 'next/link';
+import { motion } from 'motion/react';
 
 export default function RoadmapPage() {
   return (
-    <div className="space-y-12 max-w-4xl mx-auto">
+    <motion.div
+      initial={{ opacity: 0, y: 10 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.4 }}
+      className="space-y-12 max-w-4xl mx-auto"
+    >
       <div>
         <div className="border-l-4 border-yellow-400 pl-4 text-sm font-bold uppercase tracking-wider mb-2">
           STRATEGIC HORIZON // 2026–2027
@@ -14,7 +22,10 @@ export default function RoadmapPage() {
 
       <div className="space-y-8">
         {/* Milestone 1 */}
-        <div className="brutal-box p-8 relative border-2 border-[#00FF66]">
+        <motion.div
+          whileHover={{ scale: 1.01 }}
+          className="brutal-box p-8 relative border-2 border-[#00FF66]"
+        >
           <div className="absolute top-4 right-4 text-[10px] bg-[#00FF66] text-black font-bold px-2.5 py-1 uppercase">
             IN PROGRESS (Q3 2026)
           </div>
@@ -31,10 +42,13 @@ export default function RoadmapPage() {
             <li>✓ Accessible keyboard-navigable primitives</li>
             <li>⏳ Public registry documentation portal</li>
           </ul>
-        </div>
+        </motion.div>
 
         {/* Milestone 2 */}
-        <div className="brutal-box p-8 relative border-2 border-[#00E5FF]">
+        <motion.div
+          whileHover={{ scale: 1.01 }}
+          className="brutal-box p-8 relative border-2 border-[#00E5FF]"
+        >
           <div className="absolute top-4 right-4 text-[10px] bg-[#00E5FF] text-black font-bold px-2.5 py-1 uppercase">
             PLANNED (Q4 2026)
           </div>
@@ -54,10 +68,13 @@ export default function RoadmapPage() {
             <li>⏳ MDX-powered documentation pipelines</li>
             <li>⏳ Architecture breakdown writeups</li>
           </ul>
-        </div>
+        </motion.div>
 
         {/* Milestone 3 */}
-        <div className="brutal-box p-8 relative border-2 border-[#FF007F]">
+        <motion.div
+          whileHover={{ scale: 1.01 }}
+          className="brutal-box p-8 relative border-2 border-[#FF007F]"
+        >
           <div className="absolute top-4 right-4 text-[10px] bg-[#FF007F] text-white font-bold px-2.5 py-1 uppercase">
             FUTURE SCOPE (2027)
           </div>
@@ -69,7 +86,7 @@ export default function RoadmapPage() {
             Expanding our ecosystem of micro-SaaS applications and workflow
             agents driven by automated serverless execution layers.
           </p>
-        </div>
+        </motion.div>
       </div>
 
       <div className="flex gap-4 pt-4">
@@ -80,6 +97,6 @@ export default function RoadmapPage() {
           Propose Partnership ➔
         </Link>
       </div>
-    </div>
+    </motion.div>
   );
 }

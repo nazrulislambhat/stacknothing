@@ -2,6 +2,7 @@
 
 import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
+import { motion } from 'motion/react';
 
 export default function ApplyPage() {
   const searchParams = useSearchParams();
@@ -15,7 +16,12 @@ export default function ApplyPage() {
         : 'General Studio Application';
 
   return (
-    <div className="max-w-3xl mx-auto space-y-8">
+    <motion.div
+      initial={{ opacity: 0, y: 10 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.4 }}
+      className="max-w-3xl mx-auto space-y-8"
+    >
       <div>
         <Link
           href="/careers"
@@ -100,13 +106,15 @@ export default function ApplyPage() {
           ></textarea>
         </div>
 
-        <button
+        <motion.button
+          whileHover={{ scale: 1.01 }}
+          whileTap={{ scale: 0.99 }}
           type="submit"
           className="brutal-button w-full py-4 text-xs uppercase tracking-wider bg-[#00FF66] text-black font-bold"
         >
           TRANSMIT APPLICATION ➔
-        </button>
+        </motion.button>
       </form>
-    </div>
+    </motion.div>
   );
 }

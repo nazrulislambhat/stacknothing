@@ -2,13 +2,20 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import { motion } from 'motion/react';
 
 export default function PricingPage() {
   const [region, setRegion] = useState<'US' | 'IN'>('US');
 
   return (
     <div className="space-y-12">
-      <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+      {/* Header with Text Reveal Animation */}
+      <motion.div
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.4 }}
+        className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4"
+      >
         <div>
           <div className="border-l-4 border-[#00E5FF] pl-4 text-sm font-bold uppercase tracking-wider mb-2">
             REGIONAL ENGAGEMENTS
@@ -22,7 +29,7 @@ export default function PricingPage() {
         <div className="flex items-center gap-2 border-2 border-[var(--text-primary)] p-1">
           <button
             onClick={() => setRegion('US')}
-            className={`px-3 py-1 text-xs font-bold uppercase transition-colors ${
+            className={`px-3 py-1 text-xs font-bold uppercase cursor-pointer transition-colors ${
               region === 'US'
                 ? 'bg-[var(--text-primary)] text-[var(--bg-primary)]'
                 : 'text-zinc-500'
@@ -32,7 +39,7 @@ export default function PricingPage() {
           </button>
           <button
             onClick={() => setRegion('IN')}
-            className={`px-3 py-1 cursor-pointer text-xs font-bold uppercase transition-colors ${
+            className={`px-3 py-1 text-xs font-bold uppercase cursor-pointer transition-colors ${
               region === 'IN'
                 ? 'bg-[var(--text-primary)] text-[var(--bg-primary)]'
                 : 'text-zinc-500'
@@ -41,13 +48,20 @@ export default function PricingPage() {
             INDIA (₹) [REGIONAL]
           </button>
         </div>
-      </div>
+      </motion.div>
 
+      {/* Pricing Cards Grid with Staggered Entrance */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
         {/* Tier 1: Sprint Audit */}
-        <div className="brutal-box p-8 flex flex-col justify-between">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.4, delay: 0.1 }}
+          whileHover={{ scale: 1.01 }}
+          className="brutal-box p-8 flex flex-col justify-between"
+        >
           <div>
-            <div className="text-xs bg-zinc-200 dark:bg-zinc-800 text-[var(--text-primary)] border border-[var(--text-primary)] px-2.5 py-1 inline-block mb-4">
+            <div className="text-xs bg-zinc-200 dark:bg-zinc-800 text-zinc-800 border-zinc-800 px-2.5 py-1 inline-block mb-4">
               SPRINT AUDIT
             </div>
             <div className="text-4xl font-black mb-4">
@@ -74,10 +88,16 @@ export default function PricingPage() {
           >
             Book Audit ➔
           </Link>
-        </div>
+        </motion.div>
 
         {/* Tier 2: MVP Product Build (Featured) */}
-        <div className="brutal-box p-8 flex flex-col justify-between border-2 border-[#FF007F] shadow-[6px_6px_0px_#FF007F]">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.4, delay: 0.2 }}
+          whileHover={{ scale: 1.01 }}
+          className="brutal-box p-8 flex flex-col justify-between border-2 border-[#FF007F] shadow-[6px_6px_0px_#FF007F]"
+        >
           <div>
             <div className="text-xs bg-[#FF007F] text-white font-bold px-2.5 py-1 inline-block mb-4">
               MOST POPULAR
@@ -106,12 +126,18 @@ export default function PricingPage() {
           >
             Build Product ➔
           </Link>
-        </div>
+        </motion.div>
 
         {/* Tier 3: Retainer */}
-        <div className="brutal-box p-8 flex flex-col justify-between">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.4, delay: 0.3 }}
+          whileHover={{ scale: 1.01 }}
+          className="brutal-box p-8 flex flex-col justify-between"
+        >
           <div>
-            <div className="text-xs bg-zinc-200 dark:bg-zinc-800 text-[var(--text-primary)] border border-[var(--text-primary)] px-2.5 py-1 inline-block mb-4">
+            <div className="text-xs bg-zinc-200 dark:bg-zinc-800 text-zinc-800 border border--zinc-800 px-2.5 py-1 inline-block mb-4">
               RETAINER
             </div>
             <div className="text-4xl font-black mb-4">
@@ -138,7 +164,7 @@ export default function PricingPage() {
           >
             Secure Retainer ➔
           </Link>
-        </div>
+        </motion.div>
       </div>
     </div>
   );

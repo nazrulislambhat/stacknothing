@@ -1,8 +1,16 @@
+'use client';
+
 import Link from 'next/link';
+import { motion } from 'motion/react';
 
 export default function ContactPage() {
   return (
-    <div className="max-w-3xl mx-auto space-y-8">
+    <motion.div
+      initial={{ opacity: 0, y: 10 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.4 }}
+      className="max-w-3xl mx-auto space-y-8"
+    >
       <div>
         <div className="border-l-4 border-[#00FF66] pl-4 text-sm font-bold uppercase tracking-wider mb-2">
           DIRECT LINE & INQUIRIES
@@ -20,7 +28,10 @@ export default function ContactPage() {
         </p>
       </div>
 
-      <div className="brutal-box p-6 bg-zinc-100 dark:bg-zinc-950 flex items-center justify-between">
+      <motion.div
+        whileHover={{ scale: 1.01 }}
+        className="brutal-box p-6 bg-zinc-100 dark:bg-zinc-950 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4"
+      >
         <div>
           <div className="text-[10px] text-zinc-500 uppercase font-bold">
             PRIMARY DIRECT EMAIL
@@ -35,7 +46,7 @@ export default function ContactPage() {
         >
           Send Email ↗
         </a>
-      </div>
+      </motion.div>
 
       <form className="brutal-box p-8 space-y-6">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -87,13 +98,15 @@ export default function ContactPage() {
           ></textarea>
         </div>
 
-        <button
+        <motion.button
+          whileHover={{ scale: 1.01 }}
+          whileTap={{ scale: 0.99 }}
           type="submit"
           className="brutal-button w-full py-4 text-xs uppercase tracking-wider bg-[#00FF66] text-black font-bold"
         >
           TRANSMIT MESSAGE ➔
-        </button>
+        </motion.button>
       </form>
-    </div>
+    </motion.div>
   );
 }
