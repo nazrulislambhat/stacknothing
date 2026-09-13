@@ -1,33 +1,14 @@
-[00:00:21.725] Server  ERROR   Error: ENOENT: no such file or directory, scandir '/Users/nazrul/code/stacknothing/app'
-[00:00:21.741] Server  ERROR    ⨯ "unhandledRejection:" Error: ENOENT: no such file or directory, scandir '/Users/nazrul/code/stacknothing/app'
-[00:00:21.745] Server  ERROR    ⨯ "unhandledRejection: " Error: ENOENT: no such file or directory, scandir '/Users/nazrul/code/stacknothing/app'
-[00:00:21.785] Server  ERROR   Error: ENOENT: no such file or directory, scandir '/Users/nazrul/code/stacknothing/app'
-[00:00:21.788] Server  ERROR   Error: ENOENT: no such file or directory, scandir '/Users/nazrul/code/stacknothing/app'
-[00:00:21.842] Server  ERROR   Error: ENOENT: no such file or directory, scandir '/Users/nazrul/code/stacknothing/app'
-[00:00:21.844] Server  ERROR   Error: ENOENT: no such file or directory, scandir '/Users/nazrul/code/stacknothing/app'
-[00:00:21.856] Server  ERROR   Error: ENOENT: no such file or directory, scandir '/Users/nazrul/code/stacknothing/app'
-[00:00:21.859] Server  ERROR   Error: ENOENT: no such file or directory, scandir '/Users/nazrul/code/stacknothing/app'
-[00:00:21.872] Server  ERROR   Error: ENOENT: no such file or directory, scandir '/Users/nazrul/code/stacknothing/app'
-[00:00:21.874] Server  ERROR   Error: ENOENT: no such file or directory, scandir '/Users/nazrul/code/stacknothing/app'
-[00:00:21.887] Server  ERROR   Error: ENOENT: no such file or directory, scandir '/Users/nazrul/code/stacknothing/app'
-[00:00:21.894] Server  ERROR   Error: ENOENT: no such file or directory, scandir '/Users/nazrul/code/stacknothing/app'
-[00:00:21.908] Server  ERROR   Error: ENOENT: no such file or directory, scandir '/Users/nazrul/code/stacknothing/app'
-[00:00:21.909] Server  ERROR   Error: ENOENT: no such file or directory, scandir '/Users/nazrul/code/stacknothing/app'
-[00:00:21.922] Server  ERROR   Error: ENOENT: no such file or directory, scandir '/Users/nazrul/code/stacknothing/app'
-[00:00:21.926] Server  ERROR   Error: ENOENT: no such file or directory, scandir '/Users/nazrul/code/stacknothing/app'
-[00:00:21.934] Server  ERROR   Error: ENOENT: no such file or directory, scandir '/Users/nazrul/code/stacknothing/app'
-[00:00:21.937] Server  ERROR   Error: ENOENT: no such file or directory, scandir '/Users/nazrul/code/stacknothing/app'
-[00:00:21.944] Server  ERROR   Error: ENOENT: no such file or directory, scandir '/Users/nazrul/code/stacknothing/app'
-[00:00:21.944] Server  ERROR   Error: ENOENT: no such file or directory, scandir '/Users/nazrul/code/stacknothing/app'
-[00:00:21.951] Server  ERROR   Error: ENOENT: no such file or directory, scandir '/Users/nazrul/code/stacknothing/app'
-[00:00:21.952] Server  ERROR   Error: ENOENT: no such file or directory, scandir '/Users/nazrul/code/stacknothing/app'
-[00:00:21.963] Server  ERROR   Error: ENOENT: no such file or directory, scandir '/Users/nazrul/code/stacknothing/app'
-[00:00:21.965] Server  ERROR   Error: ENOENT: no such file or directory, scandir '/Users/nazrul/code/stacknothing/app'
-[00:00:21.971] Server  ERROR   Error: ENOENT: no such file or directory, scandir '/Users/nazrul/code/stacknothing/app'
-[00:00:21.972] Server  ERROR   Error: ENOENT: no such file or directory, scandir '/Users/nazrul/code/stacknothing/app'
-[00:00:21.977] Server  ERROR   Error: ENOENT: no such file or directory, scandir '/Users/nazrul/code/stacknothing/app'
-[00:00:21.978] Server  ERROR   Error: ENOENT: no such file or directory, scandir '/Users/nazrul/code/stacknothing/app'
-[00:00:22.004] Server  ERROR   Error: ENOENT: no such file or directory, scandir '/Users/nazrul/code/stacknothing/app'
-[00:00:22.005] Server  ERROR   Error: ENOENT: no such file or directory, scandir '/Users/nazrul/code/stacknothing/app'
-[00:00:22.012] Server  ERROR   Error: ENOENT: no such file or directory, scandir '/Users/nazrul/code/stacknothing/app'
-[00:00:22.016] Server  ERROR   Error: ENOENT: no such file or directory, scandir '/Users/nazrul/code/stacknothing/app'
+{"timestamp":"00:00:00.779","source":"Server","level":"LOG","message":""}
+{"timestamp":"00:01:56.215","source":"Server","level":"LOG","message":"✓ Compiled in 20ms"}
+{"timestamp":"00:02:10.195","source":"Server","level":"LOG","message":"✓ Compiled in 21ms"}
+{"timestamp":"00:03:50.472","source":"Server","level":"LOG","message":"✓ Compiled in 38ms"}
+{"timestamp":"00:03:56.561","source":"Server","level":"LOG","message":"✓ Compiled in 48ms"}
+{"timestamp":"00:04:10.729","source":"Server","level":"LOG","message":"✓ Compiled in 46ms"}
+{"timestamp":"00:04:24.790","source":"Server","level":"LOG","message":"✓ Compiled in 124ms"}
+{"timestamp":"00:04:36.532","source":"Server","level":"LOG","message":"✓ Compiled in 27ms"}
+{"timestamp":"00:04:43.796","source":"Server","level":"LOG","message":"✓ Compiled in 25ms"}
+{"timestamp":"00:06:21.311","source":"Server","level":"LOG","message":"✓ Compiled in 25ms"}
+{"timestamp":"00:07:42.118","source":"Server","level":"LOG","message":"✓ Compiled in 21ms"}
+{"timestamp":"00:07:56.810","source":"Server","level":"LOG","message":"✓ Compiled in 68ms"}
+{"timestamp":"00:12:49.360","source":"Server","level":"LOG","message":"✓ Compiled in 24ms"}
+{"timestamp":"00:14:48.366","source":"Server","level":"LOG","message":"✓ Compiled in 25ms"}
