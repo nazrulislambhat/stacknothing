@@ -32,7 +32,7 @@ export default function PortfolioPage() {
               </p>
             </div>
             <a
-              href="http://nayabconstructions.com/"
+              href="https://nayabconstructions.com/"
               target="_blank"
               rel="noreferrer"
               className="text-xs font-bold text-white underline underline-offset-4"
@@ -75,9 +75,14 @@ export default function PortfolioPage() {
                 Custom artisanal e-commerce web storefront.
               </p>
             </div>
-            <span className="text-xs font-bold text-zinc-300">
-              mehandibysana.com
-            </span>
+            <a
+              href="https://mehandibysana.com/"
+              target="_blank"
+              rel="noreferrer"
+              className="text-xs font-bold text-white underline underline-offset-4"
+            >
+              mehandibysana.com ↗
+            </a>
           </div>
 
           <div className="brutal-box p-6 flex flex-col justify-between">
@@ -92,9 +97,14 @@ export default function PortfolioPage() {
                 Senior frontend architect personal web portal.
               </p>
             </div>
-            <span className="text-xs font-bold text-zinc-300">
-              nazrulislam.dev
-            </span>
+            <a
+              href="https://nazrulislam.dev/"
+              target="_blank"
+              rel="noreferrer"
+              className="text-xs font-bold text-white underline underline-offset-4"
+            >
+              nazrulislam.dev ↗
+            </a>
           </div>
         </div>
       </section>
@@ -158,9 +168,14 @@ export default function PortfolioPage() {
                 resource hub.
               </p>
             </div>
-            <span className="text-xs font-bold text-zinc-300">
-              fossnoobs.com
-            </span>
+            <a
+              href="https://fossnoobs.com/"
+              target="_blank"
+              rel="noreferrer"
+              className="text-xs font-bold text-white underline underline-offset-4"
+            >
+              fossnoobs.com ↗
+            </a>
           </div>
 
           <div className="brutal-box p-6 flex flex-col justify-between">
