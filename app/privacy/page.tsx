@@ -8,41 +8,42 @@ export default function PrivacyPage() {
       initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4 }}
-      className="max-w-3xl mx-auto space-y-8"
+      className="space-y-8 max-w-4xl mx-auto text-xs md:text-sm leading-relaxed text-studio-text"
     >
       <div>
-        <div className="border-l-4 border-white pl-4 text-sm font-bold uppercase tracking-wider mb-2">
-          DATA INTEGRITY
+        <div className="border-l-4 border-primary-brand pl-4 text-sm font-bold uppercase tracking-wider mb-2">
+          LEGAL & COMPLIANCE DIRECTORY // STACKNOTHING LLC
         </div>
         <h1 className="text-4xl font-black uppercase">Privacy Policy</h1>
-        <p className="text-xs text-zinc-500 mt-2 font-mono">
-          Effective Date: January 1, 2026 • StackNothing Studio
+        <p className="text-xs opacity-60 mt-1 font-mono">
+          Last updated: September 2026
         </p>
       </div>
 
-      <motion.div
-        whileHover={{ scale: 1.01 }}
-        className="brutal-box p-8 space-y-6 text-xs text-zinc-700 dark:text-zinc-300 leading-relaxed"
-      >
-        <section>
-          <h2 className="text-[var(--text-primary)] font-bold uppercase mb-2">
-            1. Minimal Data Collection
-          </h2>
-          <p>
-            We only collect data explicitly entered into our contact routing
-            fields, career application portals, or submitted via direct email.
-          </p>
-        </section>
-        <section>
-          <h2 className="text-[var(--text-primary)] font-bold uppercase mb-2">
-            2. Local Storage First
-          </h2>
-          <p>
-            Ecosystem utilities like dhikrly.com store preference states locally
-            in your browser storage engine to maintain user privacy.
-          </p>
-        </section>
-      </motion.div>
+      <div className="brutal-box p-8 space-y-6">
+        <h2 className="text-xl font-black uppercase">01. Data Collection</h2>
+        <p className="opacity-80">
+          StackNothing LLC collects minimal telemetry and direct form submission
+          inputs (such as names and email addresses) solely for project scoping
+          and client communication during our public beta.
+        </p>
+
+        <h2 className="text-xl font-black uppercase">
+          02. Cookies & Local Storage
+        </h2>
+        <p className="opacity-80">
+          We utilize local storage strictly for preserving user interface
+          preferences (such as dark/light mode state and currency selection). No
+          third-party behavioral advertising trackers are utilized.
+        </p>
+
+        <h2 className="text-xl font-black uppercase">03. Contact Inquiries</h2>
+        <p className="opacity-80">
+          For any data privacy concerns or removal requests, contact{' '}
+          <strong className="text-studio-text">nazrul@stacknothing.com</strong>{' '}
+          directly.
+        </p>
+      </div>
     </motion.div>
   );
 }

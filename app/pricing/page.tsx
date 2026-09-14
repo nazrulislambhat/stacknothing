@@ -5,167 +5,220 @@ import Link from 'next/link';
 import { motion } from 'motion/react';
 
 export default function PricingPage() {
-  const [region, setRegion] = useState<'US' | 'IN'>('US');
+  const [currency, setCurrency] = useState<'USD' | 'INR'>('USD');
+  const [billingType, setBillingType] = useState<'project' | 'retainer'>(
+    'project',
+  );
 
   return (
-    <div className="space-y-12">
-      {/* Header with Text Reveal Animation */}
-      <motion.div
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.4 }}
-        className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4"
-      >
+    <motion.div
+      initial={{ opacity: 0, y: 10 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.4 }}
+      className="space-y-16 max-w-7xl mx-auto text-studio-text"
+    >
+      <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end gap-6">
         <div>
-          <div className="border-l-4 border-[#00E5FF] pl-4 text-sm font-bold uppercase tracking-wider mb-2">
-            REGIONAL ENGAGEMENTS
+          <div className="border-l-4 border-red-brand pl-4 text-sm font-bold uppercase tracking-wider mb-2">
+            TRANSPARENT ENGAGEMENT TIERS // STACKNOTHING LLC
           </div>
-          <h1 className="text-4xl font-black uppercase">
-            Studio Pricing & Tiers
+          <h1 className="text-4xl md:text-5xl font-black uppercase tracking-tight">
+            Studio Pricing & Rates
           </h1>
+          <p className="text-xs md:text-sm mt-2 max-w-2xl leading-relaxed opacity-80">
+            Tailored engineering tiers scaled for solo creators, growing small
+            businesses, and high-concurrency enterprise corporations.
+          </p>
         </div>
 
-        {/* Regional Market Switcher */}
-        <div className="flex items-center gap-2 border-2 border-[var(--text-primary)] p-1">
-          <button
-            onClick={() => setRegion('US')}
-            className={`px-3 py-1 text-xs font-bold uppercase cursor-pointer transition-colors ${
-              region === 'US'
-                ? 'bg-[var(--text-primary)] text-[var(--bg-primary)]'
-                : 'text-zinc-500'
-            }`}
-          >
-            US / GLOBAL ($)
-          </button>
-          <button
-            onClick={() => setRegion('IN')}
-            className={`px-3 py-1 text-xs font-bold uppercase cursor-pointer transition-colors ${
-              region === 'IN'
-                ? 'bg-[var(--text-primary)] text-[var(--bg-primary)]'
-                : 'text-zinc-500'
-            }`}
-          >
-            INDIA (₹) [REGIONAL]
-          </button>
-        </div>
-      </motion.div>
+        {/* Toggles Container */}
+        <div className="flex flex-wrap items-center gap-4">
+          {/* Billing Type Toggle */}
+          <div className="border-2 border-studio-text p-1 bg-studio-box flex items-center gap-1 font-mono text-xs font-bold shadow-[2px_2px_0px_var(--text-primary)]">
+            <button
+              onClick={() => setBillingType('project')}
+              className={`px-3 py-1.5 transition-colors uppercase ${billingType === 'project' ? 'bg-primary-brand text-white' : 'hover:opacity-75'}`}
+            >
+              Project-Based
+            </button>
+            <button
+              onClick={() => setBillingType('retainer')}
+              className={`px-3 py-1.5 transition-colors uppercase ${billingType === 'retainer' ? 'bg-primary-brand text-white' : 'hover:opacity-75'}`}
+            >
+              Monthly Retainer
+            </button>
+          </div>
 
-      {/* Pricing Cards Grid with Staggered Entrance */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-        {/* Tier 1: Sprint Audit */}
+          {/* Currency Toggle Switch */}
+          <div className="border-2 border-studio-text p-1 bg-studio-box flex items-center gap-1 font-mono text-xs font-bold shadow-[2px_2px_0px_var(--text-primary)]">
+            <button
+              onClick={() => setCurrency('USD')}
+              className={`px-3 py-1.5 transition-colors uppercase ${currency === 'USD' ? 'bg-green-brand text-black' : 'hover:opacity-75'}`}
+            >
+              USD ($)
+            </button>
+            <button
+              onClick={() => setCurrency('INR')}
+              className={`px-3 py-1.5 transition-colors uppercase ${currency === 'INR' ? 'bg-green-brand text-black' : 'hover:opacity-75'}`}
+            >
+              INR (₹)
+            </button>
+          </div>
+        </div>
+      </div>
+
+      {/* Pricing Grid */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {/* Tier 1: Solopreneurs / Creators */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.4, delay: 0.1 }}
-          whileHover={{ scale: 1.01 }}
-          className="brutal-box p-8 flex flex-col justify-between"
+          whileHover={{ scale: 1.02 }}
+          className="brutal-box p-6 flex flex-col justify-between border-2 border-studio-text"
         >
           <div>
-            <div className="text-xs bg-zinc-200 dark:bg-zinc-800 text-zinc-800 border-zinc-800 px-2.5 py-1 inline-block mb-4">
-              SPRINT AUDIT
+            <div className="text-[10px] bg-studio-box text-studio-text px-2 py-0.5 font-bold uppercase inline-block mb-3 border border-studio-text">
+              SOLOPRENEUR / CREATOR
             </div>
-            <div className="text-4xl font-black mb-4">
-              {region === 'US' ? '$2,500' : '₹95,000'}
-              <span className="text-xs text-zinc-500 font-normal">
-                {' '}
-                / project
-              </span>
+            <h3 className="text-xl font-black uppercase mb-2">
+              Landing Page & Audit
+            </h3>
+            <div className="text-2xl font-black mb-4 text-green-brand">
+              {currency === 'USD' ? '$1,200' : '₹45,000'}
+              {billingType === 'retainer' && (
+                <span className="text-xs font-mono opacity-60 font-normal">
+                  /mo
+                </span>
+              )}
             </div>
-            <p className="text-zinc-600 dark:text-zinc-400 text-xs mb-6 leading-relaxed">
-              Targeted architecture teardown, Next.js 16 PPR speed
-              optimizations, and performance diagnostics.
+            <p className="text-xs mb-6 leading-relaxed opacity-80">
+              High-impact single-page presence or portfolio overhaul with
+              brutalist aesthetics.
             </p>
-            <ul className="space-y-2 text-xs text-zinc-700 dark:text-zinc-300 mb-8 border-t border-b border-[var(--text-primary)]/20 py-4">
-              <li>✓ Full Codebase Teardown</li>
-              <li>✓ Turbopack & Cache Fixes</li>
-              <li>✓ Core Web Vitals Audit</li>
-              <li>✓ Delivered in 5 Days</li>
+            <ul className="space-y-2 font-mono text-xs border-t border-studio-text/20 pt-4 mb-6 opacity-90">
+              <li>✓ Next.js 16 static landing page</li>
+              <li>✓ Custom Tailwind v4 styling</li>
+              <li>✓ 3-day rapid deployment</li>
             </ul>
           </div>
           <Link
-            href={`/contact?tier=audit&region=${region}`}
-            className="brutal-button text-center py-3 text-xs uppercase"
+            href="/contact"
+            className="brutal-button block text-center py-3 text-xs uppercase bg-studio-text text-studio-bg"
           >
-            Book Audit ➔
+            Launch Creator ➔
           </Link>
         </motion.div>
 
-        {/* Tier 2: MVP Product Build (Featured) */}
+        {/* Tier 2: Small Business / E-commerce */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.4, delay: 0.2 }}
-          whileHover={{ scale: 1.01 }}
-          className="brutal-box p-8 flex flex-col justify-between border-2 border-[#FF007F] shadow-[6px_6px_0px_#FF007F]"
+          whileHover={{ scale: 1.02 }}
+          className="brutal-box p-6 flex flex-col justify-between border-2 border-studio-text"
         >
           <div>
-            <div className="text-xs bg-[#FF007F] text-white font-bold px-2.5 py-1 inline-block mb-4">
-              MOST POPULAR
+            <div className="text-[10px] bg-studio-box text-studio-text px-2 py-0.5 font-bold uppercase inline-block mb-3 border border-studio-text">
+              SMALL BUSINESS
             </div>
-            <div className="text-4xl font-black mb-4">
-              {region === 'US' ? '$8,500+' : '₹3,50,000+'}
-              <span className="text-xs text-zinc-500 dark:text-zinc-400 font-normal">
-                {' '}
-                base
-              </span>
+            <h3 className="text-xl font-black uppercase mb-2">
+              Architecture Sprint
+            </h3>
+            <div className="text-2xl font-black mb-4 text-green-brand">
+              {currency === 'USD' ? '$2,500' : '₹95,000'}
+              {billingType === 'retainer' && (
+                <span className="text-xs font-mono opacity-60 font-normal">
+                  /mo
+                </span>
+              )}
             </div>
-            <p className="text-zinc-700 dark:text-zinc-300 text-xs mb-6 leading-relaxed">
-              End-to-end product architecture, UI/UX system design, and
-              production build using modern stacks.
+            <p className="text-xs mb-6 leading-relaxed opacity-80">
+              Ideal for legacy refactoring, WooCommerce cache diagnostics, and
+              performance audits.
             </p>
-            <ul className="space-y-2 text-xs text-[var(--text-primary)] mb-8 border-t border-b border-[#FF007F] py-4">
-              <li>✓ Custom UI Architecture</li>
-              <li>✓ Full Stack Implementation</li>
-              <li>✓ Auth & Payments Setup</li>
-              <li>✓ Production Deployment</li>
+            <ul className="space-y-2 font-mono text-xs border-t border-studio-text/20 pt-4 mb-6 opacity-90">
+              <li>✓ Full Lighthouse & Core Web Vitals audit</li>
+              <li>✓ Drupal / WordPress optimization</li>
+              <li>✓ 1-Week delivery turnaround</li>
             </ul>
           </div>
           <Link
-            href={`/contact?tier=mvp&region=${region}`}
-            className="brutal-button text-center py-3 text-xs uppercase bg-[#FF007F] text-white shadow-[4px_4px_0px_currentColor]"
+            href="/contact"
+            className="brutal-button block text-center py-3 text-xs uppercase bg-primary-brand text-white"
           >
-            Build Product ➔
+            Book Sprint ➔
           </Link>
         </motion.div>
 
-        {/* Tier 3: Retainer */}
+        {/* Tier 3: Growing Startups (MVP) - Highlighted */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.4, delay: 0.3 }}
-          whileHover={{ scale: 1.01 }}
-          className="brutal-box p-8 flex flex-col justify-between"
+          whileHover={{ scale: 1.02 }}
+          className="brutal-box p-6 flex flex-col justify-between border-2 border-primary-brand shadow-[6px_6px_0px_var(--color-brand-primary)]"
         >
           <div>
-            <div className="text-xs bg-zinc-200 dark:bg-zinc-800 text-zinc-800 border border--zinc-800 px-2.5 py-1 inline-block mb-4">
-              RETAINER
+            <div className="text-[10px] bg-primary-brand text-white px-2 py-0.5 font-bold uppercase inline-block mb-3">
+              MOST POPULAR // STARTUPS
             </div>
-            <div className="text-4xl font-black mb-4">
-              {region === 'US' ? '$5,000' : '₹1,80,000'}
-              <span className="text-xs text-zinc-500 font-normal">
-                {' '}
-                / month
-              </span>
+            <h3 className="text-xl font-black uppercase mb-2">
+              MVP Product Build
+            </h3>
+            <div className="text-2xl font-black mb-4 text-primary-brand">
+              {currency === 'USD' ? '$8,500+' : '₹3,50,000+'}
+              {billingType === 'retainer' && (
+                <span className="text-xs font-mono opacity-60 font-normal">
+                  /mo
+                </span>
+              )}
             </div>
-            <p className="text-zinc-600 dark:text-zinc-400 text-xs mb-6 leading-relaxed">
-              Dedicated fractional frontend architect support, component
-              registry development, and iterative feature shipping.
+            <p className="text-xs mb-6 leading-relaxed opacity-80">
+              Full-stack application development from architecture to production
+              release on Vercel/Cloudflare.
             </p>
-            <ul className="space-y-2 text-xs text-zinc-700 dark:text-zinc-300 mb-8 border-t border-b border-[var(--text-primary)]/20 py-4">
-              <li>✓ Dedicated Architect</li>
-              <li>✓ Custom UI Registry</li>
-              <li>✓ Priority Code Review</li>
-              <li>✓ Flexible Scope Rollout</li>
+            <ul className="space-y-2 font-mono text-xs border-t border-studio-text/20 pt-4 mb-6 opacity-90">
+              <li>✓ Next.js 16 App Router & TypeScript</li>
+              <li>✓ Custom brutalist UI/UX design system</li>
+              <li>✓ Headless e-commerce or mobile bridge</li>
             </ul>
           </div>
           <Link
-            href={`/contact?tier=retainer&region=${region}`}
-            className="brutal-button text-center py-3 text-xs uppercase"
+            href="/contact"
+            className="brutal-button block text-center py-3 text-xs uppercase bg-green-brand text-black font-bold"
+          >
+            Initialize Build ➔
+          </Link>
+        </motion.div>
+
+        {/* Tier 4: Enterprise & Corporates */}
+        <motion.div
+          whileHover={{ scale: 1.02 }}
+          className="brutal-box p-6 flex flex-col justify-between border-2 border-studio-text"
+        >
+          <div>
+            <div className="text-[10px] bg-studio-box text-studio-text px-2 py-0.5 font-bold uppercase inline-block mb-3 border border-studio-text">
+              ENTERPRISE & CORP
+            </div>
+            <h3 className="text-xl font-black uppercase mb-2">
+              Design Retainer
+            </h3>
+            <div className="text-2xl font-black mb-4 text-red-brand">
+              {currency === 'USD' ? '$5,000' : '₹1,80,000'}{' '}
+              <span className="text-xs font-mono opacity-60 font-normal">
+                /mo
+              </span>
+            </div>
+            <p className="text-xs mb-6 leading-relaxed opacity-80">
+              Dedicated senior frontend architect capacity for ongoing
+              enterprise scaling and security.
+            </p>
+            <ul className="space-y-2 font-mono text-xs border-t border-studio-text/20 pt-4 mb-6 opacity-90">
+              <li>✓ Dedicated senior frontend architect</li>
+              <li>✓ Priority bug fixes & speed tuning</li>
+              <li>✓ Unlimited component additions</li>
+            </ul>
+          </div>
+          <Link
+            href="/contact"
+            className="brutal-button block text-center py-3 text-xs uppercase bg-studio-text text-studio-bg"
           >
             Secure Retainer ➔
           </Link>
         </motion.div>
       </div>
-    </div>
+    </motion.div>
   );
 }
