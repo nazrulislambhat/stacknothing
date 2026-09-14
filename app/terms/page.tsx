@@ -39,7 +39,7 @@ export default function TermsPage() {
           </h2>
           <p>
             All framework codebases, UI primitives, and branding remain property
-            of StackNothing Studio until custom contracts assign full ownership
+            of StackNothing LLC until custom contracts assign full ownership
             upon project sign-off.
           </p>
         </section>

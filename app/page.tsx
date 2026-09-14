@@ -6,36 +6,38 @@ import { motion } from 'motion/react';
 export default function Home() {
   return (
     <div className="space-y-16">
+      {/* Beta & Launch Banner */}
       <motion.div
         initial={{ opacity: 0, y: -10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.3 }}
-        className="border-2 border-[#00FF66] bg-[#00FF66]/10 px-4 py-3 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs font-mono"
+        className="border-2 border-[var(--text-primary)] bg-[var(--box-bg)] px-4 py-3 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs font-mono shadow-[4px_4px_0px_#b2d12e]"
       >
         <div className="flex items-center gap-2">
-          <span className="w-2.5 h-2.5 rounded-full bg-[#00FF66] animate-ping"></span>
+          <span className="w-2.5 h-2.5 rounded-full bg-[#b2d12e] animate-ping"></span>
           <span className="font-black uppercase text-[var(--text-primary)]">
             SYSTEM STATUS: PUBLIC BETA
           </span>
         </div>
         <div className="text-zinc-600 dark:text-zinc-300 font-bold uppercase">
           [ESTIMATED STABLE LAUNCH:{' '}
-          <span className="text-[#00FF66]">NOV 4, 2026</span>]
+          <span className="text-[#b2d12e]">NOV 4, 2026</span>]
         </div>
       </motion.div>
-      {/* Hero Box with Micro-Animation Entry */}
+
+      {/* Hero Box */}
       <motion.section
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.4 }}
         className="brutal-box p-8 md:p-12 relative overflow-hidden"
       >
-        <div className="absolute top-4 right-4 text-[10px] border border-[var(--text-primary)] px-2 py-1 bg-[var(--text-primary)] text-[var(--bg-primary)] font-bold uppercase animate-pulse">
+        <div className="absolute top-4 right-4 text-[10px] border border-[var(--text-primary)] px-2 py-1 bg-[#1f01b9] text-white font-bold uppercase">
           NEXT.JS 16 CORE LAB
         </div>
 
-        <div className="text-xs text-[#00FF66] mb-4 font-bold tracking-widest flex items-center gap-2">
-          <span className="w-2 h-2 rounded-full bg-[#00FF66] animate-ping"></span>
+        <div className="text-xs text-[#b2d12e] mb-4 font-bold tracking-widest flex items-center gap-2">
+          <span className="w-2 h-2 rounded-full bg-[#b2d12e] animate-ping"></span>
           [STUDIO & PRODUCT ECOSYSTEM]
         </div>
 
@@ -48,7 +50,7 @@ export default function Home() {
           <a
             href="https://dhikrly.com"
             target="_blank"
-            className="text-[var(--text-primary)] underline decoration-[#00FF66] decoration-2 font-bold hover:bg-[#00FF66] hover:text-black transition-colors px-1"
+            className="text-[var(--text-primary)] underline decoration-[#b2d12e] decoration-2 font-bold hover:bg-[#b2d12e] hover:text-black transition-colors px-1"
           >
             dhikrly.com
           </a>
@@ -66,15 +68,13 @@ export default function Home() {
             <span>🔒 OFFLINE-FIRST ARCHITECTURE</span>
             <span>•</span>
             <span>⚡ TURBOPACK OPTIMIZED</span>
-            <span>•</span>
-            <span>🚀 60+ MULTILINGUAL SITES SHIPPED</span>
           </div>
         </div>
 
         <div className="flex flex-wrap gap-4">
           <Link
             href="/contact"
-            className="brutal-button px-6 py-3 text-xs uppercase"
+            className="brutal-button px-6 py-3 text-xs uppercase bg-[#1f01b9] text-white"
           >
             Start Project ➔
           </Link>
@@ -87,9 +87,33 @@ export default function Home() {
         </div>
       </motion.section>
 
+      {/* Beta Notice Box regarding Email Transmissions */}
+      <motion.div
+        initial={{ opacity: 0, y: 10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.4, delay: 0.1 }}
+        className="brutal-box p-6 border-2 border-[#db4a2b] bg-[#db4a2b]/5 space-y-2 text-xs font-mono"
+      >
+        <div className="text-[#db4a2b] font-bold uppercase tracking-wider">
+          ⚠️ NOTICE: BETA CONTACT ROUTING
+        </div>
+        <p className="text-zinc-600 dark:text-zinc-300 leading-relaxed">
+          Direct automated contact form email transmissions are currently
+          undergoing staging configuration updates during the beta period. If
+          your form submission fails, please write to{' '}
+          <a
+            href="mailto:nazrul@stacknothing.com"
+            className="font-bold underline text-[var(--text-primary)]"
+          >
+            nazrul@stacknothing.com
+          </a>{' '}
+          directly.
+        </p>
+      </motion.div>
+
       {/* Active Ecosystem Grid */}
       <section id="ecosystem" className="space-y-6">
-        <div className="border-l-4 border-[#00FF66] pl-4 text-sm font-bold uppercase tracking-wider">
+        <div className="border-l-4 border-[#b2d12e] pl-4 text-sm font-bold uppercase tracking-wider">
           ACTIVE ECOSYSTEM PRODUCTS
         </div>
 
@@ -97,10 +121,10 @@ export default function Home() {
           {/* Dhikrly Card */}
           <motion.div
             whileHover={{ scale: 1.01 }}
-            className="brutal-box p-8 flex flex-col justify-between border-2 border-[#00FF66] shadow-[6px_6px_0px_#00FF66]"
+            className="brutal-box p-8 flex flex-col justify-between border-2 border-[var(--text-primary)] shadow-[6px_6px_0px_#b2d12e]"
           >
             <div>
-              <div className="inline-block bg-[#00FF66] text-black text-xs font-bold px-2 py-0.5 mb-4 uppercase">
+              <div className="inline-block bg-[#b2d12e] text-black text-xs font-bold px-2 py-0.5 mb-4 uppercase">
                 LIVE V1.2
               </div>
               <h3 className="text-3xl font-black uppercase mb-3">
@@ -115,7 +139,7 @@ export default function Home() {
               href="https://dhikrly.com"
               target="_blank"
               rel="noreferrer"
-              className="brutal-button text-center py-3 text-xs uppercase bg-[#00FF66] text-black shadow-[4px_4px_0px_currentColor]"
+              className="brutal-button text-center py-3 text-xs uppercase bg-[#1f01b9] text-white shadow-[4px_4px_0px_var(--text-primary)]"
             >
               [ LAUNCH APP ↗ ]
             </a>
@@ -124,10 +148,10 @@ export default function Home() {
           {/* Stack UI Card */}
           <motion.div
             whileHover={{ scale: 1.01 }}
-            className="brutal-box p-8 flex flex-col justify-between border-2 border-[#00E5FF] shadow-[6px_6px_0px_#00E5FF]"
+            className="brutal-box p-8 flex flex-col justify-between border-2 border-[var(--text-primary)] shadow-[6px_6px_0px_#1f01b9]"
           >
             <div>
-              <div className="inline-block bg-[#00E5FF] text-black text-xs font-bold px-2 py-0.5 mb-4 uppercase">
+              <div className="inline-block bg-[#1f01b9] text-white text-xs font-bold px-2 py-0.5 mb-4 uppercase">
                 INTERNAL REGISTRY
               </div>
               <h3 className="text-3xl font-black uppercase mb-3">
@@ -147,14 +171,14 @@ export default function Home() {
 
       {/* Services Grid */}
       <section className="space-y-6">
-        <div className="border-l-4 border-[#FF007F] pl-4 text-sm font-bold uppercase tracking-wider">
+        <div className="border-l-4 border-[#1f01b9] pl-4 text-sm font-bold uppercase tracking-wider">
           STUDIO CAPABILITIES & SERVICES
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           <Link
             href="/services/web-dev"
-            className="brutal-box p-6 space-y-3 block hover:border-[#00FF66] transition-colors group"
+            className="brutal-box p-6 space-y-3 block hover:border-[#1f01b9] transition-colors group"
           >
             <div className="text-xl group-hover:scale-125 transition-transform origin-left">
               🔧
@@ -170,7 +194,7 @@ export default function Home() {
 
           <Link
             href="/services/ecommerce"
-            className="brutal-box p-6 space-y-3 block hover:border-[#00E5FF] transition-colors group"
+            className="brutal-box p-6 space-y-3 block hover:border-[#db4a2b] transition-colors group"
           >
             <div className="text-xl group-hover:scale-125 transition-transform origin-left">
               🛒
@@ -185,22 +209,8 @@ export default function Home() {
           </Link>
 
           <Link
-            href="/services/web-dev"
-            className="brutal-box p-6 space-y-3 block hover:border-yellow-400 transition-colors group"
-          >
-            <div className="text-xl group-hover:scale-125 transition-transform origin-left">
-              🌐
-            </div>
-            <h4 className="font-black uppercase text-sm">Web Apps & PWAs ➔</h4>
-            <p className="text-zinc-600 dark:text-zinc-400 text-xs leading-relaxed">
-              Progressive web applications utilizing modern JavaScript
-              frameworks, Service Workers, and native device feel.
-            </p>
-          </Link>
-
-          <Link
             href="/services/mobile"
-            className="brutal-box p-6 space-y-3 block hover:border-[#FF007F] transition-colors group"
+            className="brutal-box p-6 space-y-3 block hover:border-[#b2d12e] transition-colors group"
           >
             <div className="text-xl group-hover:scale-125 transition-transform origin-left">
               📱
@@ -211,6 +221,22 @@ export default function Home() {
             <p className="text-zinc-600 dark:text-zinc-400 text-xs leading-relaxed">
               Mobile applications built via React Native and Capacitor,
               delivering unified iOS and Android codebases.
+            </p>
+          </Link>
+
+          <Link
+            href="/services/ui-ux"
+            className="brutal-box p-6 space-y-3 block hover:border-[#3d155f] transition-colors group"
+          >
+            <div className="text-xl group-hover:scale-125 transition-transform origin-left">
+              🎨
+            </div>
+            <h4 className="font-black uppercase text-sm">
+              UI/UX & Figma-to-Code ➔
+            </h4>
+            <p className="text-zinc-600 dark:text-zinc-400 text-xs leading-relaxed">
+              Pixel-perfect design tokens translated into clean React and
+              Tailwind CSS components without drift.
             </p>
           </Link>
         </div>

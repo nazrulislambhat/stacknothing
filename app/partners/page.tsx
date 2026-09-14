@@ -9,15 +9,15 @@ export default function PartnersPage() {
       initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4 }}
-      className="space-y-12 max-w-4xl mx-auto"
+      className="space-y-12 max-w-4xl mx-auto text-studio-text"
     >
       <div>
-        <div className="border-l-4 border-yellow-400 pl-4 text-sm font-bold uppercase tracking-wider mb-2">
+        <div className="border-l-4 border-green-brand pl-4 text-sm font-bold uppercase tracking-wider mb-2">
           COLLABORATION NETWORK
         </div>
         <h1 className="text-4xl font-black uppercase">Ecosystem Partners</h1>
-        <p className="text-zinc-600 dark:text-zinc-400 text-xs md:text-sm mt-2 max-w-xl leading-relaxed">
-          StackNothing collaborates with select infrastructure providers,
+        <p className="text-xs md:text-sm mt-2 max-w-xl leading-relaxed opacity-80">
+          StackNothing LLC collaborates with select infrastructure providers,
           open-source maintainers, and digital creators to power our tool
           suites.
         </p>
@@ -26,13 +26,13 @@ export default function PartnersPage() {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         <motion.div
           whileHover={{ scale: 1.01 }}
-          className="brutal-box p-8 border-2 border-[#00FF66]"
+          className="brutal-box p-8 border-2 border-studio-text"
         >
-          <div className="text-xs text-[#00FF66] font-bold mb-2">
+          <div className="text-xs text-green-brand font-bold mb-2">
             [FLAGSHIP APP]
           </div>
           <h3 className="text-2xl font-black uppercase mb-3">dhikrly.com</h3>
-          <p className="text-zinc-600 dark:text-zinc-400 text-xs md:text-sm mb-6 leading-relaxed">
+          <p className="text-xs md:text-sm mb-6 leading-relaxed opacity-80">
             Our premier consumer utility sharing underlying Tailwind
             configuration tokens and design layout schemas.
           </p>
@@ -40,7 +40,7 @@ export default function PartnersPage() {
             href="https://dhikrly.com"
             target="_blank"
             rel="noreferrer"
-            className="underline text-xs font-bold uppercase text-[var(--text-primary)]"
+            className="underline text-xs font-bold uppercase text-studio-text"
           >
             Visit Partner Property ↗
           </a>
@@ -48,19 +48,19 @@ export default function PartnersPage() {
 
         <motion.div
           whileHover={{ scale: 1.01 }}
-          className="brutal-box p-8 border-2 border-[#00E5FF]"
+          className="brutal-box p-8 border-2 border-studio-text"
         >
-          <div className="text-xs text-[#00E5FF] font-bold mb-2">
+          <div className="text-xs text-primary-brand font-bold mb-2">
             [INFRASTRUCTURE]
           </div>
           <h3 className="text-2xl font-black uppercase mb-3">
             Vercel & Cloudflare
           </h3>
-          <p className="text-zinc-600 dark:text-zinc-400 text-xs md:text-sm mb-6 leading-relaxed">
+          <p className="text-xs md:text-sm mb-6 leading-relaxed opacity-80">
             Global edge computing execution layer ensuring sub-millisecond route
             transitions across all ecosystem domains.
           </p>
-          <span className="text-xs text-zinc-500 uppercase font-mono">
+          <span className="text-xs opacity-60 uppercase font-mono">
             [VERIFIED NETWORK]
           </span>
         </motion.div>
@@ -68,17 +68,17 @@ export default function PartnersPage() {
 
       <motion.div
         whileHover={{ scale: 1.01 }}
-        className="brutal-box p-8 text-center bg-zinc-100 dark:bg-zinc-950"
+        className="brutal-box p-8 text-center bg-studio-box"
       >
         <h3 className="text-lg font-black uppercase mb-2">
           Want to list your product in our ecosystem?
         </h3>
-        <p className="text-zinc-600 dark:text-zinc-400 text-xs max-w-md mx-auto mb-6">
+        <p className="text-xs max-w-md mx-auto mb-6 opacity-80">
           We integrate select developer tools and consumer applications.
         </p>
         <Link
           href="/contact"
-          className="brutal-button px-6 py-3 text-xs uppercase inline-block"
+          className="brutal-button px-6 py-3 text-xs uppercase inline-block bg-primary-brand text-white"
         >
           Submit Proposal ➔
         </Link>
