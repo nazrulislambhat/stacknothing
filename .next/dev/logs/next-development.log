@@ -1,38 +1,10 @@
-{"timestamp":"00:00:00.752","source":"Server","level":"LOG","message":""}
-{"timestamp":"00:00:03.136","source":"Browser","level":"INFO","message":"Download the React DevTools for a better development experience: https://react.dev/link/react-devtools"}
-{"timestamp":"00:00:05.933","source":"Browser","level":"INFO","message":"Download the React DevTools for a better development experience: https://react.dev/link/react-devtools"}
-{"timestamp":"00:00:23.507","source":"Server","level":"LOG","message":"✓ Compiled in 60ms"}
-{"timestamp":"00:00:27.134","source":"Server","level":"LOG","message":"✓ Compiled in 22ms"}
-{"timestamp":"00:00:30.334","source":"Server","level":"LOG","message":"✓ Compiled in 19ms"}
-{"timestamp":"00:00:31.990","source":"Server","level":"LOG","message":"✓ Compiled in 15ms"}
-{"timestamp":"00:00:46.383","source":"Server","level":"LOG","message":"✓ Compiled in 15ms"}
-{"timestamp":"00:00:51.623","source":"Server","level":"LOG","message":"✓ Compiled in 15ms"}
-{"timestamp":"00:00:56.097","source":"Browser","level":"INFO","message":"Download the React DevTools for a better development experience: https://react.dev/link/react-devtools"}
-{"timestamp":"00:01:26.085","source":"Server","level":"LOG","message":"✓ Compiled in 19ms"}
-{"timestamp":"00:01:29.893","source":"Server","level":"LOG","message":"✓ Compiled in 50ms"}
-{"timestamp":"00:01:32.187","source":"Server","level":"LOG","message":"✓ Compiled in 14ms"}
-{"timestamp":"00:01:35.829","source":"Browser","level":"INFO","message":"Download the React DevTools for a better development experience: https://react.dev/link/react-devtools"}
-{"timestamp":"00:01:50.815","source":"Server","level":"LOG","message":"✓ Compiled in 22ms"}
-{"timestamp":"00:02:34.435","source":"Server","level":"LOG","message":"✓ Compiled in 184ms"}
-{"timestamp":"00:03:20.877","source":"Server","level":"LOG","message":"✓ Compiled in 50ms"}
-{"timestamp":"00:03:27.556","source":"Server","level":"LOG","message":"✓ Compiled in 18ms"}
-{"timestamp":"00:03:30.390","source":"Server","level":"LOG","message":"✓ Compiled in 22ms"}
-{"timestamp":"00:03:32.608","source":"Server","level":"LOG","message":"✓ Compiled in 23ms"}
-{"timestamp":"00:03:58.054","source":"Server","level":"LOG","message":"✓ Compiled in 18ms"}
-{"timestamp":"00:04:02.392","source":"Server","level":"LOG","message":"✓ Compiled in 18ms"}
-{"timestamp":"00:04:10.780","source":"Server","level":"LOG","message":"✓ Compiled in 19ms"}
-{"timestamp":"00:04:32.024","source":"Server","level":"LOG","message":"✓ Compiled in 17ms"}
-{"timestamp":"00:04:45.974","source":"Server","level":"LOG","message":"✓ Compiled in 18ms"}
-{"timestamp":"00:04:58.453","source":"Server","level":"LOG","message":"✓ Compiled in 17ms"}
-{"timestamp":"00:05:02.035","source":"Server","level":"LOG","message":"✓ Compiled in 16ms"}
-{"timestamp":"00:05:10.789","source":"Server","level":"LOG","message":"✓ Compiled in 23ms"}
-{"timestamp":"00:05:17.071","source":"Browser","level":"INFO","message":"Download the React DevTools for a better development experience: https://react.dev/link/react-devtools"}
-{"timestamp":"00:05:23.051","source":"Server","level":"LOG","message":"✓ Compiled in 24ms"}
-{"timestamp":"00:05:25.104","source":"Server","level":"LOG","message":"✓ Compiled in 21ms"}
-{"timestamp":"00:05:32.833","source":"Server","level":"LOG","message":"✓ Compiled in 27ms"}
-{"timestamp":"00:05:35.128","source":"Browser","level":"INFO","message":"Download the React DevTools for a better development experience: https://react.dev/link/react-devtools"}
-{"timestamp":"00:05:46.320","source":"Server","level":"LOG","message":"✓ Compiled in 18ms"}
-{"timestamp":"00:05:50.799","source":"Server","level":"LOG","message":"✓ Compiled in 16ms"}
-{"timestamp":"00:06:05.586","source":"Server","level":"LOG","message":"✓ Compiled in 26ms"}
-{"timestamp":"00:06:18.761","source":"Server","level":"LOG","message":"✓ Compiled in 41ms"}
-{"timestamp":"00:06:26.179","source":"Server","level":"LOG","message":"✓ Compiled in 35ms"}
+{"timestamp":"00:00:00.949","source":"Server","level":"LOG","message":""}
+{"timestamp":"00:02:35.082","source":"Server","level":"LOG","message":"✓ Compiled in 27ms"}
+{"timestamp":"00:02:38.595","source":"Server","level":"LOG","message":"✓ Compiled in 25ms"}
+{"timestamp":"00:02:59.164","source":"Browser","level":"ERROR","message":"An empty string (\"\") was passed to the href attribute. To fix this, either do not render the element at all or pass null to href instead of an empty string. "}
+{"timestamp":"00:02:59.164","source":"Server","level":"ERROR","message":"[browser] \"An empty string (\\\"\\\") was passed to the href attribute. To fix this, either do not render the element at all or pass null to href instead of an empty string.\" \"\""}
+{"timestamp":"00:05:47.057","source":"Server","level":"LOG","message":"✓ Compiled in 23ms"}
+{"timestamp":"00:05:50.457","source":"Server","level":"LOG","message":"✓ Compiled in 24ms"}
+{"timestamp":"00:05:53.730","source":"Server","level":"LOG","message":"✓ Compiled in 17ms"}
+{"timestamp":"00:05:55.597","source":"Server","level":"LOG","message":"✓ Compiled in 19ms"}
+{"timestamp":"00:05:58.976","source":"Server","level":"LOG","message":"✓ Compiled in 17ms"}
