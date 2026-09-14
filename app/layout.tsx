@@ -38,6 +38,54 @@ export default function RootLayout({
     <html lang="en" className={theme} suppressHydrationWarning>
       <head>
         <title>STACKNOTHING.LLC // Agency & Product Ecosystem</title>
+        <meta
+          name="description"
+          content="Hard-edged engineering, standalone digital utilities, and high-performance agency architecture built with Next.js 16."
+        />
+
+        {/* Favicons */}
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="icon" href="public/favicon.svg" type="image/svg+xml" />
+        <link rel="apple-touch-icon" href="public/apple-touch-icon.png" />
+        <link
+          rel="mask-icon"
+          href="publicpublic/safari-pinned-tab.svg"
+          color="#B2D12E"
+        />
+        <link rel="manifest" href="/site.webmanifest" />
+        <meta name="theme-color" content="#0A0A0A" />
+
+        {/* Open Graph */}
+        <meta property="og:type" content="website" />
+        <meta
+          property="og:title"
+          content="STACKNOTHING.LLC // Agency & Product Ecosystem"
+        />
+        <meta
+          property="og:description"
+          content="Hard-edged engineering, standalone digital utilities, and high-performance agency architecture built with Next.js 16."
+        />
+        <meta
+          property="og:image"
+          content="https://stacknothing.com/og-image.png"
+        />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+
+        {/* Twitter */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta
+          name="twitter:title"
+          content="STACKNOTHING.LLC // Agency & Product Ecosystem"
+        />
+        <meta
+          name="twitter:description"
+          content="Hard-edged engineering, standalone digital utilities, and high-performance agency architecture built with Next.js 16."
+        />
+        <meta
+          name="twitter:image"
+          content="https://stacknothing.com/og-image.png"
+        />
       </head>
       <body
         suppressHydrationWarning

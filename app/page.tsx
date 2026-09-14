@@ -59,7 +59,7 @@ export default function Home() {
         </p>
 
         {/* Live Ticker Bar */}
-        <div className="border-t border-b border-[var(--text-primary)]/20 py-3 mb-8 overflow-hidden">
+        <div className="border-t border-b border-primary-brand py-3 mb-8 overflow-hidden">
           <div className="animate-ticker text-xs font-mono uppercase tracking-widest space-x-8">
             <span>⚡ TURBOPACK OPTIMIZED</span>
             <span>•</span>
@@ -74,13 +74,13 @@ export default function Home() {
         <div className="flex flex-wrap gap-4">
           <Link
             href="/contact"
-            className="brutal-button px-6 py-3 text-xs uppercase bg-[#1f01b9] text-white"
+            className="brutal-button px-6 py-3 text-xs uppercase bg-primary-brand text-white"
           >
             Start Project ➔
           </Link>
           <Link
             href="/portfolio"
-            className="border-2 border-[var(--text-primary)] px-6 py-3 text-xs uppercase font-bold hover:bg-[var(--text-primary)] hover:text-[var(--bg-primary)] transition-colors shadow-[4px_4px_0px_var(--text-primary)]"
+            className="border-2 border-primary-brand px-6 py-3 text-xs uppercase font-bold hover:bg-primary-brand hover:text-green-brand transition-colors shadow-[4px_4px_0px_var(--text-primary)]"
           >
             View Portfolio & Clients ↗
           </Link>
@@ -92,9 +92,9 @@ export default function Home() {
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.4, delay: 0.1 }}
-        className="brutal-box p-6 border-2 border-[#db4a2b] bg-[#db4a2b]/5 space-y-2 text-xs font-mono"
+        className="brutal-box p-6 border-2 border-red-brand bg-[#db4a2b]/5 space-y-2 text-xs font-mono"
       >
-        <div className="text-[#db4a2b] font-bold uppercase tracking-wider">
+        <div className="text-red-brand font-bold uppercase tracking-wider">
           ⚠️ NOTICE: BETA CONTACT ROUTING
         </div>
         <p className="text-zinc-600 dark:text-zinc-300 leading-relaxed">
@@ -103,7 +103,7 @@ export default function Home() {
           your form submission fails, please write to{' '}
           <a
             href="mailto:nazrul@stacknothing.com"
-            className="font-bold underline text-[var(--text-primary)]"
+            className="font-bold underline text-primary-brand"
           >
             nazrul@stacknothing.com
           </a>{' '}
@@ -121,7 +121,7 @@ export default function Home() {
           {/* Dhikrly Card */}
           <motion.div
             whileHover={{ scale: 1.01 }}
-            className="brutal-box p-8 flex flex-col justify-between border-2 border-[var(--text-primary)] shadow-[6px_6px_0px_#b2d12e]"
+            className="brutal-box p-8 flex flex-col justify-between border-2 border-red-brand shadow-[6px_6px_0px_#b2d12e]"
           >
             <div>
               <div className="inline-block bg-[#b2d12e] text-black text-xs font-bold px-2 py-0.5 mb-4 uppercase">
@@ -148,10 +148,10 @@ export default function Home() {
           {/* Stack UI Card */}
           <motion.div
             whileHover={{ scale: 1.01 }}
-            className="brutal-box p-8 flex flex-col justify-between border-2 border-[var(--text-primary)] shadow-[6px_6px_0px_#1f01b9]"
+            className="brutal-box p-8 flex flex-col justify-between border-2 border-primary-brand shadow-[6px_6px_0px_#1f01b9]"
           >
             <div>
-              <div className="inline-block bg-[#1f01b9] text-white text-xs font-bold px-2 py-0.5 mb-4 uppercase">
+              <div className="inline-block bg-primary-brand text-white text-xs font-bold px-2 py-0.5 mb-4 uppercase">
                 INTERNAL REGISTRY
               </div>
               <h3 className="text-3xl font-black uppercase mb-3">
@@ -162,7 +162,7 @@ export default function Home() {
                 engineered explicitly for modern Next.js 16 architectures.
               </p>
             </div>
-            <span className="border-2 border-[var(--text-primary)] text-center py-3 text-xs uppercase bg-zinc-100 dark:bg-black text-zinc-400 cursor-not-allowed">
+            <span className="border-2 border-primary-brand text-center py-3 text-xs uppercase bg-zinc-100 dark:bg-black text-zinc-400 cursor-not-allowed">
               [ REGISTRY LOCKED ]
             </span>
           </motion.div>
