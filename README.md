@@ -1,4 +1,3 @@
-![STACKNOTHING LLC Banner](https://raw.githubusercontent.com/nazrulislambhat/stacknothing/main/public/og-image.png)
 
 # STACKNOTHING LLC // Agency & Product Ecosystem
 
