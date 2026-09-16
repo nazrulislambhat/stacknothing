@@ -77,7 +77,7 @@ export default function Home() {
           </Link>
           <Link
             href="/portfolio"
-            className="border-2 px-6 py-3 text-xs uppercase font-bold hover:bg-primary-brand hover:text-green-brand transition-colors shadow-[4px_4px_0px_var(--text-primary)]"
+            className="border-2 px-6 py-3 text-xs uppercase font-bold hover:border-red-brand hover:text-red-brand transition-colors"
           >
             View Portfolio & Clients ↗
           </Link>
