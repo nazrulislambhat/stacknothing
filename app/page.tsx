@@ -32,10 +32,6 @@ export default function Home() {
         transition={{ duration: 0.4 }}
         className="brutal-box p-8 md:p-12 relative overflow-hidden"
       >
-        <div className="absolute top-4 right-4 text-[10px] border border-[var(--text-primary)] px-2 py-1 bg-[#1f01b9] text-white font-bold uppercase">
-          NEXT.JS 16 CORE LAB
-        </div>
-
         <div className="text-xs text-[#b2d12e] mb-4 font-bold tracking-widest flex items-center gap-2">
           <span className="w-2 h-2 rounded-full bg-[#b2d12e] animate-ping"></span>
           [STUDIO & PRODUCT ECOSYSTEM]
@@ -80,7 +76,7 @@ export default function Home() {
           </Link>
           <Link
             href="/portfolio"
-            className="border-2 border-primary-brand px-6 py-3 text-xs uppercase font-bold hover:bg-primary-brand hover:text-green-brand transition-colors shadow-[4px_4px_0px_var(--text-primary)]"
+            className="border-2 px-6 py-3 text-xs uppercase font-bold hover:bg-primary-brand hover:text-green-brand transition-colors shadow-[4px_4px_0px_var(--text-primary)]"
           >
             View Portfolio & Clients ↗
           </Link>
@@ -162,7 +158,7 @@ export default function Home() {
                 engineered explicitly for modern Next.js 16 architectures.
               </p>
             </div>
-            <span className="border-2 border-primary-brand text-center py-3 text-xs uppercase bg-zinc-100 dark:bg-black text-zinc-400 cursor-not-allowed">
+            <span className="border-2 border-black text-center py-3 text-xs uppercase bg-zinc-100 dark:bg-black text-zinc-400 cursor-not-allowed">
               [ REGISTRY LOCKED ]
             </span>
           </motion.div>
