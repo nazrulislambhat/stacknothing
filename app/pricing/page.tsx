@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { motion } from 'motion/react';
+import { PricingCalculator } from '../components/pricing-calculator';
 
 type Currency = 'USD' | 'EUR' | 'INR';
 type BillingType = 'project' | 'retainer';
@@ -245,6 +246,7 @@ export default function PricingPage() {
         quotations. Following our scoping discussion meeting, exact quotes and
         formal contract terms will be finalized.
       </div>
+      <PricingCalculator />
     </motion.div>
   );
 }

@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import { motion } from 'motion/react';
+import { SiteAuditWidget } from './components/site-audit-widget';
 
 export default function Home() {
   return (
@@ -237,6 +238,7 @@ export default function Home() {
           </Link>
         </div>
       </section>
+      <SiteAuditWidget />
     </div>
   );
 }
