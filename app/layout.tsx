@@ -166,7 +166,7 @@ export default function RootLayout({
                       href="/services/web-dev"
                       className="block p-2 hover:bg-primary-brand hover:text-white text-[11px]"
                     >
-                      🔧 Custom Web & App Dev
+                      🕸️ Custom Web & App Dev
                     </Link>
                     <Link
                       href="/services/ecommerce"
@@ -181,7 +181,7 @@ export default function RootLayout({
                       📱 Cross-Platform Apps
                     </Link>
                     <Link
-                      href="/services/ui-ux"
+                      href="/services/refactoring"
                       className="block p-2 hover:bg-primary-brand hover:text-white text-[11px]"
                     >
                       🎨 UI/UX & Figma-to-Code
@@ -243,7 +243,7 @@ export default function RootLayout({
               {/* Mobile Menu Hamburger Button */}
               <button
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className="lg:hidden border-2 border-studio-text p-2 bg-studio-bg text-studio-text font-bold text-xs"
+                className="lg:hidden cursor-pointer border-2 border-studio-text p-2 bg-studio-bg text-studio-text font-bold text-xs"
                 aria-label="Toggle Mobile Menu"
               >
                 {mobileMenuOpen ? '✕ CLOSE' : '☰ MENU'}
@@ -271,7 +271,7 @@ export default function RootLayout({
                     href="/services/web-dev"
                     className="block pl-4 py-1"
                   >
-                    🔧 Custom Web & App Dev
+                    🕸️ Custom Web & App Dev
                   </Link>
                   <Link
                     onClick={() => setMobileMenuOpen(false)}
@@ -286,6 +286,13 @@ export default function RootLayout({
                     className="block pl-4 py-1"
                   >
                     📱 Cross-Platform Apps
+                  </Link>
+                  <Link
+                    onClick={() => setMobileMenuOpen(false)}
+                    href="/services/ui-ux"
+                    className="block pl-4 py-1"
+                  >
+                    🔧 Legacy Refactoring
                   </Link>
                   <Link
                     onClick={() => setMobileMenuOpen(false)}
