@@ -66,7 +66,7 @@ export default function PortfolioPage() {
       initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4 }}
-      className="space-y-16 max-w-6xl mx-auto text-studio-text p-6 md:p-12"
+      className="space-y-16 max-w-6xl mx-auto text-studio-text md:p-12"
     >
       <div>
         <div className="border-l-4 border-red-brand pl-4 text-sm font-bold uppercase tracking-wider mb-2">
