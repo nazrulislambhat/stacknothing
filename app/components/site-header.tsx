@@ -20,7 +20,7 @@ export function SiteHeader({ theme, toggleTheme }: SiteHeaderProps) {
           href="/"
           className="border-2 border-studio-text bg-primary-brand text-primary-brand px-4 py-2 font-bold tracking-tighter uppercase text-sm shadow-[4px_4px_0px_var(--text-primary)]"
         >
-          [STACKNOTHING.LLC]
+          [STACKNOTHING LLC]
         </Link>
 
         {/* Desktop Navigation */}
