@@ -186,6 +186,12 @@ export default function RootLayout({
                     >
                       🎨 UI/UX & Figma-to-Code
                     </Link>
+                    <Link
+                      href="/services/refactoring"
+                      className="block p-2 hover:bg-primary-brand hover:text-white text-[11px]"
+                    >
+                      🔧 Legacy Refactoring
+                    </Link>
                   </div>
                 )}
               </div>

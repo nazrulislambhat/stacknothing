@@ -178,7 +178,7 @@ export default function Home() {
             className="brutal-box p-6 space-y-3 block hover:border-[#3139FB] transition-colors group"
           >
             <div className="text-xl group-hover:scale-125 transition-transform origin-left">
-              🔧
+              ⚡
             </div>
             <h4 className="font-black uppercase text-sm">
               Custom Web & App Dev ➔
@@ -222,18 +222,19 @@ export default function Home() {
           </Link>
 
           <Link
-            href="/services/ui-ux"
+            href="/services/refactoring"
             className="brutal-box p-6 space-y-3 block hover:border-[#3d155f] transition-colors group"
           >
             <div className="text-xl group-hover:scale-125 transition-transform origin-left">
-              🎨
+              🔧
             </div>
             <h4 className="font-black uppercase text-sm">
-              UI/UX & Figma-to-Code ➔
+              Legacy Refactoring ➔
             </h4>
             <p className="text-zinc-600 dark:text-zinc-400 text-xs leading-relaxed">
-              Pixel-perfect design tokens translated into clean React and
-              Tailwind CSS components without drift.
+              Rescuing bloated WordPress/WooCommerce codebases and monolithic
+              web apps, transforming them into headless, lightning-fast Next.js
+              16 architectures.
             </p>
           </Link>
         </div>
