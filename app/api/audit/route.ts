@@ -1,8 +1,8 @@
-import { NextResponse } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
 
-export async function GET(request: Request) {
+export async function GET(request: NextRequest) {
   const { searchParams } = new URL(request.url);
-  const targetUrl = searchParams.get('url');
+  const targetUrl: string | null = searchParams.get('url');
 
   if (!targetUrl) {
     return NextResponse.json(
@@ -21,12 +21,11 @@ export async function GET(request: Request) {
       );
     }
 
-    const data = await res.json();
+    const data: unknown = await res.json();
     return NextResponse.json(data);
-  } catch (error: any) {
-    return NextResponse.json(
-      { error: error.message || 'Server audit execution failed.' },
-      { status: 500 },
-    );
+  } catch (error: unknown) {
+    const errorMessage =
+      error instanceof Error ? error.message : 'Server audit execution failed.';
+    return NextResponse.json({ error: errorMessage }, { status: 500 });
   }
 }

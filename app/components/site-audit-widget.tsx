@@ -19,19 +19,39 @@ export function SiteAuditWidget() {
   const [urlInput, setUrlInput] = useState('');
   const [isScanning, setIsScanning] = useState(false);
   const [result, setResult] = useState<AuditResult | null>(null);
+  const [cheekyError, setCheekyError] = useState<string | null>(null);
 
   const handleAudit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!urlInput) return;
 
-    let targetUrl = urlInput.trim();
-    if (!targetUrl.startsWith('http://') && !targetUrl.startsWith('https://')) {
-      targetUrl = `https://${targetUrl}`;
+    const targetUrl = urlInput.trim().toLowerCase();
+
+    // Normalize URL for domain checking
+    let cleanDomain = targetUrl;
+    if (cleanDomain.startsWith('http://'))
+      cleanDomain = cleanDomain.replace('http://', '');
+    if (cleanDomain.startsWith('https://'))
+      cleanDomain = cleanDomain.replace('https://', '');
+    if (cleanDomain.endsWith('/')) cleanDomain = cleanDomain.slice(0, -1);
+
+    // Check if it's stacknothing.com or any subdomain (e.g. blog.stacknothing.com)
+    if (
+      cleanDomain === 'stacknothing.com' ||
+      cleanDomain.endsWith('.stacknothing.com')
+    ) {
+      setCheekyError(
+        "Nice try! Our own infrastructure is already running at 100/100 Core Web Vitals on Vercel Edge. Audit someone else's slow site instead! 😉",
+      );
+      setResult(null);
+      return;
     }
 
+    setCheekyError(null);
     setIsScanning(true);
     setResult(null);
 
+    // Simulate elite edge telemetry analysis
     setTimeout(() => {
       const hash = targetUrl
         .split('')
@@ -100,12 +120,26 @@ export function SiteAuditWidget() {
           <button
             type="submit"
             disabled={isScanning}
-            className="brutal-button px-6 cursor-pointer py-3 text-xs uppercase bg-primary-brand text-white whitespace-nowrap disabled:opacity-50"
+            className="brutal-button px-6 py-3 text-xs uppercase bg-primary-brand text-white whitespace-nowrap disabled:opacity-50"
           >
             {isScanning ? 'ANALYZING NODES...' : 'RUN LIVE AUDIT ➔'}
           </button>
         </div>
       </form>
+
+      {/* Cheeky Self-Audit Interception Message */}
+      {cheekyError && (
+        <motion.div
+          initial={{ opacity: 0, y: -5 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="border-2 border-primary-brand p-4 bg-primary-brand/10 text-xs font-mono text-studio-text space-y-2"
+        >
+          <div className="text-primary-brand font-bold uppercase tracking-wider">
+            [!] SELF-AUDIT INTERCEPTED:
+          </div>
+          <p className="leading-relaxed opacity-90">{cheekyError}</p>
+        </motion.div>
+      )}
 
       {isScanning && (
         <div className="border-2 border-dashed border-studio-text p-6 text-center font-mono text-xs space-y-2 animate-pulse">
@@ -163,7 +197,6 @@ export function SiteAuditWidget() {
               </div>
             </div>
 
-            {/* Conditional Messaging Based on Performance Score */}
             <div className="flex flex-col sm:flex-row justify-between items-center gap-4 pt-2">
               {result.performanceScore >= 85 ? (
                 <>

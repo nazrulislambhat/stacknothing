@@ -1,12 +1,13 @@
 import { ImageResponse } from 'next/og';
+import { NextRequest } from 'next/server';
 
 export const runtime = 'edge';
 
-export async function GET(request: Request) {
+export async function GET(request: NextRequest) {
   try {
     const { searchParams } = new URL(request.url);
-    const title = searchParams.get('title') || 'STACKNOTHING.LLC';
-    const subtitle =
+    const title: string = searchParams.get('title') || 'STACKNOTHING LLC';
+    const subtitle: string =
       searchParams.get('subtitle') ||
       'High-Performance Agency & Product Ecosystem';
 
@@ -18,8 +19,8 @@ export async function GET(request: Request) {
           display: 'flex',
           flexDirection: 'column',
           justifyContent: 'space-between',
-          backgroundColor: '#000000',
-          color: '#ffffff',
+          backgroundColor: '#ffffff',
+          color: '#000000',
           padding: '60px',
           fontFamily: 'monospace',
           border: '8px solid #ffffff',
@@ -41,12 +42,7 @@ export async function GET(request: Request) {
               color: '#ffffff',
             }}
           >
-            [STACKNOTHING.LLC]
-          </div>
-          <div
-            style={{ fontSize: '20px', color: '#b2d12e', fontWeight: 'bold' }}
-          >
-            NEXT.JS 16
+            [STACKNOTHING]
           </div>
         </div>
 
@@ -94,7 +90,11 @@ export async function GET(request: Request) {
         height: 630,
       },
     );
-  } catch (e: any) {
-    return new Response(`Failed to generate image`, { status: 500 });
+  } catch (error: unknown) {
+    const errorMessage =
+      error instanceof Error ? error.message : 'Unknown generation error';
+    return new Response(`Failed to generate image: ${errorMessage}`, {
+      status: 500,
+    });
   }
 }

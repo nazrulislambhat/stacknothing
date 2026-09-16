@@ -24,7 +24,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={theme} suppressHydrationWarning>
       <head>
-        <title>STACKNOTHING.LLC // Agency &amp; Product Ecosystem</title>
+        <title>STACKNOTHING LLC // Agency &amp; Product Ecosystem</title>
         <meta
           name="description"
           content="Hard-edged engineering, standalone digital utilities, and high-performance agency architecture built with Next.js 16 by Stacknothing LLC."
@@ -105,7 +105,7 @@ export default function RootLayout({
         <meta property="og:url" content="https://stacknothing.com" />
         <meta
           property="og:title"
-          content="STACKNOTHING.LLC // Agency & Product Ecosystem"
+          content="STACKNOTHING LLC // Agency & Product Ecosystem"
         />
         <meta
           property="og:description"
@@ -124,7 +124,7 @@ export default function RootLayout({
         <meta name="twitter:card" content="summary_large_image" />
         <meta
           name="twitter:title"
-          content="STACKNOTHING.LLC // Agency & Product Ecosystem"
+          content="STACKNOTHING LLC // Agency & Product Ecosystem"
         />
         <meta
           name="twitter:description"
