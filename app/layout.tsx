@@ -37,23 +37,82 @@ export default function RootLayout({
         <title>STACKNOTHING.LLC // Agency &amp; Product Ecosystem</title>
         <meta
           name="description"
-          content="Hard-edged engineering, standalone digital utilities, and high-performance agency architecture built with Next.js 16."
+          content="Hard-edged engineering, standalone digital utilities, and high-performance agency architecture built with Next.js 16 by Stacknothing LLC."
         />
-
-        {/* Favicons */}
+        <meta
+          name="keywords"
+          content="frontend architecture, nextjs agency, react development, wordpress, drupal, brutalist design, stacknothing"
+        />
+        <meta name="author" content="StackNothing LLC" />
+        <meta name="robots" content="index, follow" />
+        <link rel="canonical" href="https://stacknothing.com" />
+        {/* Brand Icons, Favicons & Web App Manifest */}
         <link rel="icon" href="/favicon.ico" sizes="any" />
-        <link rel="icon" href="public/favicon.svg" type="image/svg+xml" />
-        <link rel="apple-touch-icon" href="public/apple-touch-icon.png" />
+        <link
+          rel="icon"
+          href="/assets/brand/favicon/favicon.svg"
+          type="image/svg+xml"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="32x32"
+          href="/assets/brand/favicon/favicon-32x32.png"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="16x16"
+          href="/assets/brand/favicon/favicon-16x16.png"
+        />
+        <link
+          rel="apple-touch-icon"
+          sizes="180x180"
+          href="/assets/brand/app-icons/apple-touch-icon-180.png"
+        />
+        <link
+          rel="apple-touch-icon"
+          sizes="167x167"
+          href="/assets/brand/app-icons/apple-touch-icon-167.png"
+        />
+        <link
+          rel="apple-touch-icon"
+          sizes="152x152"
+          href="/assets/brand/app-icons/apple-touch-icon-152.png"
+        />
+        <link
+          rel="apple-touch-icon"
+          sizes="120x120"
+          href="/assets/brand/app-icons/apple-touch-icon-120.png"
+        />
         <link
           rel="mask-icon"
-          href="publicpublic/safari-pinned-tab.svg"
-          color="#B2D12E"
+          href="/assets/brand/favicon/safari-pinned-tab.svg"
+          color="#1F01B9"
         />
+        <link rel="manifest" href="/site.webmanifest" />
+        <meta
+          name="theme-color"
+          media="(prefers-color-scheme: light)"
+          content="#FFFFFF"
+        />
+        <meta
+          name="theme-color"
+          media="(prefers-color-scheme: dark)"
+          content="#000000"
+        />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta
+          name="apple-mobile-web-app-status-bar-style"
+          content="black-translucent"
+        />
+        <meta name="apple-mobile-web-app-title" content="StackNothing" />
         <link rel="manifest" href="/site.webmanifest" />
         <meta name="theme-color" content="#0A0A0A" />
 
         {/* Open Graph */}
         <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://stacknothing.com" />
         <meta
           property="og:title"
           content="STACKNOTHING.LLC // Agency & Product Ecosystem"
@@ -64,10 +123,12 @@ export default function RootLayout({
         />
         <meta
           property="og:image"
-          content="https://stacknothing.com/og-image.png"
+          content="https://stacknothing.com/assets/brand/social/headers/og-preview-dark-1200x630.png"
         />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
+        <meta property="og:image:alt" content="Stacknothing LLC" />
+        <meta property="og:site_name" content="Stacknothing LLC" />
 
         {/* Twitter */}
         <meta name="twitter:card" content="summary_large_image" />
@@ -81,7 +142,7 @@ export default function RootLayout({
         />
         <meta
           name="twitter:image"
-          content="https://stacknothing.com/og-image.png"
+          content="https://stacknothing.com/assets/brand/social/headers/og-preview-dark-1200x630.png"
         />
       </head>
       <body
@@ -387,6 +448,10 @@ export default function RootLayout({
               <span>/</span>
               <Link href="/roadmap" className="hover:underline">
                 Roadmap
+              </Link>
+              <span>/</span>
+              <Link href="/brand" className="hover:underline">
+                Brand
               </Link>
               <span>/</span>
               <Link href="/contact" className="hover:underline">

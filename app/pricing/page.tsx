@@ -46,7 +46,7 @@ export default function PricingPage() {
       transition={{ duration: 0.4 }}
       className="space-y-16 max-w-7xl mx-auto text-studio-text p-6 md:p-12"
     >
-      <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end gap-6">
+      <div className="flex flex-col lg:flex-row justify-between items-center gap-6">
         <div>
           <div className="border-l-4 border-red-brand pl-4 text-sm font-bold uppercase tracking-wider mb-2">
             PROFESSIONAL ENGAGEMENT TIERS // STACKNOTHING LLC
@@ -62,7 +62,7 @@ export default function PricingPage() {
         </div>
 
         {/* Toggles Container */}
-        <div className="flex flex-wrap items-center gap-4">
+        <div className="flex flex-wrap md:justify-end items-center gap-4">
           {/* Billing Type Toggle */}
           <div className="border-2 border-studio-text p-1 bg-studio-box flex items-center gap-1 font-mono text-xs font-bold shadow-[2px_2px_0px_var(--text-primary)]">
             <button
