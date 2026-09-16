@@ -76,7 +76,6 @@ body {
 
 .brutal-button {
   border: 2px solid var(--text-primary);
-  background-color: var(--text-primary);
   color: var(--bg-primary);
   font-weight: bold;
   box-shadow: 4px 4px 0px var(--text-primary);

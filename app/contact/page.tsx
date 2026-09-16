@@ -117,7 +117,7 @@ export default function ContactPage() {
           whileHover={{ scale: 1.01 }}
           whileTap={{ scale: 0.99 }}
           type="submit"
-          className="brutal-button w-full py-4 text-xs uppercase tracking-wider bg-green-brand text-black font-bold"
+          className="brutal-button w-full py-4 text-xs uppercase tracking-wider cursor-pointer bg-black font-bold"
         >
           TRANSMIT MESSAGE ➔
         </motion.button>

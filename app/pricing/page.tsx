@@ -15,7 +15,7 @@ export default function PricingPage() {
       initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4 }}
-      className="space-y-16 max-w-7xl mx-auto text-studio-text"
+      className="space-y-16 max-w-7xl mx-auto text-studio-text p-6 md:p-12"
     >
       <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end gap-6">
         <div>
@@ -100,8 +100,8 @@ export default function PricingPage() {
             </ul>
           </div>
           <Link
-            href="/contact"
-            className="brutal-button block text-center py-3 text-xs uppercase bg-studio-text text-studio-bg"
+            href={`/contact-pricing?plan=landing-page&type=${billingType}&currency=${currency}&price=${encodeURIComponent(currency === 'USD' ? '$1,200' : '₹45,000')}`}
+            className="brutal-button block text-center py-3 text-xs uppercase bg-green-brand text-studio-bg font-bold"
           >
             Launch Creator ➔
           </Link>
@@ -138,8 +138,8 @@ export default function PricingPage() {
             </ul>
           </div>
           <Link
-            href="/contact"
-            className="brutal-button block text-center py-3 text-xs uppercase bg-primary-brand text-white"
+            href={`/contact-pricing?plan=architecture-sprint&type=${billingType}&currency=${currency}&price=${encodeURIComponent(currency === 'USD' ? '$2,500' : '₹95,000')}`}
+            className="brutal-button block text-center py-3 text-xs uppercase bg-primary-brand text-white font-bold"
           >
             Book Sprint ➔
           </Link>
@@ -176,7 +176,7 @@ export default function PricingPage() {
             </ul>
           </div>
           <Link
-            href="/contact"
+            href={`/contact-pricing?plan=mvp-build&type=${billingType}&currency=${currency}&price=${encodeURIComponent(currency === 'USD' ? '$8,500+' : '₹3,50,000+')}`}
             className="brutal-button block text-center py-3 text-xs uppercase bg-green-brand text-black font-bold"
           >
             Initialize Build ➔
@@ -212,8 +212,8 @@ export default function PricingPage() {
             </ul>
           </div>
           <Link
-            href="/contact"
-            className="brutal-button block text-center py-3 text-xs uppercase bg-studio-text text-studio-bg"
+            href={`/contact-pricing?plan=design-retainer&type=retainer&currency=${currency}&price=${encodeURIComponent(currency === 'USD' ? '$5,000' : '₹1,80,000')}`}
+            className="brutal-button block text-center py-3 text-xs uppercase bg-red-brand text-studio-bg font-bold"
           >
             Secure Retainer ➔
           </Link>
