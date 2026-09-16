@@ -35,7 +35,7 @@ function ContactPricingContent() {
       initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4 }}
-      className="max-w-5xl mx-auto space-y-8 text-studio-text p-6 md:p-12 relative"
+      className="max-w-5xl mx-auto space-y-8 text-studio-text md:p-12 relative"
     >
       <div className="flex justify-between items-center">
         <div>
