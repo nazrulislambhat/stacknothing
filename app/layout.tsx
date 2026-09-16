@@ -10,24 +10,14 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const [theme, setTheme] = useState<'dark' | 'light'>('dark');
+  const [theme, setTheme] = useState<'dark' | 'light'>('light');
   const [servicesOpen, setServicesOpen] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-
-  useEffect(() => {
-    const stored = localStorage.getItem('stacknothing_theme');
-    if (stored === 'dark' || stored === 'light') {
-      setTheme(stored);
-      document.documentElement.classList.toggle('dark', stored === 'dark');
-    } else {
-      document.documentElement.classList.add('dark');
-    }
-  }, []);
 
   const toggleTheme = () => {
     const next = theme === 'dark' ? 'light' : 'dark';
     setTheme(next);
-    localStorage.setItem('stacknothing_theme', next);
+    localStorage.setItem('theme', next);
     document.documentElement.classList.toggle('dark', next === 'dark');
   };
 
@@ -101,7 +91,7 @@ export default function RootLayout({
           media="(prefers-color-scheme: dark)"
           content="#000000"
         />
-        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="mobile-web-app-capable" content="yes" />
         <meta
           name="apple-mobile-web-app-status-bar-style"
           content="black-translucent"
