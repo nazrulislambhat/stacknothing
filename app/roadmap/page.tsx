@@ -29,7 +29,7 @@ export default function RoadmapPage() {
         {/* Milestone 1 */}
         <motion.div
           whileHover={{ scale: 1.01 }}
-          className="brutal-box p-8 relative border-2 border-studio-text bg-studio-box"
+          className="brutal-box px-8 py-12 relative border-2 border-studio-text bg-studio-box"
         >
           <div className="absolute top-4 right-4 text-[10px] bg-green-brand text-black font-bold px-2.5 py-1 uppercase">
             IN PROGRESS (Q3 2026)
@@ -58,7 +58,7 @@ export default function RoadmapPage() {
         {/* Milestone 2 */}
         <motion.div
           whileHover={{ scale: 1.01 }}
-          className="brutal-box p-8 relative border-2 border-studio-text bg-studio-box"
+          className="brutal-box px-8 py-12 relative border-2 border-studio-text bg-studio-box"
         >
           <div className="absolute top-4 right-4 text-[10px] bg-primary-brand text-white font-bold px-2.5 py-1 uppercase">
             PLANNED (Q4 2026)
@@ -88,7 +88,7 @@ export default function RoadmapPage() {
         {/* Milestone 3 */}
         <motion.div
           whileHover={{ scale: 1.01 }}
-          className="brutal-box p-8 relative border-2 border-studio-text bg-studio-box"
+          className="brutal-box px-8 py-12 relative border-2 border-studio-text bg-studio-box"
         >
           <div className="absolute top-4 right-4 text-[10px] bg-primary-brand text-white font-bold px-2.5 py-1 uppercase">
             PLANNED (Q1 2027)
@@ -115,7 +115,7 @@ export default function RoadmapPage() {
         {/* Milestone 4 */}
         <motion.div
           whileHover={{ scale: 1.01 }}
-          className="brutal-box p-8 relative border-2 border-studio-text bg-studio-box"
+          className="brutal-box px-8 py-12 relative border-2 border-studio-text bg-studio-box"
         >
           <div className="absolute top-4 right-4 text-[10px] bg-red-brand text-white font-bold px-2.5 py-1 uppercase">
             FUTURE HORIZON (Q2-Q3 2027)
@@ -141,7 +141,7 @@ export default function RoadmapPage() {
         {/* Milestone 5 */}
         <motion.div
           whileHover={{ scale: 1.01 }}
-          className="brutal-box p-8 relative border-2 border-studio-text bg-studio-box"
+          className="brutal-box px-8 py-12 relative border-2 border-studio-text bg-studio-box"
         >
           <div className="absolute top-4 right-4 text-[10px] bg-red-brand text-white font-bold px-2.5 py-1 uppercase">
             FUTURE HORIZON (Q4 2027 & BEYOND)
