@@ -117,7 +117,7 @@ export function SiteHeader({ theme, toggleTheme }: SiteHeaderProps) {
           {/* Mobile Menu Hamburger Button */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="lg:hidden border-2 border-studio-text p-2 bg-studio-bg text-studio-text font-bold text-xs"
+            className="lg:hidden border-2 cursor-pointer border-studio-text p-2 bg-studio-bg text-studio-text font-bold text-xs"
             aria-label="Toggle Mobile Menu"
           >
             {mobileMenuOpen ? '✕ CLOSE' : '☰ MENU'}

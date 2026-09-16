@@ -334,7 +334,7 @@ export default function BrandAssetsPage() {
   };
 
   return (
-    <div className="max-w-7xl mx-auto space-y-12 text-studio-text p-6 md:p-12">
+    <div className="max-w-7xl mx-auto space-y-12 text-studio-text md:p-12">
       {/* Header */}
       <header className="flex flex-col md:flex-row justify-between items-start md:items-end gap-6 border-b-2 border-studio-text pb-8">
         <div>
