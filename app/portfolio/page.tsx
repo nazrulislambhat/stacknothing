@@ -3,13 +3,70 @@
 import Link from 'next/link';
 import { motion } from 'motion/react';
 
+const previousClients = [
+  {
+    name: 'HackingSaga',
+    url: 'https://hackingsaga.com',
+    category: 'Cyber Security & Dev',
+    accent: 'border-studio-text',
+  },
+  {
+    name: 'Iqra Bakers',
+    url: 'https://iqrabakers.com',
+    category: 'E-Commerce',
+    accent: 'border-green-brand',
+  },
+  {
+    name: 'Phandroid',
+    url: 'https://phandroid.com',
+    category: 'Tech Media & Publishing',
+    accent: 'border-primary-brand',
+  },
+  {
+    name: 'IFED Trust',
+    url: 'https://ifedtrust.com',
+    category: 'Institutional & Non-Profit',
+    accent: 'border-studio-text',
+  },
+  {
+    name: 'Veolia',
+    url: 'https://veolia.com',
+    category: 'Enterprise Environmental Services',
+    accent: 'border-green-brand',
+  },
+  {
+    name: 'British Business Bank',
+    url: 'https://www.britishbusinessbank.co.uk',
+    category: 'Government Financial Institution',
+    accent: 'border-primary-brand',
+  },
+  {
+    name: 'University of East London (UEL)',
+    url: 'https://www.uel.ac.uk',
+    category: 'Higher Education',
+    accent: 'border-studio-text',
+  },
+  {
+    name: 'American Medical Association (AMA)',
+    url: 'https://www.ama-assn.org',
+    category: 'Global Healthcare Organization',
+    accent: 'border-green-brand',
+  },
+  {
+    name: 'Millboard',
+    url: 'https://www.millboard.com/en-gb/',
+    category: 'Decking and cladding brand',
+    accent: 'border-primary-brand',
+  },
+];
+
 export default function PortfolioPage() {
   return (
     <motion.div
       initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4 }}
-      className="space-y-16 max-w-6xl mx-auto text-studio-text"
+      className="space-y-16 max-w-6xl mx-auto text-studio-text p-6 md:p-12"
     >
       <div>
         <div className="border-l-4 border-red-brand pl-4 text-sm font-bold uppercase tracking-wider mb-2">
@@ -19,11 +76,68 @@ export default function PortfolioPage() {
           Portfolio & Ecosystem Archive
         </h1>
         <p className="text-xs md:text-sm mt-2 max-w-2xl leading-relaxed opacity-80">
-          A comprehensive record of institutional brand partnerships, internal
-          product incubations, Indian client deployments, and high-concurrency
-          web systems.
+          A comprehensive record of current enterprise engagements, global brand
+          partnerships, institutional collaborations, and high-concurrency web
+          systems.
         </p>
       </div>
+
+      {/* Current Enterprise Sprint: Novartis */}
+      <section className="space-y-6">
+        <div className="text-xs font-bold uppercase tracking-widest text-green-brand">
+          CURRENT ENTERPRISE SPRINT
+        </div>
+        <motion.div
+          whileHover={{ scale: 1.01 }}
+          className="brutal-box p-8 border-2 border-green-brand bg-studio-box shadow-[6px_6px_0px_var(--color-brand-green,var(--text-primary))]"
+        >
+          <div className="text-[10px] bg-green-brand text-black px-2 py-0.5 font-bold uppercase inline-block mb-3">
+            ACTIVE GLOBAL DEPLOYMENT // 2026
+          </div>
+          <h3 className="text-2xl font-black uppercase mb-2">Novartis</h3>
+          <p className="text-xs md:text-sm mb-4 leading-relaxed opacity-80">
+            Embedding senior frontend architecture capacity to deliver
+            high-performance, scalable web applications and robust digital
+            infrastructure for global healthcare operations.
+          </p>
+          <span className="text-xs font-mono font-bold text-green-brand">
+            [ACTIVE ENTERPRISE ENGINEERING SPRINT]
+          </span>
+        </motion.div>
+      </section>
+
+      {/* Global & Previous Enterprise Clients */}
+      <section className="space-y-6">
+        <div className="text-xs font-bold uppercase tracking-widest text-primary-brand">
+          GLOBAL & PREVIOUS ENTERPRISE CLIENTS
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {previousClients.map((client, index) => (
+            <motion.div
+              key={index}
+              whileHover={{ scale: 1.02 }}
+              className={`brutal-box p-6 flex flex-col justify-between border-2 ${client.accent} bg-studio-box`}
+            >
+              <div>
+                <div className="text-[10px] bg-studio-text text-studio-bg px-2 py-0.5 font-bold uppercase inline-block mb-3">
+                  {client.category}
+                </div>
+                <h3 className="text-lg font-black uppercase mb-2">
+                  {client.name}
+                </h3>
+              </div>
+              <a
+                href={client.url}
+                target="_blank"
+                rel="noreferrer"
+                className="text-xs font-bold underline underline-offset-4 font-mono mt-4 pt-3 border-t border-studio-text/20 hover:text-green-brand"
+              >
+                {client.url.replace('https://', '').replace('www.', '')} ↗
+              </a>
+            </motion.div>
+          ))}
+        </div>
+      </section>
 
       {/* Institutional Partnerships */}
       <section className="space-y-6">
@@ -33,7 +147,7 @@ export default function PortfolioPage() {
         <div className="grid grid-cols-1 gap-6">
           <motion.div
             whileHover={{ scale: 1.01 }}
-            className="brutal-box p-8 border-2 border-studio-text shadow-[6px_6px_0px_var(--text-primary)]"
+            className="brutal-box p-8 border-2 border-studio-text bg-studio-box shadow-[6px_6px_0px_var(--text-primary)]"
           >
             <div className="text-[10px] bg-primary-brand text-white px-2 py-0.5 font-bold uppercase inline-block mb-3">
               OFFICIAL BRAND PARTNER
@@ -51,15 +165,15 @@ export default function PortfolioPage() {
         </div>
       </section>
 
-      {/* Indian & Regional Client Productions */}
+      {/* Regional & Indie Productions */}
       <section className="space-y-6">
         <div className="text-xs font-bold uppercase tracking-widest text-green-brand">
-          INDIAN & REGIONAL CLIENT PRODUCTIONS
+          REGIONAL CLIENT & INDIE PRODUCTIONS
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           <motion.div
             whileHover={{ scale: 1.02 }}
-            className="brutal-box p-6 flex flex-col justify-between border-2 border-studio-text"
+            className="brutal-box p-6 flex flex-col justify-between border-2 border-studio-text bg-studio-box"
           >
             <div>
               <div className="text-[10px] bg-primary-brand text-white px-2 py-0.5 font-bold uppercase inline-block mb-3">
@@ -76,7 +190,7 @@ export default function PortfolioPage() {
               href="http://nayabconstructions.com/"
               target="_blank"
               rel="noreferrer"
-              className="text-xs font-bold underline underline-offset-4"
+              className="text-xs font-bold underline underline-offset-4 font-mono"
             >
               nayabconstructions.com ↗
             </a>
@@ -84,7 +198,7 @@ export default function PortfolioPage() {
 
           <motion.div
             whileHover={{ scale: 1.02 }}
-            className="brutal-box p-6 flex flex-col justify-between border-2 border-studio-text"
+            className="brutal-box p-6 flex flex-col justify-between border-2 border-studio-text bg-studio-box"
           >
             <div>
               <div className="text-[10px] bg-primary-brand text-white px-2 py-0.5 font-bold uppercase inline-block mb-3">
@@ -101,7 +215,7 @@ export default function PortfolioPage() {
               href="https://irzamtourandtravel.com/"
               target="_blank"
               rel="noreferrer"
-              className="text-xs font-bold underline underline-offset-4"
+              className="text-xs font-bold underline underline-offset-4 font-mono"
             >
               irzamtourandtravel.com ↗
             </a>
@@ -109,7 +223,7 @@ export default function PortfolioPage() {
 
           <motion.div
             whileHover={{ scale: 1.02 }}
-            className="brutal-box p-6 flex flex-col justify-between border-2 border-studio-text"
+            className="brutal-box p-6 flex flex-col justify-between border-2 border-studio-text bg-studio-box"
           >
             <div>
               <div className="text-[10px] bg-primary-brand text-white px-2 py-0.5 font-bold uppercase inline-block mb-3">
@@ -122,14 +236,19 @@ export default function PortfolioPage() {
                 Custom artisanal e-commerce web storefront.
               </p>
             </div>
-            <span className="text-xs font-bold opacity-60">
-              mehandibysana.com
-            </span>
+            <a
+              href="https://mehandibysana.com/"
+              target="_blank"
+              rel="noreferrer"
+              className="text-xs font-bold underline underline-offset-4 font-mono"
+            >
+              mehandibysana.com ↗
+            </a>
           </motion.div>
 
           <motion.div
             whileHover={{ scale: 1.02 }}
-            className="brutal-box p-6 flex flex-col justify-between border-2 border-studio-text"
+            className="brutal-box p-6 flex flex-col justify-between border-2 border-studio-text bg-studio-box"
           >
             <div>
               <div className="text-[10px] bg-primary-brand text-white px-2 py-0.5 font-bold uppercase inline-block mb-3">
@@ -142,9 +261,14 @@ export default function PortfolioPage() {
                 Senior frontend architect personal web portal.
               </p>
             </div>
-            <span className="text-xs font-bold opacity-60">
-              nazrulislam.dev
-            </span>
+            <a
+              href="https://nazrulislam.dev/"
+              target="_blank"
+              rel="noreferrer"
+              className="text-xs font-bold underline underline-offset-4 font-mono"
+            >
+              nazrulislam.dev ↗
+            </a>
           </motion.div>
         </div>
       </section>
@@ -157,7 +281,7 @@ export default function PortfolioPage() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <motion.div
             whileHover={{ scale: 1.01 }}
-            className="brutal-box p-8 border-2 border-studio-text shadow-[6px_6px_0px_var(--text-primary)]"
+            className="brutal-box p-8 border-2 border-studio-text bg-studio-box shadow-[6px_6px_0px_var(--text-primary)]"
           >
             <div className="text-[10px] bg-green-brand text-black px-2 py-0.5 font-bold uppercase inline-block mb-3">
               LIVE FLAGSHIP
@@ -178,7 +302,7 @@ export default function PortfolioPage() {
 
           <motion.div
             whileHover={{ scale: 1.01 }}
-            className="brutal-box p-8 border-2 border-dashed border-studio-text opacity-90"
+            className="brutal-box p-8 border-2 border-dashed border-studio-text bg-studio-box opacity-90"
           >
             <div className="text-[10px] bg-studio-box text-studio-text px-2 py-0.5 font-bold uppercase inline-block mb-3 border border-studio-text">
               INTERNAL LABS

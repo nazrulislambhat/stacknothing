@@ -21,9 +21,12 @@
 }
 
 .dark {
-  --bg-primary: #000000;
-  --text-primary: #ffffff;
-  --box-bg: #0a0a0a;
+  /* Softened dark mode background (deep charcoal instead of pure black) */
+  --bg-primary: #121212;
+  /* Slightly off-white for text to reduce high-contrast eye strain */
+  --text-primary: #ededed;
+  /* Lifted box background to create subtle depth against the main background */
+  --box-bg: #1a1a1a;
 }
 
 html,
