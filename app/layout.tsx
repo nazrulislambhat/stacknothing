@@ -15,11 +15,8 @@ export default function RootLayout({
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
-    const stored = localStorage.getItem('stacknothing_theme') as
-      | 'dark'
-      | 'light'
-      | null;
-    if (stored) {
+    const stored = localStorage.getItem('stacknothing_theme');
+    if (stored === 'dark' || stored === 'light') {
       setTheme(stored);
       document.documentElement.classList.toggle('dark', stored === 'dark');
     } else {
@@ -37,7 +34,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={theme} suppressHydrationWarning>
       <head>
-        <title>STACKNOTHING.LLC // Agency & Product Ecosystem</title>
+        <title>STACKNOTHING.LLC // Agency &amp; Product Ecosystem</title>
         <meta
           name="description"
           content="Hard-edged engineering, standalone digital utilities, and high-performance agency architecture built with Next.js 16."
