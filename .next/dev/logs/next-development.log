@@ -1,20 +1,35 @@
-{"timestamp":"00:00:00.892","source":"Server","level":"LOG","message":""}
-{"timestamp":"00:00:22.109","source":"Server","level":"LOG","message":"✓ Compiled in 245ms"}
-{"timestamp":"00:00:27.895","source":"Server","level":"LOG","message":"✓ Compiled in 19ms"}
-{"timestamp":"00:00:30.354","source":"Server","level":"LOG","message":"✓ Compiled in 25ms"}
-{"timestamp":"00:01:02.449","source":"Server","level":"LOG","message":"✓ Compiled in 25ms"}
-{"timestamp":"00:01:20.861","source":"Server","level":"LOG","message":"✓ Compiled in 30ms"}
-{"timestamp":"09:41:39.151","source":"Server","level":"LOG","message":"✓ Compiled in 128ms"}
-{"timestamp":"09:41:40.705","source":"Server","level":"LOG","message":"✓ Compiled in 22ms"}
-{"timestamp":"09:41:44.720","source":"Server","level":"LOG","message":"✓ Compiled in 158ms"}
-{"timestamp":"09:41:56.495","source":"Server","level":"LOG","message":"✓ Compiled in 46ms"}
-{"timestamp":"09:41:58.718","source":"Server","level":"LOG","message":"✓ Compiled in 21ms"}
-{"timestamp":"09:42:02.027","source":"Server","level":"LOG","message":"✓ Compiled in 23ms"}
-{"timestamp":"09:42:14.088","source":"Server","level":"LOG","message":"✓ Compiled in 24ms"}
-{"timestamp":"09:42:15.631","source":"Server","level":"LOG","message":"✓ Compiled in 133ms"}
-{"timestamp":"09:42:31.400","source":"Server","level":"LOG","message":"✓ Compiled in 20ms"}
-{"timestamp":"09:42:50.358","source":"Server","level":"LOG","message":"✓ Compiled in 81ms"}
-{"timestamp":"09:45:02.459","source":"Server","level":"LOG","message":"✓ Compiled in 74ms"}
-{"timestamp":"09:45:04.383","source":"Server","level":"WARN","message":"⚠ Fast Refresh had to perform a full reload due to a runtime error."}
-{"timestamp":"09:45:04.420","source":"Server","level":"LOG","message":"✓ Compiled in 61ms"}
-{"timestamp":"09:45:07.331","source":"Server","level":"LOG","message":"✓ Compiled in 27ms"}
+{"timestamp":"00:00:00.954","source":"Server","level":"LOG","message":""}
+{"timestamp":"00:00:04.303","source":"Browser","level":"INFO","message":"Download the React DevTools for a better development experience: https://react.dev/link/react-devtools"}
+{"timestamp":"00:04:26.112","source":"Server","level":"LOG","message":"✓ Compiled in 684ms"}
+{"timestamp":"00:04:41.996","source":"Server","level":"LOG","message":"✓ Compiled in 68ms"}
+{"timestamp":"00:09:45.561","source":"Server","level":"LOG","message":"✓ Compiled in 113ms"}
+{"timestamp":"00:13:12.471","source":"Browser","level":"INFO","message":"Download the React DevTools for a better development experience: https://react.dev/link/react-devtools"}
+{"timestamp":"00:13:43.201","source":"Server","level":"LOG","message":"✓ Compiled in 161ms"}
+{"timestamp":"00:20:06.470","source":"Server","level":"WARN","message":"⚠ Fast Refresh had to perform a full reload when ./app/pricing/page.tsx changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload"}
+{"timestamp":"00:22:23.954","source":"Server","level":"LOG","message":"✓ Compiled in 20ms"}
+{"timestamp":"00:22:37.931","source":"Server","level":"LOG","message":"✓ Compiled in 23ms"}
+{"timestamp":"00:22:37.955","source":"Browser","level":"ERROR","message":"./app/pricing/page.tsx:125:3\nError: Expected '</', got 'const'\n  123 |\n  124 | export default function PricingPage() {\n> 125 |   const [currency, setCurrency] = useState<'USD' | 'INR'>('USD');\n      |   ^^^^^\n  126 |   const [billingType, setBillingType] = useState<'project' | 'retainer'>(\n  127 |     'project',\n  128 |   );\n\nParsing ecmascript source code failed\n\nImport traces:\n  Client Component Browser:\n    ./app/pricing/page.tsx [Client Component Browser]\n    ./app/pricing/page.tsx [Server Component]\n\n  Client Component SSR:\n    ./app/pricing/page.tsx [Client Component SSR]\n    ./app/pricing/page.tsx [Server Component] "}
+{"timestamp":"00:22:37.955","source":"Server","level":"ERROR","message":"[browser] \"./app/pricing/page.tsx:125:3\\nError: Expected '</', got 'const'\\n  123 |\\n  124 | export default function PricingPage() {\\n> 125 |   const [currency, setCurrency] = useState<'USD' | 'INR'>('USD');\\n      |   ^^^^^\\n  126 |   const [billingType, setBillingType] = useState<'project' | 'retainer'>(\\n  127 |     'project',\\n  128 |   );\\n\\nParsing ecmascript source code failed\\n\\nImport traces:\\n  Client Component Browser:\\n    ./app/pricing/page.tsx [Client Component Browser]\\n    ./app/pricing/page.tsx [Server Component]\\n\\n  Client Component SSR:\\n    ./app/pricing/page.tsx [Client Component SSR]\\n    ./app/pricing/page.tsx [Server Component]\" \"\""}
+{"timestamp":"00:22:37.999","source":"Browser","level":"ERROR","message":"./app/pricing/page.tsx:125:3\nError: Expected '</', got 'const'\n  123 |\n  124 | export default function PricingPage() {\n> 125 |   const [currency, setCurrency] = useState<'USD' | 'INR'>('USD');\n      |   ^^^^^\n  126 |   const [billingType, setBillingType] = useState<'project' | 'retainer'>(\n  127 |     'project',\n  128 |   );\n\nParsing ecmascript source code failed\n\nImport traces:\n  Client Component Browser:\n    ./app/pricing/page.tsx [Client Component Browser]\n    ./app/pricing/page.tsx [Server Component]\n\n  Client Component SSR:\n    ./app/pricing/page.tsx [Client Component SSR]\n    ./app/pricing/page.tsx [Server Component] "}
+{"timestamp":"00:22:37.999","source":"Server","level":"ERROR","message":"[browser] \"./app/pricing/page.tsx:125:3\\nError: Expected '</', got 'const'\\n  123 |\\n  124 | export default function PricingPage() {\\n> 125 |   const [currency, setCurrency] = useState<'USD' | 'INR'>('USD');\\n      |   ^^^^^\\n  126 |   const [billingType, setBillingType] = useState<'project' | 'retainer'>(\\n  127 |     'project',\\n  128 |   );\\n\\nParsing ecmascript source code failed\\n\\nImport traces:\\n  Client Component Browser:\\n    ./app/pricing/page.tsx [Client Component Browser]\\n    ./app/pricing/page.tsx [Server Component]\\n\\n  Client Component SSR:\\n    ./app/pricing/page.tsx [Client Component SSR]\\n    ./app/pricing/page.tsx [Server Component]\" \"\""}
+{"timestamp":"00:23:07.841","source":"Server","level":"LOG","message":"✓ Compiled in 18ms"}
+{"timestamp":"00:23:09.447","source":"Server","level":"LOG","message":"✓ Compiled in 21ms"}
+{"timestamp":"00:23:43.351","source":"Server","level":"LOG","message":"✓ Compiled in 16ms"}
+{"timestamp":"00:23:54.052","source":"Server","level":"LOG","message":"✓ Compiled in 26ms"}
+{"timestamp":"00:24:02.657","source":"Server","level":"LOG","message":"✓ Compiled in 19ms"}
+{"timestamp":"00:24:13.259","source":"Server","level":"LOG","message":"✓ Compiled in 27ms"}
+{"timestamp":"00:24:28.769","source":"Server","level":"LOG","message":"✓ Compiled in 41ms"}
+{"timestamp":"00:24:39.096","source":"Server","level":"LOG","message":"✓ Compiled in 43ms"}
+{"timestamp":"00:24:42.046","source":"Server","level":"LOG","message":"✓ Compiled in 89ms"}
+{"timestamp":"00:24:59.095","source":"Server","level":"LOG","message":"✓ Compiled in 26ms"}
+{"timestamp":"00:25:00.793","source":"Server","level":"LOG","message":"✓ Compiled in 14ms"}
+{"timestamp":"00:25:08.733","source":"Server","level":"LOG","message":"✓ Compiled in 19ms"}
+{"timestamp":"00:25:10.124","source":"Server","level":"LOG","message":"✓ Compiled in 19ms"}
+{"timestamp":"00:25:12.614","source":"Server","level":"LOG","message":"✓ Compiled in 22ms"}
+{"timestamp":"00:25:14.111","source":"Server","level":"LOG","message":"✓ Compiled in 23ms"}
+{"timestamp":"00:25:43.581","source":"Server","level":"LOG","message":"✓ Compiled in 30ms"}
+{"timestamp":"00:25:47.177","source":"Server","level":"LOG","message":"✓ Compiled in 27ms"}
+{"timestamp":"00:26:16.544","source":"Server","level":"LOG","message":"✓ Compiled in 19ms"}
+{"timestamp":"00:26:21.711","source":"Server","level":"LOG","message":"✓ Compiled in 25ms"}
+{"timestamp":"00:26:22.854","source":"Server","level":"LOG","message":"✓ Compiled in 18ms"}
+{"timestamp":"00:26:32.046","source":"Server","level":"LOG","message":"✓ Compiled in 22ms"}

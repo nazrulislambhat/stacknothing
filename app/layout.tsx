@@ -96,9 +96,9 @@ export default function RootLayout({
           <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
             <Link
               href="/"
-              className="border-2 border-studio-text bg-primary-brand text-white px-4 py-2 font-bold tracking-tighter uppercase text-sm shadow-[4px_4px_0px_var(--text-primary)]"
+              className="border-2 border-primary-brand text-primary-brand  px-4 py-2 font-bold tracking-tighter uppercase text-sm]"
             >
-              [STACKNOTHING.LLC]
+              [STACKNOTHING]
             </Link>
 
             {/* Desktop Navigation */}
@@ -174,14 +174,14 @@ export default function RootLayout({
               {/* Theme Toggle Button */}
               <button
                 onClick={toggleTheme}
-                className="border-2 border-studio-text px-3 py-2 text-xs uppercase font-bold shadow-[2px_2px_0px_var(--text-primary)] hover:translate-x-[-1px] hover:translate-y-[-1px] transition-all bg-studio-bg text-studio-text"
+                className="border-2 cursor-pointer border-studio-text px-3 py-2 text-xs uppercase font-bold shadow-[2px_2px_0px_var(--text-primary)] hover:translate-x-[-1px] hover:translate-y-[-1px] transition-all bg-studio-bg text-studio-text"
               >
                 {theme === 'dark' ? '☀️' : '🌙'}
               </button>
 
               <Link
                 href="/contact"
-                className="brutal-button px-4 py-2 text-xs uppercase tracking-wider hidden sm:inline-block bg-primary-brand text-white"
+                className="brutal-button px-4 py-2 text-xs uppercase tracking-wider hidden sm:inline-block bg-red-brand text-white"
               >
                 INITIALIZE ↗
               </Link>

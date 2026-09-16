@@ -135,7 +135,7 @@ export default function Home() {
               href="https://dhikrly.com"
               target="_blank"
               rel="noreferrer"
-              className="brutal-button text-center py-3 text-xs uppercase bg-[#1f01b9] text-white shadow-[4px_4px_0px_var(--text-primary)]"
+              className="brutal-button text-center py-3 text-xs uppercase bg-[#3139FB] text-white shadow-[4px_4px_0px_var(--text-primary)]"
             >
               [ LAUNCH APP ↗ ]
             </a>
@@ -144,7 +144,7 @@ export default function Home() {
           {/* Stack UI Card */}
           <motion.div
             whileHover={{ scale: 1.01 }}
-            className="brutal-box p-8 flex flex-col justify-between border-2 border-primary-brand shadow-[6px_6px_0px_#1f01b9]"
+            className="brutal-box p-8 flex flex-col justify-between border-2 border-primary-brand shadow-[6px_6px_0px_#3139FB]"
           >
             <div>
               <div className="inline-block bg-primary-brand text-white text-xs font-bold px-2 py-0.5 mb-4 uppercase">
@@ -167,14 +167,14 @@ export default function Home() {
 
       {/* Services Grid */}
       <section className="space-y-6">
-        <div className="border-l-4 border-[#1f01b9] pl-4 text-sm font-bold uppercase tracking-wider">
+        <div className="border-l-4 border-[#3139FB] pl-4 text-sm font-bold uppercase tracking-wider">
           STUDIO CAPABILITIES & SERVICES
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           <Link
             href="/services/web-dev"
-            className="brutal-box p-6 space-y-3 block hover:border-[#1f01b9] transition-colors group"
+            className="brutal-box p-6 space-y-3 block hover:border-[#3139FB] transition-colors group"
           >
             <div className="text-xl group-hover:scale-125 transition-transform origin-left">
               🔧
