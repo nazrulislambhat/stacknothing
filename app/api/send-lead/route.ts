@@ -42,7 +42,7 @@ export async function POST(request: NextRequest) {
     }
 
     const data = await resend.emails.send({
-      from: 'StackNothing Dispatch <dispatch@stacknothing.com>', // Update with your verified domain email later (e.g., dispatch@stacknothing.com)
+      from: 'StackNothing Email Dispatch <contact@stacknothing.com>', // Update with your verified domain email later (e.g., dispatch@stacknothing.com)
       to: ['stacknothing@gmail.com'],
       subject: subject,
       html: htmlContent,
