@@ -218,6 +218,15 @@ type RouteHandlerConfig<Route extends AppRouteHandlerRoutes = AppRouteHandlerRou
   type __Unused = __Check
 }
 
+// Validate ../../../app/api/send-lead/route.ts
+{
+  type __IsExpected<Specific extends RouteHandlerConfig<"/api/send-lead">> = Specific
+  const handler = {} as typeof import("../../../app/api/send-lead/route.js")
+  type __Check = __IsExpected<typeof handler>
+  // @ts-ignore
+  type __Unused = __Check
+}
+
 // Validate ../../../app/og/route.tsx
 {
   type __IsExpected<Specific extends RouteHandlerConfig<"/og">> = Specific

@@ -373,7 +373,7 @@ export default function RootLayout({
             {/* Status & Copyright */}
             <div className="space-y-2">
               <div className="border-2 border-studio-text px-3 py-1 bg-studio-box text-green-brand font-bold inline-block">
-                STATUS: ALL SYSTEMS OPERATIONAL [BETA]
+                STATUS: ALL SYSTEMS OPERATIONAL
               </div>
               <div className="text-zinc-500 text-[10px]">
                 © 2026 STACKNOTHING LLC. ALL RIGHTS RESERVED.
