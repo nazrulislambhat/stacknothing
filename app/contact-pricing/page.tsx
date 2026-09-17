@@ -1,6 +1,6 @@
 'use client';
 
-import { Suspense, useState } from 'react';
+import { Suspense, useState, FormEvent, ChangeEvent } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { motion, AnimatePresence } from 'motion/react';
 import Link from 'next/link';
@@ -9,12 +9,18 @@ function ContactPricingContent() {
   const searchParams = useSearchParams();
 
   // Read selected plan configurations from URL query string
-  const planKey = searchParams.get('plan') || 'custom';
-  const type = searchParams.get('type') || 'project';
-  const currency = searchParams.get('currency') || 'USD';
-  const price = searchParams.get('price') || 'Custom Quote';
+  const planKey: string = searchParams.get('plan') || 'custom';
+  const type: string = searchParams.get('type') || 'project';
+  const currency: string = searchParams.get('currency') || 'USD';
+  const price: string = searchParams.get('price') || 'Custom Quote';
 
-  const [showPopup, setShowPopup] = useState(false);
+  const [name, setName] = useState<string>('');
+  const [email, setEmail] = useState<string>('');
+  const [message, setMessage] = useState<string>('');
+
+  const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
+  const [showPopup, setShowPopup] = useState<boolean>(false);
 
   // Map keys to readable text titles
   const planTitles: Record<string, string> = {
@@ -25,9 +31,41 @@ function ContactPricingContent() {
     custom: 'Custom Engineering Tier',
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const currentPlanTitle = planTitles[planKey] || 'Custom Tier';
+
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setShowPopup(true);
+    setIsSubmitting(true);
+    setErrorMessage(null);
+
+    try {
+      const res = await fetch('/api/send-lead', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          formType: 'pricing',
+          name,
+          email,
+          estimate: `${price} (${currency})`,
+          pages: `Tier: ${currentPlanTitle} [Model: ${type}]`,
+          message,
+        }),
+      });
+
+      const data = await res.json();
+
+      if (!res.ok) {
+        throw new Error(data.error || 'Failed to submit plan selection.');
+      }
+
+      setShowPopup(true);
+    } catch (error: unknown) {
+      const errText =
+        error instanceof Error ? error.message : 'Transmission failed.';
+      setErrorMessage(errText);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -62,7 +100,7 @@ function ContactPricingContent() {
           </div>
           <div>
             <h3 className="text-lg font-black uppercase mb-1">
-              {planTitles[planKey] || 'Custom Tier'}
+              {currentPlanTitle}
             </h3>
             <p className="text-xs font-mono opacity-80 uppercase">
               Model: {type} {type === 'retainer' && '(/mo)'}
@@ -83,6 +121,12 @@ function ContactPricingContent() {
           onSubmit={handleSubmit}
           className="md:col-span-2 brutal-box p-6 md:p-8 border-2 border-studio-text space-y-5 bg-studio-box"
         >
+          {errorMessage && (
+            <div className="border-2 border-red-brand p-4 bg-red-brand/10 text-xs font-mono text-red-brand font-bold">
+              [!] ERROR: {errorMessage}
+            </div>
+          )}
+
           <div>
             <label className="block text-xs font-mono uppercase font-bold mb-1.5">
               Full Name / Point of Contact *
@@ -90,6 +134,10 @@ function ContactPricingContent() {
             <input
               type="text"
               required
+              value={name}
+              onChange={(e: ChangeEvent<HTMLInputElement>) =>
+                setName(e.target.value)
+              }
               placeholder="e.g. Alex Rivera"
               className="w-full p-3 border-2 border-studio-text bg-transparent text-xs font-mono focus:outline-none"
             />
@@ -101,6 +149,10 @@ function ContactPricingContent() {
             <input
               type="email"
               required
+              value={email}
+              onChange={(e: ChangeEvent<HTMLInputElement>) =>
+                setEmail(e.target.value)
+              }
               placeholder="alex@company.com"
               className="w-full p-3 border-2 border-studio-text bg-transparent text-xs font-mono focus:outline-none"
             />
@@ -111,15 +163,22 @@ function ContactPricingContent() {
             </label>
             <textarea
               rows={4}
+              value={message}
+              onChange={(e: ChangeEvent<HTMLTextAreaElement>) =>
+                setMessage(e.target.value)
+              }
               placeholder="Briefly describe your objectives or deadlines..."
-              className="w-full p-3 border-2 border-studio-text bg-transparent text-xs font-mono focus:outline-none"
+              className="w-full p-3 border-2 border-studio-text bg-transparent text-xs font-mono focus:outline-none resize-none"
             ></textarea>
           </div>
           <button
             type="submit"
-            className="brutal-button w-full py-3.5 text-xs uppercase bg-black cursor-pointer text-white font-bold tracking-wide"
+            disabled={isSubmitting}
+            className="brutal-button w-full py-3.5 text-xs uppercase bg-black cursor-pointer text-white font-bold tracking-wide disabled:opacity-50"
           >
-            Submit Plan Selection ➔
+            {isSubmitting
+              ? 'TRANSMITTING VIA RESEND...'
+              : 'Submit Plan Selection ➔'}
           </button>
         </form>
       </div>
@@ -144,10 +203,10 @@ function ContactPricingContent() {
                 <p className="text-xs font-mono opacity-80 leading-relaxed">
                   Your request for the{' '}
                   <span className="font-bold underline text-green-brand">
-                    {planTitles[planKey] || 'Custom Tier'}
+                    {currentPlanTitle}
                   </span>{' '}
-                  has been saved. Book a direct sync to lock down specifications
-                  and implementation details.
+                  has been saved and dispatched to inbox. Book a direct sync to
+                  lock down specifications and implementation details.
                 </p>
               </div>
 

@@ -1,8 +1,57 @@
 'use client';
 
+import { useState, FormEvent, ChangeEvent } from 'react';
 import { motion } from 'motion/react';
 
 export default function ContactPage() {
+  const [name, setName] = useState<string>('');
+  const [email, setEmail] = useState<string>('');
+  const [tier, setTier] = useState<string>('Sprint Audit ($2,500 / ₹95,000)');
+  const [message, setMessage] = useState<string>('');
+
+  const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
+  const [successMessage, setSuccessMessage] = useState<string | null>(null);
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
+
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setSuccessMessage(null);
+    setErrorMessage(null);
+
+    try {
+      const res = await fetch('/api/send-lead', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          formType: 'contact',
+          name,
+          email,
+          message: `[Tier: ${tier}]\n\n${message}`,
+        }),
+      });
+
+      const data = await res.json();
+
+      if (!res.ok) {
+        throw new Error(data.error || 'Failed to transmit message.');
+      }
+
+      setSuccessMessage(
+        'Transmission successful! Message dispatched to inbox.',
+      );
+      setName('');
+      setEmail('');
+      setMessage('');
+    } catch (error: unknown) {
+      const errText =
+        error instanceof Error ? error.message : 'Transmission failed.';
+      setErrorMessage(errText);
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 10 }}
@@ -27,22 +76,6 @@ export default function ContactPage() {
         </p>
       </div>
 
-      {/* Beta Email Status Notice */}
-      <div className="brutal-box p-4 border-2 border-red-brand bg-red-brand/5 text-xs font-mono">
-        <span className="text-red-brand font-bold uppercase">
-          ⚠️ BETA NOTICE:
-        </span>{' '}
-        Form email routing is currently in staging. If you experience any
-        transmission issues, please email{' '}
-        <a
-          href="mailto:nazrul@stacknothing.com"
-          className="underline font-bold text-studio-text"
-        >
-          nazrul@stacknothing.com
-        </a>{' '}
-        directly.
-      </div>
-
       <motion.div
         whileHover={{ scale: 1.01 }}
         className="brutal-box p-6 bg-studio-box flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4"
@@ -51,7 +84,7 @@ export default function ContactPage() {
           <div className="text-[10px] opacity-60 uppercase font-bold">
             PRIMARY DIRECT EMAIL
           </div>
-          <div className="text-lg text-primary-brand  uppercase">
+          <div className="text-lg text-primary-brand uppercase">
             nazrul@stacknothing.com
           </div>
         </div>
@@ -63,7 +96,19 @@ export default function ContactPage() {
         </a>
       </motion.div>
 
-      <form className="brutal-box p-8 space-y-6">
+      <form onSubmit={handleSubmit} className="brutal-box p-8 space-y-6">
+        {successMessage && (
+          <div className="border-2 border-green-brand p-4 bg-green-brand/10 text-xs font-mono text-green-brand font-bold">
+            [✓ SUCCESS]: {successMessage}
+          </div>
+        )}
+
+        {errorMessage && (
+          <div className="border-2 border-red-brand p-4 bg-red-brand/10 text-xs font-mono text-red-brand font-bold">
+            [!] ERROR: {errorMessage}
+          </div>
+        )}
+
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div>
             <label className="block text-xs font-bold uppercase mb-2 opacity-80">
@@ -72,8 +117,12 @@ export default function ContactPage() {
             <input
               type="text"
               required
+              value={name}
+              onChange={(e: ChangeEvent<HTMLInputElement>) =>
+                setName(e.target.value)
+              }
               placeholder="e.g. Alex Mercer"
-              className="w-full  border-2 border-studio-text px-4 py-3 text-xs text-studio-text focus:outline-none focus:border-green-brand"
+              className="w-full border-2 border-studio-text px-4 py-3 text-xs text-studio-text bg-[var(--bg-primary)] focus:outline-none focus:border-green-brand"
             />
           </div>
           <div>
@@ -83,8 +132,12 @@ export default function ContactPage() {
             <input
               type="email"
               required
+              value={email}
+              onChange={(e: ChangeEvent<HTMLInputElement>) =>
+                setEmail(e.target.value)
+              }
               placeholder="alex@company.com"
-              className="w-full  border-2 border-studio-text px-4 py-3 text-xs text-studio-text focus:outline-none focus:border-green-brand"
+              className="w-full border-2 border-studio-text px-4 py-3 text-xs text-studio-text bg-[var(--bg-primary)] focus:outline-none focus:border-green-brand"
             />
           </div>
         </div>
@@ -93,7 +146,13 @@ export default function ContactPage() {
           <label className="block text-xs font-bold uppercase mb-2 opacity-80">
             ENGAGEMENT TIER
           </label>
-          <select className="w-full  border-2 border-studio-text px-4 py-3 text-xs text-studio-text focus:outline-none focus:border-green-brand">
+          <select
+            value={tier}
+            onChange={(e: ChangeEvent<HTMLSelectElement>) =>
+              setTier(e.target.value)
+            }
+            className="w-full border-2 border-studio-text px-4 py-3 text-xs text-studio-text bg-[var(--bg-primary)] focus:outline-none focus:border-green-brand"
+          >
             <option>Sprint Audit ($2,500 / ₹95,000)</option>
             <option>MVP Product Build ($8,500+ / ₹3,50,000+)</option>
             <option>Design System Retainer ($5,000/mo / ₹1,80,000/mo)</option>
@@ -108,8 +167,12 @@ export default function ContactPage() {
           <textarea
             rows={5}
             required
+            value={message}
+            onChange={(e: ChangeEvent<HTMLTextAreaElement>) =>
+              setMessage(e.target.value)
+            }
             placeholder="Define technical constraints, goals, and delivery timelines..."
-            className="w-full  border-2 border-studio-text p-4 text-xs text-studio-text focus:outline-none focus:border-green-brand resize-none"
+            className="w-full border-2 border-studio-text p-4 text-xs text-studio-text bg-[var(--bg-primary)] focus:outline-none focus:border-green-brand resize-none"
           ></textarea>
         </div>
 
@@ -117,9 +180,12 @@ export default function ContactPage() {
           whileHover={{ scale: 1.01 }}
           whileTap={{ scale: 0.99 }}
           type="submit"
-          className="brutal-button w-full py-4 text-xs uppercase tracking-wider cursor-pointer bg-black font-bold"
+          disabled={isSubmitting}
+          className="brutal-button w-full py-4 text-xs uppercase tracking-wider cursor-pointer bg-black text-white font-bold disabled:opacity-50"
         >
-          TRANSMIT MESSAGE ➔
+          {isSubmitting
+            ? 'TRANSMITTING VIA RESEND EDGE...'
+            : 'TRANSMIT MESSAGE ➔'}
         </motion.button>
       </form>
     </motion.div>

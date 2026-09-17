@@ -7,25 +7,6 @@ import { SiteAuditWidget } from './components/site-audit-widget';
 export default function Home() {
   return (
     <div className="space-y-16">
-      {/* Beta & Launch Banner */}
-      <motion.div
-        initial={{ opacity: 0, y: -10 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.3 }}
-        className="border-2 border-[var(--text-primary)] bg-[var(--box-bg)] px-4 py-3 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs font-mono shadow-[4px_4px_0px_#b2d12e]"
-      >
-        <div className="flex items-center gap-2">
-          <span className="w-2.5 h-2.5 rounded-full bg-[#b2d12e] animate-ping"></span>
-          <span className="font-black uppercase text-[var(--text-primary)]">
-            SYSTEM STATUS: PUBLIC BETA
-          </span>
-        </div>
-        <div className="text-zinc-600 dark:text-zinc-300 font-bold uppercase">
-          [ESTIMATED STABLE LAUNCH:{' '}
-          <span className="text-[#b2d12e]">NOV 4, 2026</span>]
-        </div>
-      </motion.div>
-
       {/* Hero Box */}
       <motion.section
         initial={{ opacity: 0, y: 20 }}
@@ -83,30 +64,6 @@ export default function Home() {
           </Link>
         </div>
       </motion.section>
-
-      {/* Beta Notice Box regarding Email Transmissions */}
-      <motion.div
-        initial={{ opacity: 0, y: 10 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.4, delay: 0.1 }}
-        className="brutal-box p-6 border-2 border-red-brand bg-[#db4a2b]/5 space-y-2 text-xs font-mono"
-      >
-        <div className="text-red-brand font-bold uppercase tracking-wider">
-          ⚠️ NOTICE: BETA CONTACT ROUTING
-        </div>
-        <p className="text-zinc-600 dark:text-zinc-300 leading-relaxed">
-          Direct automated contact form email transmissions are currently
-          undergoing staging configuration updates during the beta period. If
-          your form submission fails, please write to{' '}
-          <a
-            href="mailto:nazrul@stacknothing.com"
-            className="font-bold underline text-primary-brand"
-          >
-            nazrul@stacknothing.com
-          </a>{' '}
-          directly.
-        </p>
-      </motion.div>
 
       {/* Active Ecosystem Grid */}
       <section id="ecosystem" className="space-y-6">

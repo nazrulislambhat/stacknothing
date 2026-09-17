@@ -1,13 +1,14 @@
 'use client';
 
-import { Suspense } from 'react';
+import { useState, FormEvent, ChangeEvent, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import { motion } from 'motion/react';
 
 function ApplyForm() {
   const searchParams = useSearchParams();
-  const roleParam = searchParams.get('role') || 'General StackNothing Application';
+  const roleParam =
+    searchParams.get('role') || 'General StackNothing Application';
 
   const roleTitle =
     roleParam === 'frontend-architect'
@@ -15,6 +16,59 @@ function ApplyForm() {
       : roleParam === 'fullstack-engineer'
         ? 'Full Stack / Next.js Engineer'
         : 'General Studio Application';
+
+  const [name, setName] = useState<string>('');
+  const [email, setEmail] = useState<string>('');
+  const [github, setGithub] = useState<string>('');
+  const [techStack, setTechStack] = useState<string>('');
+  const [message, setMessage] = useState<string>('');
+
+  const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
+  const [successMessage, setSuccessMessage] = useState<string | null>(null);
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
+
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setSuccessMessage(null);
+    setErrorMessage(null);
+
+    try {
+      const res = await fetch('/api/send-lead', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          formType: 'career',
+          name,
+          email,
+          role: roleTitle,
+          github,
+          message: `[Tech Stack: ${techStack}]\n\n${message}`,
+        }),
+      });
+
+      const data = await res.json();
+
+      if (!res.ok) {
+        throw new Error(data.error || 'Failed to transmit application.');
+      }
+
+      setSuccessMessage(
+        'Application transmitted successfully! Dispatched to studio inbox.',
+      );
+      setName('');
+      setEmail('');
+      setGithub('');
+      setTechStack('');
+      setMessage('');
+    } catch (error: unknown) {
+      const errText =
+        error instanceof Error ? error.message : 'Transmission failed.';
+      setErrorMessage(errText);
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   return (
     <motion.div
@@ -42,7 +96,19 @@ function ApplyForm() {
         </p>
       </div>
 
-      <form className="brutal-box p-8 space-y-6">
+      <form onSubmit={handleSubmit} className="brutal-box p-8 space-y-6">
+        {successMessage && (
+          <div className="border-2 border-green-brand p-4 bg-green-brand/10 text-xs font-mono text-green-brand font-bold">
+            [✓ SUCCESS]: {successMessage}
+          </div>
+        )}
+
+        {errorMessage && (
+          <div className="border-2 border-red-brand p-4 bg-red-brand/10 text-xs font-mono text-red-brand font-bold">
+            [!] ERROR: {errorMessage}
+          </div>
+        )}
+
         <input type="hidden" name="applied_role" value={roleTitle} />
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -53,8 +119,12 @@ function ApplyForm() {
             <input
               type="text"
               required
+              value={name}
+              onChange={(e: ChangeEvent<HTMLInputElement>) =>
+                setName(e.target.value)
+              }
               placeholder="e.g. Alex Mercer"
-              className="w-full border-2 border-studio-text px-4 py-3 text-xs text-studio-text focus:outline-none focus:border-green-brand"
+              className="w-full border-2 border-studio-text px-4 py-3 text-xs text-studio-text bg-[var(--bg-primary)] focus:outline-none focus:border-green-brand"
             />
           </div>
           <div>
@@ -64,8 +134,12 @@ function ApplyForm() {
             <input
               type="email"
               required
+              value={email}
+              onChange={(e: ChangeEvent<HTMLInputElement>) =>
+                setEmail(e.target.value)
+              }
               placeholder="alex@company.com"
-              className="w-full border-2 border-studio-text px-4 py-3 text-xs text-studio-text focus:outline-none focus:border-green-brand"
+              className="w-full border-2 border-studio-text px-4 py-3 text-xs text-studio-text bg-[var(--bg-primary)] focus:outline-none focus:border-green-brand"
             />
           </div>
         </div>
@@ -78,8 +152,12 @@ function ApplyForm() {
             <input
               type="url"
               required
+              value={github}
+              onChange={(e: ChangeEvent<HTMLInputElement>) =>
+                setGithub(e.target.value)
+              }
               placeholder="https://github.com/username"
-              className="w-full border-2 border-studio-text px-4 py-3 text-xs text-studio-text focus:outline-none focus:border-green-brand"
+              className="w-full border-2 border-studio-text px-4 py-3 text-xs text-studio-text bg-[var(--bg-primary)] focus:outline-none focus:border-green-brand"
             />
           </div>
           <div>
@@ -89,8 +167,12 @@ function ApplyForm() {
             <input
               type="text"
               required
+              value={techStack}
+              onChange={(e: ChangeEvent<HTMLInputElement>) =>
+                setTechStack(e.target.value)
+              }
               placeholder="Next.js 16, TypeScript, Tailwind v4, React"
-              className="w-full  border-2 border-studio-text px-4 py-3 text-xs text-studio-text focus:outline-none focus:border-green-brand"
+              className="w-full border-2 border-studio-text px-4 py-3 text-xs text-studio-text bg-[var(--bg-primary)] focus:outline-none focus:border-green-brand"
             />
           </div>
         </div>
@@ -102,8 +184,12 @@ function ApplyForm() {
           <textarea
             rows={5}
             required
+            value={message}
+            onChange={(e: ChangeEvent<HTMLTextAreaElement>) =>
+              setMessage(e.target.value)
+            }
             placeholder="Briefly describe your experience with modern React/Next.js architectures..."
-            className="w-full  border-2 border-studio-text p-4 text-xs text-studio-text focus:outline-none focus:border-green-brand resize-none"
+            className="w-full border-2 border-studio-text p-4 text-xs text-studio-text bg-[var(--bg-primary)] focus:outline-none focus:border-green-brand resize-none"
           ></textarea>
         </div>
 
@@ -111,9 +197,12 @@ function ApplyForm() {
           whileHover={{ scale: 1.01 }}
           whileTap={{ scale: 0.99 }}
           type="submit"
-          className="brutal-button w-full py-4 text-xs uppercase tracking-wider bg-green-brand text-black font-bold shadow-[4px_4px_0px_var(--text-primary)]"
+          disabled={isSubmitting}
+          className="brutal-button w-full py-4 text-xs uppercase tracking-wider bg-green-brand text-black font-bold shadow-[4px_4px_0px_var(--text-primary)] disabled:opacity-50 cursor-pointer"
         >
-          TRANSMIT APPLICATION ➔
+          {isSubmitting
+            ? 'TRANSMITTING APPLICATION...'
+            : 'TRANSMIT APPLICATION ➔'}
         </motion.button>
       </form>
     </motion.div>
