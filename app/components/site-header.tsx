@@ -3,7 +3,6 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'motion/react';
-import { BookingModal } from '../components/booking-modal';
 
 interface SiteHeaderProps {
   theme: 'dark' | 'light';
@@ -13,7 +12,6 @@ interface SiteHeaderProps {
 export function SiteHeader({ theme, toggleTheme }: SiteHeaderProps) {
   const [servicesOpen, setServicesOpen] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [isBookingOpen, setIsBookingOpen] = useState(false);
 
   return (
     <>
@@ -106,13 +104,15 @@ export function SiteHeader({ theme, toggleTheme }: SiteHeaderProps) {
           </nav>
 
           <div className="flex items-center gap-3">
-            {/* Direct Booking Modal Button */}
-            <button
-              onClick={() => setIsBookingOpen(true)}
+            {/* Direct Cal.com URL Button (Desktop) */}
+            <a
+              href="https://cal.com/stacknothing"
+              target="_blank"
+              rel="noopener noreferrer"
               className="hidden md:inline-block border-2 border-studio-text px-3 py-2 text-[10px] uppercase font-bold font-mono bg-red-brand text-white shadow-[2px_2px_0px_var(--text-primary)] hover:translate-x-[-1px] hover:translate-y-[-1px] transition-all cursor-pointer"
             >
               Book Call ↗
-            </button>
+            </a>
 
             {/* Theme Toggle Button */}
             <button
@@ -223,26 +223,19 @@ export function SiteHeader({ theme, toggleTheme }: SiteHeaderProps) {
               </div>
 
               <div className="pt-4 border-t border-studio-text/20 space-y-2">
-                <button
-                  onClick={() => {
-                    setMobileMenuOpen(false);
-                    setIsBookingOpen(true);
-                  }}
+                <a
+                  href="https://cal.com/stacknothing"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="brutal-button block w-full cursor-pointer text-center py-3 bg-red-brand text-white font-bold uppercase"
                 >
                   Book Cal.com Call ↗
-                </button>
+                </a>
               </div>
             </motion.div>
           )}
         </AnimatePresence>
       </header>
-
-      {/* Global Booking Modal */}
-      <BookingModal
-        isOpen={isBookingOpen}
-        onClose={() => setIsBookingOpen(false)}
-      />
     </>
   );
 }

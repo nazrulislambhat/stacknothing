@@ -243,7 +243,7 @@ function ApplyForm() {
           whileTap={{ scale: 0.99 }}
           type="submit"
           disabled={isSubmitting}
-          className="brutal-button w-full py-4 text-xs uppercase tracking-wider bg-green-brand text-black font-bold shadow-[4px_4px_0px_var(--text-primary)] disabled:opacity-50 cursor-pointer"
+          className="brutal-button w-full py-4 text-xs uppercase tracking-wider bg-primary-brand text-white font-bold shadow-[4px_4px_0px_var(--text-primary)] disabled:opacity-50 cursor-pointer"
         >
           {isSubmitting
             ? 'TRANSMITTING APPLICATION...'

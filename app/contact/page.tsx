@@ -220,7 +220,7 @@ export default function ContactPage() {
           whileTap={{ scale: 0.99 }}
           type="submit"
           disabled={isSubmitting}
-          className="brutal-button w-full py-4 text-xs uppercase tracking-wider cursor-pointer bg-black text-white font-bold disabled:opacity-50"
+          className="brutal-button w-full py-4 text-xs uppercase tracking-wider cursor-pointer bg-primary-brand text-white font-bold disabled:opacity-50"
         >
           {isSubmitting
             ? 'TRANSMITTING VIA RESEND EDGE...'
