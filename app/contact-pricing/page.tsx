@@ -16,7 +16,9 @@ function ContactPricingContent() {
 
   const [name, setName] = useState<string>('');
   const [email, setEmail] = useState<string>('');
+  const [phone, setPhone] = useState<string>('');
   const [message, setMessage] = useState<string>('');
+  const [botField, setBotField] = useState<string>(''); // Honeypot state
 
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
@@ -24,10 +26,10 @@ function ContactPricingContent() {
 
   // Map keys to readable text titles
   const planTitles: Record<string, string> = {
-    'landing-page': 'Landing Page & Audit',
-    'architecture-sprint': 'Architecture Sprint',
-    'mvp-build': 'MVP Product Build',
-    'design-retainer': 'Design Retainer',
+    landing: 'High-Conversion Landing Page',
+    wordpress: 'WordPress / WooCommerce Store',
+    drupal: 'Drupal CMS & Headless',
+    nextjs: 'React & Next.js 16 Web App',
     custom: 'Custom Engineering Tier',
   };
 
@@ -46,9 +48,11 @@ function ContactPricingContent() {
           formType: 'pricing',
           name,
           email,
+          phone,
           estimate: `${price} (${currency})`,
           pages: `Tier: ${currentPlanTitle} [Model: ${type}]`,
-          message,
+          message: `[Phone: ${phone || 'N/A'}]\n\n${message}`,
+          botField, // Passed to backend for spam check
         }),
       });
 
@@ -59,6 +63,7 @@ function ContactPricingContent() {
       }
 
       setShowPopup(true);
+      setBotField('');
     } catch (error: unknown) {
       const errText =
         error instanceof Error ? error.message : 'Transmission failed.';
@@ -127,6 +132,24 @@ function ContactPricingContent() {
             </div>
           )}
 
+          {/* Hidden Honeypot anti-spam field */}
+          <div style={{ display: 'none' }} aria-hidden="true">
+            <label htmlFor="botField">
+              Do not fill this out if you are human:
+            </label>
+            <input
+              type="text"
+              id="botField"
+              name="botField"
+              tabIndex={-1}
+              autoComplete="off"
+              value={botField}
+              onChange={(e: ChangeEvent<HTMLInputElement>) =>
+                setBotField(e.target.value)
+              }
+            />
+          </div>
+
           <div>
             <label className="block text-xs font-mono uppercase font-bold mb-1.5">
               Full Name / Point of Contact *
@@ -142,21 +165,39 @@ function ContactPricingContent() {
               className="w-full p-3 border-2 border-studio-text bg-transparent text-xs font-mono focus:outline-none"
             />
           </div>
-          <div>
-            <label className="block text-xs font-mono uppercase font-bold mb-1.5">
-              Work Email *
-            </label>
-            <input
-              type="email"
-              required
-              value={email}
-              onChange={(e: ChangeEvent<HTMLInputElement>) =>
-                setEmail(e.target.value)
-              }
-              placeholder="alex@company.com"
-              className="w-full p-3 border-2 border-studio-text bg-transparent text-xs font-mono focus:outline-none"
-            />
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div>
+              <label className="block text-xs font-mono uppercase font-bold mb-1.5">
+                Work Email *
+              </label>
+              <input
+                type="email"
+                required
+                value={email}
+                onChange={(e: ChangeEvent<HTMLInputElement>) =>
+                  setEmail(e.target.value)
+                }
+                placeholder="alex@company.com"
+                className="w-full p-3 border-2 border-studio-text bg-transparent text-xs font-mono focus:outline-none"
+              />
+            </div>
+            <div>
+              <label className="block text-xs font-mono uppercase font-bold mb-1.5">
+                Phone Number (Optional)
+              </label>
+              <input
+                type="tel"
+                value={phone}
+                onChange={(e: ChangeEvent<HTMLInputElement>) =>
+                  setPhone(e.target.value)
+                }
+                placeholder="+1 (555) 019-2834"
+                className="w-full p-3 border-2 border-studio-text bg-transparent text-xs font-mono focus:outline-none"
+              />
+            </div>
           </div>
+
           <div>
             <label className="block text-xs font-mono uppercase font-bold mb-1.5">
               Project Brief & Specific Requirements
@@ -171,14 +212,13 @@ function ContactPricingContent() {
               className="w-full p-3 border-2 border-studio-text bg-transparent text-xs font-mono focus:outline-none resize-none"
             ></textarea>
           </div>
+
           <button
             type="submit"
             disabled={isSubmitting}
             className="brutal-button w-full py-3.5 text-xs uppercase bg-black cursor-pointer text-white font-bold tracking-wide disabled:opacity-50"
           >
-            {isSubmitting
-              ? 'TRANSMITTING VIA RESEND...'
-              : 'Submit Plan Selection ➔'}
+            {isSubmitting ? 'TRANSMITTING...' : 'Submit Plan Selection ➔'}
           </button>
         </form>
       </div>

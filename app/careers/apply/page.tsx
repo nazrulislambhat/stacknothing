@@ -25,9 +25,11 @@ function ApplyForm() {
 
   const [name, setName] = useState<string>('');
   const [email, setEmail] = useState<string>('');
+  const [phone, setPhone] = useState<string>('');
   const [github, setGithub] = useState<string>('');
   const [techStack, setTechStack] = useState<string>('');
   const [message, setMessage] = useState<string>('');
+  const [botField, setBotField] = useState<string>(''); // Honeypot state
 
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
   const [successMessage, setSuccessMessage] = useState<string | null>(null);
@@ -47,9 +49,11 @@ function ApplyForm() {
           formType: 'career',
           name,
           email,
+          phone,
           role: roleTitle,
           github,
-          message: `[Tech Stack: ${techStack}]\n\n${message}`,
+          message: `[Phone: ${phone || 'N/A'}]\n[Tech Stack: ${techStack}]\n\n${message}`,
+          botField, // Passed to backend for spam check
         }),
       });
 
@@ -64,9 +68,11 @@ function ApplyForm() {
       );
       setName('');
       setEmail('');
+      setPhone('');
       setGithub('');
       setTechStack('');
       setMessage('');
+      setBotField('');
     } catch (error: unknown) {
       const errText =
         error instanceof Error ? error.message : 'Transmission failed.';
@@ -115,12 +121,30 @@ function ApplyForm() {
           </div>
         )}
 
+        {/* Hidden Honeypot anti-spam field */}
+        <div style={{ display: 'none' }} aria-hidden="true">
+          <label htmlFor="botField">
+            Do not fill this out if you are human:
+          </label>
+          <input
+            type="text"
+            id="botField"
+            name="botField"
+            tabIndex={-1}
+            autoComplete="off"
+            value={botField}
+            onChange={(e: ChangeEvent<HTMLInputElement>) =>
+              setBotField(e.target.value)
+            }
+          />
+        </div>
+
         <input type="hidden" name="applied_role" value={roleTitle} />
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div>
             <label className="block text-xs font-bold uppercase mb-2 opacity-80">
-              FULL NAME
+              FULL NAME *
             </label>
             <input
               type="text"
@@ -135,7 +159,7 @@ function ApplyForm() {
           </div>
           <div>
             <label className="block text-xs font-bold uppercase mb-2 opacity-80">
-              EMAIL ADDRESS
+              EMAIL ADDRESS *
             </label>
             <input
               type="email"
@@ -150,10 +174,25 @@ function ApplyForm() {
           </div>
         </div>
 
+        <div>
+          <label className="block text-xs font-bold uppercase mb-2 opacity-80">
+            PHONE NUMBER (OPTIONAL)
+          </label>
+          <input
+            type="tel"
+            value={phone}
+            onChange={(e: ChangeEvent<HTMLInputElement>) =>
+              setPhone(e.target.value)
+            }
+            placeholder="+1 (555) 019-2834"
+            className="w-full border-2 border-studio-text px-4 py-3 text-xs text-studio-text bg-[var(--bg-primary)] focus:outline-none focus:border-green-brand"
+          />
+        </div>
+
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div>
             <label className="block text-xs font-bold uppercase mb-2 opacity-80">
-              GITHUB / PORTFOLIO URL
+              GITHUB / PORTFOLIO URL *
             </label>
             <input
               type="url"
@@ -168,7 +207,7 @@ function ApplyForm() {
           </div>
           <div>
             <label className="block text-xs font-bold uppercase mb-2 opacity-80">
-              PRIMARY TECH STACK
+              PRIMARY TECH STACK *
             </label>
             <input
               type="text"
@@ -185,7 +224,7 @@ function ApplyForm() {
 
         <div>
           <label className="block text-xs font-bold uppercase mb-2 opacity-80">
-            WHY STACKNOTHING? / EXPERIENCE SUMMARY
+            WHY STACKNOTHING? / EXPERIENCE SUMMARY *
           </label>
           <textarea
             rows={5}
