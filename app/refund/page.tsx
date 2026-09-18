@@ -38,7 +38,7 @@ const policySections: AccordionItem[] = [
     id: '05',
     title: 'Disputes, Billing Inquiries & Resolution',
     content:
-      'We prioritize transparent collaboration. For any billing discrepancies, invoice inquiries, or formal agreement adjustments, please reach out directly to nazrul@stacknothing.com before initiating chargebacks or external payment disputes. We are committed to resolving financial alignment amicably.',
+      'We prioritize transparent collaboration. For any billing discrepancies, invoice inquiries, or formal agreement adjustments, please reach out directly to team@stacknothing.com before initiating chargebacks or external payment disputes. We are committed to resolving financial alignment amicably.',
   },
 ];
 

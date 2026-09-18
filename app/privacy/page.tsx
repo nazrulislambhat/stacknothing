@@ -38,7 +38,7 @@ const privacySections: AccordionItem[] = [
     id: '05',
     title: 'User Rights, Inquiries & Data Removal',
     content:
-      'You retain full control over your personal data. For any data privacy inquiries, export requests, or immediate data removal from our systems, contact our lead engineer directly at nazrul@stacknothing.com.',
+      'You retain full control over your personal data. For any data privacy inquiries, export requests, or immediate data removal from our systems, contact our lead engineer directly at team@stacknothing.com.',
   },
 ];
 

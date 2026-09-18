@@ -15,7 +15,13 @@ function ApplyForm() {
       ? 'Senior Frontend Architect'
       : roleParam === 'fullstack-engineer'
         ? 'Full Stack / Next.js Engineer'
-        : 'General Studio Application';
+        : roleParam === 'drupal-engineer'
+          ? 'Senior Drupal & Headless Engineer'
+          : roleParam === 'ui-ux-specialist'
+            ? 'UI/UX & Design Systems Specialist'
+            : roleParam === 'graduate-intern'
+              ? 'Engineering Intern & Fresh Graduate Fellowship'
+              : 'General Engineering Pool';
 
   const [name, setName] = useState<string>('');
   const [email, setEmail] = useState<string>('');

@@ -67,10 +67,10 @@ export default function ContactPage() {
         <p className="text-xs mt-2 opacity-80">
           Reach out directly via email at{' '}
           <a
-            href="mailto:nazrul@stacknothing.com"
+            href="mailto:team@stacknothing.com"
             className="text-studio-text underline font-bold"
           >
-            nazrul@stacknothing.com
+            team@stacknothing.com
           </a>{' '}
           or transmit your project parameters below.
         </p>
@@ -85,11 +85,11 @@ export default function ContactPage() {
             PRIMARY DIRECT EMAIL
           </div>
           <div className="text-lg text-primary-brand uppercase">
-            nazrul@stacknothing.com
+            team@stacknothing.com
           </div>
         </div>
         <a
-          href="mailto:nazrul@stacknothing.com"
+          href="mailto:team@stacknothing.com"
           className="brutal-button px-4 py-2 text-xs uppercase bg-primary-brand text-white"
         >
           Send Email ↗
