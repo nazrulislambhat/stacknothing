@@ -216,7 +216,7 @@ function ContactPricingContent() {
           <button
             type="submit"
             disabled={isSubmitting}
-            className="brutal-button w-full py-3.5 text-xs uppercase bg-black cursor-pointer text-white font-bold tracking-wide disabled:opacity-50"
+            className="brutal-button w-full py-3.5 text-xs uppercase bg-primary-brand cursor-pointer text-white font-bold tracking-wide disabled:opacity-50"
           >
             {isSubmitting ? 'TRANSMITTING...' : 'Submit Plan Selection ➔'}
           </button>
@@ -255,7 +255,7 @@ function ContactPricingContent() {
                   href="https://cal.com/nazrul"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="brutal-button flex-1 text-center py-3.5 text-xs uppercase bg-green-brand text-black font-bold"
+                  className="brutal-button flex-1 text-center py-3.5 text-xs uppercase bg-primary-brand text-white font-bold"
                 >
                   Schedule on Cal.com ➔
                 </a>
