@@ -228,17 +228,10 @@ export function SiteHeader({ theme, toggleTheme }: SiteHeaderProps) {
                     setMobileMenuOpen(false);
                     setIsBookingOpen(true);
                   }}
-                  className="brutal-button block w-full text-center py-3 bg-green-brand text-black font-bold uppercase"
+                  className="brutal-button block w-full cursor-pointer text-center py-3 bg-red-brand text-white font-bold uppercase"
                 >
                   Book Cal.com Call ↗
                 </button>
-                <Link
-                  onClick={() => setMobileMenuOpen(false)}
-                  href="/contact"
-                  className="brutal-button block text-center py-3 bg-primary-brand text-white"
-                >
-                  INITIALIZE PROJECT ↗
-                </Link>
               </div>
             </motion.div>
           )}
