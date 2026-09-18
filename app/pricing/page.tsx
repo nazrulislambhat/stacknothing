@@ -4,6 +4,7 @@ import { useState } from 'react';
 import Link from 'next/link';
 import { motion } from 'motion/react';
 import { PricingCalculator } from '../components/pricing-calculator';
+import { PricingTimeline } from '../components/pricing-timeline';
 
 type Currency = 'USD' | 'EUR' | 'INR';
 type BillingType = 'project' | 'retainer';
@@ -15,24 +16,24 @@ export default function PricingPage() {
   // General, value-based pricing matrix (applicable across any tech stack)
   const prices = {
     landingPage: {
-      USD: billingType === 'retainer' ? '$1,000/mo' : '$1,200',
-      EUR: billingType === 'retainer' ? '€900/mo' : '€1,100',
-      INR: billingType === 'retainer' ? '₹50,000/mo' : '₹60,000',
+      USD: billingType === 'retainer' ? '$600/mo' : '$750',
+      EUR: billingType === 'retainer' ? '€550/mo' : '€700',
+      INR: billingType === 'retainer' ? '₹25,000/mo' : '₹35,000',
     },
     mvpBuild: {
-      USD: billingType === 'retainer' ? '$2,500/mo' : '$3,500',
-      EUR: billingType === 'retainer' ? '€2,300/mo' : '€3,200',
-      INR: billingType === 'retainer' ? '₹1,50,000/mo' : '₹2,20,000',
+      USD: billingType === 'retainer' ? '$1,500/mo' : '$2,200',
+      EUR: billingType === 'retainer' ? '€1,400/mo' : '€2,000',
+      INR: billingType === 'retainer' ? '₹75,000/mo' : '₹1,20,000',
     },
     enterprise: {
-      USD: billingType === 'retainer' ? '$3,500/mo' : '$5,000',
-      EUR: billingType === 'retainer' ? '€3,200/mo' : '€4,600',
-      INR: billingType === 'retainer' ? '₹2,20,000/mo' : '₹3,50,000',
+      USD: billingType === 'retainer' ? '$2,200/mo' : '$3,500',
+      EUR: billingType === 'retainer' ? '€2,000/mo' : '€3,200',
+      INR: billingType === 'retainer' ? '₹1,10,000/mo' : '₹1,80,000',
     },
     retainer: {
-      USD: '$3,000/mo',
-      EUR: '€2,800/mo',
-      INR: '₹2,00,000/mo',
+      USD: '$1,800/mo',
+      EUR: '€1,650/mo',
+      INR: '₹125,000/mo',
     },
   };
 
@@ -247,6 +248,7 @@ export default function PricingPage() {
         formal contract terms will be finalized.
       </div>
       <PricingCalculator />
+      <PricingTimeline />
     </motion.div>
   );
 }

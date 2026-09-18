@@ -6,8 +6,10 @@ import { motion } from 'motion/react';
 export default function ContactPage() {
   const [name, setName] = useState<string>('');
   const [email, setEmail] = useState<string>('');
+  const [phone, setPhone] = useState<string>('');
   const [tier, setTier] = useState<string>('Sprint Audit ($2,500 / ₹95,000)');
   const [message, setMessage] = useState<string>('');
+  const [botField, setBotField] = useState<string>(''); // Honeypot state
 
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
   const [successMessage, setSuccessMessage] = useState<string | null>(null);
@@ -27,7 +29,9 @@ export default function ContactPage() {
           formType: 'contact',
           name,
           email,
-          message: `[Tier: ${tier}]\n\n${message}`,
+          phone,
+          message: `[Tier: ${tier}]\n[Phone: ${phone || 'N/A'}]\n\n${message}`,
+          botField, // Passed to backend for spam check
         }),
       });
 
@@ -42,7 +46,9 @@ export default function ContactPage() {
       );
       setName('');
       setEmail('');
+      setPhone('');
       setMessage('');
+      setBotField('');
     } catch (error: unknown) {
       const errText =
         error instanceof Error ? error.message : 'Transmission failed.';
@@ -109,10 +115,28 @@ export default function ContactPage() {
           </div>
         )}
 
+        {/* Hidden Honeypot anti-spam field */}
+        <div style={{ display: 'none' }} aria-hidden="true">
+          <label htmlFor="botField">
+            Do not fill this out if you are human:
+          </label>
+          <input
+            type="text"
+            id="botField"
+            name="botField"
+            tabIndex={-1}
+            autoComplete="off"
+            value={botField}
+            onChange={(e: ChangeEvent<HTMLInputElement>) =>
+              setBotField(e.target.value)
+            }
+          />
+        </div>
+
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div>
             <label className="block text-xs font-bold uppercase mb-2 opacity-80">
-              YOUR NAME
+              YOUR NAME *
             </label>
             <input
               type="text"
@@ -127,7 +151,7 @@ export default function ContactPage() {
           </div>
           <div>
             <label className="block text-xs font-bold uppercase mb-2 opacity-80">
-              EMAIL
+              EMAIL *
             </label>
             <input
               type="email"
@@ -140,6 +164,21 @@ export default function ContactPage() {
               className="w-full border-2 border-studio-text px-4 py-3 text-xs text-studio-text bg-[var(--bg-primary)] focus:outline-none focus:border-green-brand"
             />
           </div>
+        </div>
+
+        <div>
+          <label className="block text-xs font-bold uppercase mb-2 opacity-80">
+            PHONE NUMBER (OPTIONAL)
+          </label>
+          <input
+            type="tel"
+            value={phone}
+            onChange={(e: ChangeEvent<HTMLInputElement>) =>
+              setPhone(e.target.value)
+            }
+            placeholder="+1 (555) 019-2834"
+            className="w-full border-2 border-studio-text px-4 py-3 text-xs text-studio-text bg-[var(--bg-primary)] focus:outline-none focus:border-green-brand"
+          />
         </div>
 
         <div>
@@ -162,7 +201,7 @@ export default function ContactPage() {
 
         <div>
           <label className="block text-xs font-bold uppercase mb-2 opacity-80">
-            PROJECT SCOPE SPECIFICATION
+            PROJECT SCOPE SPECIFICATION *
           </label>
           <textarea
             rows={5}
