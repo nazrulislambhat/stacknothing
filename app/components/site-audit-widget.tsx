@@ -120,7 +120,7 @@ export function SiteAuditWidget() {
           <button
             type="submit"
             disabled={isScanning}
-            className="brutal-button px-6 py-3 text-xs uppercase bg-primary-brand text-white whitespace-nowrap disabled:opacity-50"
+            className="brutal-button px-6 py-3 text-xs uppercase bg-primary-brand text-white whitespace-nowrap disabled:opacity-50 cursor-pointer"
           >
             {isScanning ? 'ANALYZING NODES...' : 'RUN LIVE AUDIT ➔'}
           </button>

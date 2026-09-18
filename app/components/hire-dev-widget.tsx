@@ -181,21 +181,12 @@ export function HireDevWidget() {
                 whileTap={{ scale: 0.99 }}
                 type="submit"
                 disabled={isSubmitting}
-                className="brutal-button flex-1 py-4 text-xs uppercase bg-black text-white font-bold tracking-wider cursor-pointer disabled:opacity-50 text-center"
+                className=" flex-1 py-4 text-xs uppercase bg-black text-white font-bold tracking-wider cursor-pointer disabled:opacity-50 text-center hover:bg-primary-brand"
               >
                 {isSubmitting
                   ? 'TRANSMITTING REQUEST...'
                   : 'Initialize Developer Request ➔'}
               </motion.button>
-
-              <Link
-                href="https://cal.com/nazrul"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="brutal-button px-6 py-4 text-xs uppercase bg-green-brand text-black font-bold tracking-wider text-center flex items-center justify-center"
-              >
-                Book Instant Call ↗
-              </Link>
             </div>
           </form>
         )}
