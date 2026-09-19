@@ -78,7 +78,7 @@ function ContactPricingContent() {
       initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4 }}
-      className="max-w-5xl mx-auto space-y-8 text-studio-text md:p-12 relative"
+      className=" mx-auto space-y-8 text-studio-text md:py-12 relative"
     >
       <div className="flex justify-between items-center">
         <div>
@@ -161,7 +161,7 @@ function ContactPricingContent() {
               onChange={(e: ChangeEvent<HTMLInputElement>) =>
                 setName(e.target.value)
               }
-              placeholder="e.g. Alex Rivera"
+              placeholder="e.g. Nazrul Islam"
               className="w-full p-3 border-2 border-studio-text bg-transparent text-xs font-mono focus:outline-none"
             />
           </div>
@@ -178,7 +178,7 @@ function ContactPricingContent() {
                 onChange={(e: ChangeEvent<HTMLInputElement>) =>
                   setEmail(e.target.value)
                 }
-                placeholder="alex@company.com"
+                placeholder="example@stacknothing.com"
                 className="w-full p-3 border-2 border-studio-text bg-transparent text-xs font-mono focus:outline-none"
               />
             </div>
@@ -192,7 +192,7 @@ function ContactPricingContent() {
                 onChange={(e: ChangeEvent<HTMLInputElement>) =>
                   setPhone(e.target.value)
                 }
-                placeholder="+1 (555) 019-2834"
+                placeholder="+1 (173) 173-1703"
                 className="w-full p-3 border-2 border-studio-text bg-transparent text-xs font-mono focus:outline-none"
               />
             </div>

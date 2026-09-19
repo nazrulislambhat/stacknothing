@@ -67,6 +67,12 @@ export function SiteHeader({ theme, toggleTheme }: SiteHeaderProps) {
                   >
                     ⚡ Legacy Refactoring
                   </Link>
+                  <Link
+                    href="/services/mvp"
+                    className="block p-2 hover:bg-primary-brand hover:text-white text-[11px]"
+                  >
+                    🚀 MVP Fast-Track
+                  </Link>
                 </div>
               )}
             </div>
@@ -84,10 +90,10 @@ export function SiteHeader({ theme, toggleTheme }: SiteHeaderProps) {
               [ AUDIT ]
             </Link>
             <Link
-              href="/tokens"
+              href="/case-studies"
               className="hover:text-primary-brand transition-colors"
             >
-              [ TOKENS ]
+              [ CASE STUDIES ]
             </Link>
             <Link
               href="/pricing"
@@ -181,6 +187,13 @@ export function SiteHeader({ theme, toggleTheme }: SiteHeaderProps) {
                   className="block pl-4 py-1"
                 >
                   ⚡ Legacy Refactoring
+                </Link>
+                <Link
+                  onClick={() => setMobileMenuOpen(false)}
+                  href="/services/mvp"
+                  className="block pl-4 py-1"
+                >
+                  🚀 MVP Fast-Track
                 </Link>
               </div>
 

@@ -63,7 +63,7 @@ export default function ContactPage() {
       initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4 }}
-      className="max-w-3xl mx-auto space-y-8 text-studio-text"
+      className="mx-auto space-y-8 text-studio-text"
     >
       <div>
         <div className="border-l-4 border-green-brand pl-4 text-sm font-bold uppercase tracking-wider mb-2">
@@ -145,7 +145,7 @@ export default function ContactPage() {
               onChange={(e: ChangeEvent<HTMLInputElement>) =>
                 setName(e.target.value)
               }
-              placeholder="e.g. Alex Mercer"
+              placeholder="e.g. Nazrul Islam"
               className="w-full border-2 border-studio-text px-4 py-3 text-xs text-studio-text bg-[var(--bg-primary)] focus:outline-none focus:border-green-brand"
             />
           </div>
@@ -160,7 +160,7 @@ export default function ContactPage() {
               onChange={(e: ChangeEvent<HTMLInputElement>) =>
                 setEmail(e.target.value)
               }
-              placeholder="alex@company.com"
+              placeholder="example@stacknothing.com"
               className="w-full border-2 border-studio-text px-4 py-3 text-xs text-studio-text bg-[var(--bg-primary)] focus:outline-none focus:border-green-brand"
             />
           </div>
@@ -176,7 +176,7 @@ export default function ContactPage() {
             onChange={(e: ChangeEvent<HTMLInputElement>) =>
               setPhone(e.target.value)
             }
-            placeholder="+1 (555) 019-2834"
+            placeholder="+1 (173) 173-1703"
             className="w-full border-2 border-studio-text px-4 py-3 text-xs text-studio-text bg-[var(--bg-primary)] focus:outline-none focus:border-green-brand"
           />
         </div>

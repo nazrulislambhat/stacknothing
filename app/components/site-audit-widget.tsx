@@ -8,10 +8,8 @@ interface AuditResult {
   url: string;
   lcp: string;
   cls: string;
-  tbt: string;
+  fid: string;
   performanceScore: number;
-  a11yScore: number;
-  seoScore: number;
   status: 'OPTIMIZED' | 'WARNING' | 'CRITICAL';
 }
 
@@ -20,79 +18,75 @@ export function SiteAuditWidget() {
   const [isScanning, setIsScanning] = useState(false);
   const [result, setResult] = useState<AuditResult | null>(null);
   const [cheekyError, setCheekyError] = useState<string | null>(null);
+  const [apiError, setApiError] = useState<string | null>(null);
 
   const handleAudit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!urlInput) return;
 
-    const targetUrl = urlInput.trim().toLowerCase();
+    const targetUrl = urlInput.trim();
+    const lowerUrl = targetUrl.toLowerCase();
 
     // Normalize URL for domain checking
-    let cleanDomain = targetUrl;
+    let cleanDomain = lowerUrl;
     if (cleanDomain.startsWith('http://'))
       cleanDomain = cleanDomain.replace('http://', '');
     if (cleanDomain.startsWith('https://'))
       cleanDomain = cleanDomain.replace('https://', '');
     if (cleanDomain.endsWith('/')) cleanDomain = cleanDomain.slice(0, -1);
 
-    // Check if it's stacknothing.com or any subdomain (e.g. blog.stacknothing.com)
+    // Check if it's stacknothing.com or any subdomain
     if (
       cleanDomain === 'stacknothing.com' ||
-      cleanDomain.endsWith('.stacknothing.com')
+      cleanDomain.endsWith('.stacknothing.com') ||
+      cleanDomain === 'localhost'
     ) {
       setCheekyError(
         "Nice try! Our own infrastructure is already running at 100/100 Core Web Vitals on Vercel Edge. Audit someone else's slow site instead! 😉",
       );
       setResult(null);
+      setApiError(null);
       return;
     }
 
     setCheekyError(null);
+    setApiError(null);
     setIsScanning(true);
     setResult(null);
 
-    // Simulate elite edge telemetry analysis
-    setTimeout(() => {
-      const hash = targetUrl
-        .split('')
-        .reduce((acc, char) => acc + char.charCodeAt(0), 0);
-      const isOptimized = hash % 3 !== 0;
+    try {
+      const res = await fetch(
+        `/api/audit?url=${encodeURIComponent(targetUrl)}`,
+      );
+      const data = await res.json();
 
-      const perfScore = isOptimized
-        ? Math.floor(Math.random() * (99 - 88 + 1)) + 88
-        : Math.floor(Math.random() * (68 - 45 + 1)) + 45;
-      const a11yScore = isOptimized ? 98 : 79;
-      const seoScore = isOptimized ? 100 : 72;
+      if (!res.ok) {
+        throw new Error(data.error || 'Failed to fetch performance telemetry.');
+      }
 
-      const lcpVal = isOptimized ? '0.8s (EXCELLENT)' : '2.6s (NEEDS REFACTOR)';
-      const clsVal = isOptimized
-        ? '0.00 (STABLE)'
-        : '0.18 (LAYOUT SHIFT DETECTED)';
-      const tbtVal = isOptimized ? '12ms (FAST)' : '240ms (BLOCKING)';
-
+      const score = data.score || 0;
       const status =
-        perfScore >= 85
-          ? 'OPTIMIZED'
-          : perfScore >= 50
-            ? 'WARNING'
-            : 'CRITICAL';
+        score >= 85 ? 'OPTIMIZED' : score >= 50 ? 'WARNING' : 'CRITICAL';
 
       setResult({
         url: targetUrl,
-        lcp: lcpVal,
-        cls: clsVal,
-        tbt: tbtVal,
-        performanceScore: perfScore,
-        a11yScore: a11yScore,
-        seoScore: seoScore,
+        lcp: data.metrics?.lcp || 'N/A',
+        cls: data.metrics?.cls || 'N/A',
+        fid: data.metrics?.fid || 'N/A',
+        performanceScore: score,
         status: status,
       });
+    } catch (err: unknown) {
+      setApiError(
+        err instanceof Error ? err.message : 'An unexpected error occurred.',
+      );
+    } finally {
       setIsScanning(false);
-    }, 1600);
+    }
   };
 
   return (
-    <div className="brutal-box p-8 border-2 border-studio-text space-y-6">
+    <div className="brutal-box p-8 border-2 border-studio-text space-y-6 bg-studio-box">
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 border-b border-studio-text/20 pb-4">
         <div>
           <div className="text-[10px] text-green-brand font-bold uppercase font-mono tracking-widest">
@@ -103,14 +97,14 @@ export function SiteAuditWidget() {
           </h3>
         </div>
         <div className="text-xs font-mono opacity-60">
-          ENGINE: VERCEL EDGE / LIGHTHOUSE v12 SIM
+          ENGINE: GOOGLE PAGESPEED v5 API
         </div>
       </div>
 
       <form onSubmit={handleAudit} className="space-y-4">
         <div className="flex flex-col sm:flex-row gap-3">
           <input
-            type="text"
+            type="url"
             required
             value={urlInput}
             onChange={(e) => setUrlInput(e.target.value)}
@@ -120,9 +114,9 @@ export function SiteAuditWidget() {
           <button
             type="submit"
             disabled={isScanning}
-            className="brutal-button px-6 py-3 text-xs uppercase bg-primary-brand text-white whitespace-nowrap disabled:opacity-50 cursor-pointer"
+            className="brutal-button px-6 py-3 text-xs uppercase bg-primary-brand text-white whitespace-nowrap disabled:opacity-50 cursor-pointer font-bold tracking-wider"
           >
-            {isScanning ? 'ANALYZING NODES...' : 'RUN LIVE AUDIT ➔'}
+            {isScanning ? 'FETCHING PSI NODES...' : 'RUN LIVE AUDIT ➔'}
           </button>
         </div>
       </form>
@@ -141,14 +135,27 @@ export function SiteAuditWidget() {
         </motion.div>
       )}
 
+      {/* API Error Display */}
+      {apiError && (
+        <motion.div
+          initial={{ opacity: 0, y: -5 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="border-2 border-red-brand p-4 bg-red-brand/10 text-xs font-mono text-studio-text space-y-2"
+        >
+          <div className="text-red-brand font-bold uppercase tracking-wider">
+            [!] DIAGNOSTIC FAILED:
+          </div>
+          <p className="leading-relaxed opacity-90">{apiError}</p>
+        </motion.div>
+      )}
+
       {isScanning && (
         <div className="border-2 border-dashed border-studio-text p-6 text-center font-mono text-xs space-y-2 animate-pulse">
           <div className="text-green-brand font-bold">
-            [!] CRAWLING DOM & ANALYZING HEADLESS NODES...
+            [!] CONNECTING TO GOOGLE PAGESPEED INSIGHTS...
           </div>
           <div className="opacity-60">
-            Evaluating Largest Contentful Paint, Total Blocking Time, and
-            Accessibility Trees.
+            Fetching mobile strategy metrics, LCP, CLS, and TBT/FID telemetry.
           </div>
         </div>
       )}
@@ -166,7 +173,13 @@ export function SiteAuditWidget() {
                 <span className="font-bold">{result.url}</span>
               </div>
               <div
-                className={`px-2 py-0.5 text-[10px] font-bold uppercase ${result.status === 'OPTIMIZED' ? 'bg-green-brand text-black' : result.status === 'WARNING' ? 'bg-primary-brand text-white' : 'bg-red-brand text-white'}`}
+                className={`px-2 py-0.5 text-[10px] font-bold uppercase ${
+                  result.status === 'OPTIMIZED'
+                    ? 'bg-green-brand text-black'
+                    : result.status === 'WARNING'
+                      ? 'bg-primary-brand text-white'
+                      : 'bg-red-brand text-white'
+                }`}
               >
                 STATUS: {result.status}
               </div>
@@ -174,9 +187,13 @@ export function SiteAuditWidget() {
 
             <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
               <div className="border border-studio-text p-4 bg-[var(--bg-primary)]">
-                <div className="opacity-60 text-[10px]">PERFORMANCE SCORE</div>
+                <div className="opacity-60 text-[10px]">PSI SCORE</div>
                 <div
-                  className={`text-lg font-black mt-1 ${result.performanceScore >= 85 ? 'text-green-brand' : 'text-red-brand'}`}
+                  className={`text-lg font-black mt-1 ${
+                    result.performanceScore >= 85
+                      ? 'text-green-brand'
+                      : 'text-red-brand'
+                  }`}
                 >
                   {result.performanceScore} / 100
                 </div>
@@ -190,10 +207,10 @@ export function SiteAuditWidget() {
                 <div className="text-sm font-black mt-1">{result.cls}</div>
               </div>
               <div className="border border-studio-text p-4 bg-[var(--bg-primary)]">
-                <div className="opacity-60 text-[10px]">ACCESSIBILITY</div>
-                <div className="text-sm font-black mt-1 text-green-brand">
-                  {result.a11yScore} / 100
+                <div className="opacity-60 text-[10px]">
+                  FID / INTERACTIVITY
                 </div>
+                <div className="text-sm font-black mt-1">{result.fid}</div>
               </div>
             </div>
 

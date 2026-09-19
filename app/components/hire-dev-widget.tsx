@@ -153,7 +153,7 @@ export function HireDevWidget() {
                   onChange={(e: ChangeEvent<HTMLInputElement>) =>
                     setName(e.target.value)
                   }
-                  placeholder="e.g. Alex Rivera"
+                  placeholder="e.g. Nazrul Islam"
                   className="w-full p-3 border-2 border-studio-text bg-transparent text-xs font-mono focus:outline-none focus:border-green-brand"
                 />
               </div>
@@ -169,7 +169,7 @@ export function HireDevWidget() {
                   onChange={(e: ChangeEvent<HTMLInputElement>) =>
                     setEmail(e.target.value)
                   }
-                  placeholder="alex@company.com"
+                  placeholder="example@stacknothing.com"
                   className="w-full p-3 border-2 border-studio-text bg-transparent text-xs font-mono focus:outline-none focus:border-green-brand"
                 />
               </div>

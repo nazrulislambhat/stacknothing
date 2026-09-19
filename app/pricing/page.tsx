@@ -46,7 +46,7 @@ export default function PricingPage() {
       initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4 }}
-      className="space-y-16 max-w-7xl mx-auto text-studio-text md:p-12"
+      className="space-y-16 mx-auto text-studio-text md:py-12"
     >
       <div className="flex flex-col lg:flex-row justify-between items-center gap-6">
         <div>
