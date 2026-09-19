@@ -1,1 +1,56 @@
 {"timestamp":"00:00:01.779","source":"Server","level":"LOG","message":""}
+{"timestamp":"00:00:54.643","source":"Server","level":"LOG","message":"✓ Compiled in 283ms"}
+{"timestamp":"00:02:00.463","source":"Server","level":"ERROR","message":"⨯ ReferenceError: page is not defined"}
+{"timestamp":"00:02:00.465","source":"Server","level":"ERROR","message":"⨯ ReferenceError: page is not defined"}
+{"timestamp":"00:02:00.790","source":"Server","level":"ERROR","message":"⨯ ReferenceError: page is not defined"}
+{"timestamp":"00:02:00.792","source":"Server","level":"ERROR","message":"⨯ ReferenceError: page is not defined"}
+{"timestamp":"00:02:00.963","source":"Browser","level":"ERROR","message":"Uncaught ReferenceError: page is not defined\n    at Module.eval (app/audit/page.tsx:9:16)\n    at module evaluation (.next/dev/server/chunks/ssr/[root-of-the-server]__1w1dw8k._.js:46:47)\n  \u001b[90m7 |\u001b[0m }\n  \u001b[90m8 |\u001b[0m\n\u001b[31m\u001b[1m>\u001b[0m \u001b[90m9 |\u001b[0m \u001b[36mexport\u001b[0m \u001b[36mdefault\u001b[0m page\n  \u001b[90m  |\u001b[0m                \u001b[31m\u001b[1m^\u001b[0m"}
+{"timestamp":"00:02:00.963","source":"Server","level":"ERROR","message":"[browser] \"\\u001b[31mUncaught ReferenceError: page is not defined\\u001b[39m\\n\\u001b[31m    at Module.eval (app/audit/page.tsx:9:16)\\n    at module evaluation (.next/dev/server/chunks/ssr/[root-of-the-server]__1w1dw8k._.js:46:47)\\u001b[39m\\n  \\u001b[90m7 |\\u001b[0m }\\n  \\u001b[90m8 |\\u001b[0m\\n\\u001b[31m\\u001b[1m>\\u001b[0m \\u001b[90m9 |\\u001b[0m \\u001b[36mexport\\u001b[0m \\u001b[36mdefault\\u001b[0m page\\n  \\u001b[90m  |\\u001b[0m                \\u001b[31m\\u001b[1m^\\u001b[0m\""}
+{"timestamp":"00:02:05.788","source":"Server","level":"ERROR","message":"⨯ ReferenceError: SiteAudi is not defined"}
+{"timestamp":"00:02:05.789","source":"Server","level":"ERROR","message":"⨯ ReferenceError: SiteAudi is not defined"}
+{"timestamp":"00:02:05.928","source":"Browser","level":"ERROR","message":"Uncaught ReferenceError: SiteAudi is not defined\n    at Module.eval (app/audit/page.tsx:9:16)\n    at module evaluation (.next/dev/server/chunks/ssr/[root-of-the-server]__1w1dw8k._.js:46:47)\n  \u001b[90m7 |\u001b[0m }\n  \u001b[90m8 |\u001b[0m\n\u001b[31m\u001b[1m>\u001b[0m \u001b[90m9 |\u001b[0m \u001b[36mexport\u001b[0m \u001b[36mdefault\u001b[0m \u001b[33mSiteAudi\u001b[0m\n  \u001b[90m  |\u001b[0m                \u001b[31m\u001b[1m^\u001b[0m"}
+{"timestamp":"00:02:05.929","source":"Server","level":"ERROR","message":"[browser] \"\\u001b[31mUncaught ReferenceError: SiteAudi is not defined\\u001b[39m\\n\\u001b[31m    at Module.eval (app/audit/page.tsx:9:16)\\n    at module evaluation (.next/dev/server/chunks/ssr/[root-of-the-server]__1w1dw8k._.js:46:47)\\u001b[39m\\n  \\u001b[90m7 |\\u001b[0m }\\n  \\u001b[90m8 |\\u001b[0m\\n\\u001b[31m\\u001b[1m>\\u001b[0m \\u001b[90m9 |\\u001b[0m \\u001b[36mexport\\u001b[0m \\u001b[36mdefault\\u001b[0m \\u001b[33mSiteAudi\\u001b[0m\\n  \\u001b[90m  |\\u001b[0m                \\u001b[31m\\u001b[1m^\\u001b[0m\""}
+{"timestamp":"00:02:10.651","source":"Browser","level":"ERROR","message":"./app/audit/page.tsx:6:3\nError: Unexpected token `)`. Expected jsx identifier\n  4 |   return (\n  5 |     <Site\n> 6 |   )\n    |   ^\n  7 | }\n  8 |\n  9 | export default SiteAudit\n\nParsing ecmascript source code failed "}
+{"timestamp":"00:02:10.651","source":"Server","level":"ERROR","message":"[browser] \"./app/audit/page.tsx:6:3\\nError: Unexpected token `)`. Expected jsx identifier\\n  4 |   return (\\n  5 |     <Site\\n> 6 |   )\\n    |   ^\\n  7 | }\\n  8 |\\n  9 | export default SiteAudit\\n\\nParsing ecmascript source code failed\" \"\""}
+{"timestamp":"00:02:10.685","source":"Browser","level":"ERROR","message":"./app/audit/page.tsx:6:3\nError: Unexpected token `)`. Expected jsx identifier\n  4 |   return (\n  5 |     <Site\n> 6 |   )\n    |   ^\n  7 | }\n  8 |\n  9 | export default SiteAudit\n\nParsing ecmascript source code failed "}
+{"timestamp":"00:02:10.685","source":"Server","level":"ERROR","message":"[browser] \"./app/audit/page.tsx:6:3\\nError: Unexpected token `)`. Expected jsx identifier\\n  4 |   return (\\n  5 |     <Site\\n> 6 |   )\\n    |   ^\\n  7 | }\\n  8 |\\n  9 | export default SiteAudit\\n\\nParsing ecmascript source code failed\" \"\""}
+{"timestamp":"00:02:13.322","source":"Browser","level":"ERROR","message":"./app/audit/page.tsx:7:3\nError: Expected '>', got ')'\n   5 |   return (\n   6 |     <SiteAuditWidget/\n>  7 |   )\n     |   ^\n   8 | }\n   9 |\n  10 | export default SiteAudit\n\nParsing ecmascript source code failed "}
+{"timestamp":"00:02:13.322","source":"Server","level":"ERROR","message":"[browser] \"./app/audit/page.tsx:7:3\\nError: Expected '>', got ')'\\n   5 |   return (\\n   6 |     <SiteAuditWidget/\\n>  7 |   )\\n     |   ^\\n   8 | }\\n   9 |\\n  10 | export default SiteAudit\\n\\nParsing ecmascript source code failed\" \"\""}
+{"timestamp":"00:04:21.823","source":"Server","level":"LOG","message":"✓ Compiled in 42ms"}
+{"timestamp":"00:09:29.077","source":"Server","level":"LOG","message":"✓ Compiled in 54ms"}
+{"timestamp":"00:09:32.617","source":"Server","level":"LOG","message":"✓ Compiled in 24ms"}
+{"timestamp":"00:09:34.136","source":"Server","level":"LOG","message":"✓ Compiled in 61ms"}
+{"timestamp":"00:11:26.817","source":"Server","level":"LOG","message":"✓ Compiled in 53ms"}
+{"timestamp":"00:11:31.134","source":"Server","level":"LOG","message":"✓ Compiled in 47ms"}
+{"timestamp":"00:11:32.652","source":"Server","level":"LOG","message":"✓ Compiled in 27ms"}
+{"timestamp":"00:26:35.219","source":"Server","level":"LOG","message":"✓ Compiled in 85ms"}
+{"timestamp":"00:28:28.427","source":"Server","level":"LOG","message":"✓ Compiled in 82ms"}
+{"timestamp":"00:28:32.102","source":"Server","level":"LOG","message":"✓ Compiled in 28ms"}
+{"timestamp":"00:28:57.313","source":"Server","level":"LOG","message":"✓ Compiled in 60ms"}
+{"timestamp":"00:29:00.462","source":"Server","level":"LOG","message":"✓ Compiled in 33ms"}
+{"timestamp":"00:29:03.366","source":"Server","level":"LOG","message":"✓ Compiled in 30ms"}
+{"timestamp":"00:29:04.553","source":"Server","level":"LOG","message":"✓ Compiled in 28ms"}
+{"timestamp":"00:29:17.622","source":"Server","level":"LOG","message":"✓ Compiled in 160ms"}
+{"timestamp":"00:29:24.221","source":"Server","level":"LOG","message":"✓ Compiled in 66ms"}
+{"timestamp":"00:29:28.798","source":"Server","level":"LOG","message":"✓ Compiled in 29ms"}
+{"timestamp":"00:29:43.255","source":"Server","level":"LOG","message":"✓ Compiled in 30ms"}
+{"timestamp":"00:29:44.699","source":"Server","level":"LOG","message":"✓ Compiled in 42ms"}
+{"timestamp":"00:29:47.299","source":"Server","level":"LOG","message":"✓ Compiled in 41ms"}
+{"timestamp":"00:29:49.090","source":"Server","level":"LOG","message":"✓ Compiled in 33ms"}
+{"timestamp":"00:29:50.954","source":"Server","level":"LOG","message":"✓ Compiled in 33ms"}
+{"timestamp":"00:29:55.007","source":"Server","level":"LOG","message":"✓ Compiled in 31ms"}
+{"timestamp":"00:29:56.768","source":"Server","level":"LOG","message":"✓ Compiled in 27ms"}
+{"timestamp":"00:29:58.105","source":"Server","level":"LOG","message":"✓ Compiled in 30ms"}
+{"timestamp":"00:30:08.801","source":"Server","level":"LOG","message":"✓ Compiled in 32ms"}
+{"timestamp":"00:30:10.091","source":"Server","level":"LOG","message":"✓ Compiled in 39ms"}
+{"timestamp":"00:30:11.967","source":"Server","level":"LOG","message":"✓ Compiled in 25ms"}
+{"timestamp":"00:30:13.606","source":"Server","level":"LOG","message":"✓ Compiled in 24ms"}
+{"timestamp":"00:30:14.265","source":"Server","level":"LOG","message":"✓ Compiled in 34ms"}
+{"timestamp":"00:30:15.830","source":"Server","level":"LOG","message":"✓ Compiled in 38ms"}
+{"timestamp":"00:30:16.440","source":"Server","level":"LOG","message":"✓ Compiled in 56ms"}
+{"timestamp":"00:30:17.546","source":"Server","level":"LOG","message":"✓ Compiled in 30ms"}
+{"timestamp":"00:30:29.074","source":"Server","level":"LOG","message":"✓ Compiled in 29ms"}
+{"timestamp":"00:30:43.705","source":"Server","level":"LOG","message":"✓ Compiled in 30ms"}
+{"timestamp":"00:30:45.734","source":"Server","level":"LOG","message":"✓ Compiled in 29ms"}
+{"timestamp":"00:32:25.309","source":"Server","level":"LOG","message":"✓ Compiled in 34ms"}
+{"timestamp":"00:32:57.547","source":"Server","level":"LOG","message":"✓ Compiled in 49ms"}

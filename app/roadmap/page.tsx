@@ -9,7 +9,7 @@ export default function RoadmapPage() {
       initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4 }}
-      className="space-y-12 max-w-5xl mx-auto text-studio-text md:p-12"
+      className="space-y-12 mx-auto text-studio-text md:py-12"
     >
       <div>
         <div className="border-l-4 border-green-brand pl-4 text-sm font-bold uppercase tracking-wider mb-2">

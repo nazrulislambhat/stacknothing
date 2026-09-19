@@ -87,7 +87,7 @@ function ApplyForm() {
       initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4 }}
-      className="max-w-3xl mx-auto space-y-8 text-studio-text"
+      className=" mx-auto space-y-8 text-studio-text"
     >
       <div>
         <Link

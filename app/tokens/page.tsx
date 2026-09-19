@@ -55,7 +55,7 @@ export default function TokensPage() {
       initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4 }}
-      className="max-w-5xl mx-auto space-y-12 text-studio-text"
+      className=" mx-auto space-y-12 text-studio-text"
     >
       <div>
         <div className="border-l-4 border-primary-brand pl-4 text-sm font-bold uppercase tracking-wider mb-2">
