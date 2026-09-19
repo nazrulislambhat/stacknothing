@@ -161,7 +161,7 @@ function ContactPricingContent() {
               onChange={(e: ChangeEvent<HTMLInputElement>) =>
                 setName(e.target.value)
               }
-              placeholder="e.g. Alex Rivera"
+              placeholder="e.g. Nazrul Islam"
               className="w-full p-3 border-2 border-studio-text bg-transparent text-xs font-mono focus:outline-none"
             />
           </div>
@@ -178,7 +178,7 @@ function ContactPricingContent() {
                 onChange={(e: ChangeEvent<HTMLInputElement>) =>
                   setEmail(e.target.value)
                 }
-                placeholder="alex@company.com"
+                placeholder="example@stacknothing.com"
                 className="w-full p-3 border-2 border-studio-text bg-transparent text-xs font-mono focus:outline-none"
               />
             </div>
@@ -192,7 +192,7 @@ function ContactPricingContent() {
                 onChange={(e: ChangeEvent<HTMLInputElement>) =>
                   setPhone(e.target.value)
                 }
-                placeholder="+1 (555) 019-2834"
+                placeholder="+1 (173) 173-1703"
                 className="w-full p-3 border-2 border-studio-text bg-transparent text-xs font-mono focus:outline-none"
               />
             </div>
